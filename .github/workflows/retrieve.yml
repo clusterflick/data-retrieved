@@ -1,0 +1,929 @@
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 3 * * *' # every morning at 3am UTC
+
+name: Retrieve Data
+
+jobs:
+  # ------------------------------------------------------------------------------
+  # Retrieve Sources + cinemas which rely solely on source data
+  # ------------------------------------------------------------------------------
+  retrieve_sources:
+    name: Retrieve Sources
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: eventbrite.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve eventbrite.co.uk
+
+      - name: beermerchantstap.com
+        run: npx clusterflick/scripts retrieve beermerchantstap.com
+
+      - name: freud.org.uk
+        run: npx clusterflick/scripts retrieve freud.org.uk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_sources
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_sources-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve BFI
+  # ------------------------------------------------------------------------------
+  retrieve_bfi:
+    name: Retrieve BFI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: bfi.org.uk-imax
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 30
+          retry_wait_seconds: 30
+          max_attempts: 10
+          command: npx clusterflick/scripts retrieve bfi.org.uk-imax
+
+      - name: bfi.org.uk-southbank
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 90
+          retry_wait_seconds: 30
+          max_attempts: 20
+          command: npx clusterflick/scripts retrieve bfi.org.uk-southbank
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_bfi
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_bfi-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Cineworld
+  # ------------------------------------------------------------------------------
+  retrieve_cineworld:
+    name: Retrieve Cineworld
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: cineworld.co.uk-bexleyheath
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-bexleyheath
+
+      - name: cineworld.co.uk-enfield
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-enfield
+
+      - name: cineworld.co.uk-feltham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-feltham
+
+      - name: cineworld.co.uk-hounslow
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-hounslow
+
+      - name: cineworld.co.uk-ilford
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-ilford
+
+      - name: cineworld.co.uk-leicester-square
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-leicester-square
+
+      - name: cineworld.co.uk-south-ruislip
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-south-ruislip
+
+      - name: cineworld.co.uk-the-o2-greenwich
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-the-o2-greenwich
+
+      - name: cineworld.co.uk-wandsworth
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-wandsworth
+
+      - name: cineworld.co.uk-wembley
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-wembley
+
+      - name: cineworld.co.uk-west-india-quay
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-west-india-quay
+
+      - name: cineworld.co.uk-wood-green
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cineworld.co.uk-wood-green
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_cineworld
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Curzon
+  # ------------------------------------------------------------------------------
+  retrieve_curzon:
+    name: Retrieve Curzon
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: curzon.com-aldgate
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-aldgate
+
+      - name: curzon.com-bloomsbury
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-bloomsbury
+
+      - name: curzon.com-camden
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-camden
+
+      - name: curzon.com-hoxton
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-hoxton
+
+      - name: curzon.com-kingston
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-kingston
+
+      - name: curzon.com-mayfair
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-mayfair
+
+      - name: curzon.com-soho
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-soho
+
+      - name: curzon.com-victoria
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-victoria
+
+      - name: curzon.com-wimbledon
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-wimbledon
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_curzon
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Electric Cinema
+  # ------------------------------------------------------------------------------
+  retrieve_electric_cinema:
+    name: Retrieve Electric Cinema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: electriccinema.co.uk-portobello
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve electriccinema.co.uk-portobello
+
+      - name: electriccinema.co.uk-white-city
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve electriccinema.co.uk-white-city
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_electric_cinema
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Everyman
+  # ------------------------------------------------------------------------------
+  retrieve_everyman:
+    name: Retrieve Everyman
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: everymancinema.com-baker-street
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-baker-street
+
+      - name: everymancinema.com-barnet
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-barnet
+
+      - name: everymancinema.com-belsize-park
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-belsize-park
+
+      - name: everymancinema.com-borough-yards
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-borough-yards
+
+      - name: everymancinema.com-broadgate
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-broadgate
+
+      - name: everymancinema.com-canary-wharf
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-canary-wharf
+
+      - name: everymancinema.com-chelsea
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-chelsea
+
+      - name: everymancinema.com-crystal-palace
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-crystal-palace
+
+      - name: everymancinema.com-hampstead
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-hampstead
+
+      - name: everymancinema.com-kings-cross
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-kings-cross
+
+      - name: everymancinema.com-maida-vale
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-maida-vale
+
+      - name: everymancinema.com-muswell-hill
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-muswell-hill
+
+      - name: everymancinema.com-screen-on-the-green
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-screen-on-the-green
+
+      - name: everymancinema.com-stratford-international
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-stratford-international
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_everyman
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Vue
+  # ------------------------------------------------------------------------------
+  retrieve_vue:
+    name: Retrieve Vue
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: myvue.com-finchley-road
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-finchley-road
+
+      - name: myvue.com-fulham-broadway
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-fulham-broadway
+
+      - name: myvue.com-islington
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-islington
+
+      - name: myvue.com-leicester-square
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-leicester-square
+
+      - name: myvue.com-north-finchley
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-north-finchley
+
+      - name: myvue.com-piccadilly
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-piccadilly
+
+      - name: myvue.com-shepherds-bush
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-shepherds-bush
+
+      - name: myvue.com-westfield
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-westfield
+
+      - name: myvue.com-westfield-stratford-city
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-westfield-stratford-city
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_vue
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve ODEON
+  # ------------------------------------------------------------------------------
+  retrieve_odeon:
+    name: Retrieve ODEON
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: odeon.co.uk-acton
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-acton
+
+      - name: odeon.co.uk-beckenham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-beckenham
+
+      - name: odeon.co.uk-camden
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-camden
+
+      - name: odeon.co.uk-greenwich
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-greenwich
+
+      - name: odeon.co.uk-haymarket
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-haymarket
+
+      - name: odeon.co.uk-holloway
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-holloway
+
+      - name: odeon.co.uk-islington
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-islington
+
+      - name: odeon.co.uk-kingston
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-kingston
+
+      - name: odeon.co.uk-lee-valley
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-lee-valley
+
+      - name: odeon.co.uk-leicester-square
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-leicester-square
+
+      - name: odeon.co.uk-putney
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-putney
+
+      - name: odeon.co.uk-richmond
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-richmond
+
+      - name: odeon.co.uk-south-woodford
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-south-woodford
+
+      - name: odeon.co.uk-streatham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-streatham
+
+      - name: odeon.co.uk-swiss-cottage
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-swiss-cottage
+
+      - name: odeon.co.uk-tottenham-court-road
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-tottenham-court-road
+
+      - name: odeon.co.uk-uxbridge
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-uxbridge
+
+      - name: odeon.co.uk-west-end
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-west-end
+
+      - name: odeon.co.uk-wimbledon
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-wimbledon
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_odeon
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_odeon-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Picturehouses
+  # ------------------------------------------------------------------------------
+  retrieve_picturehouses:
+    name: Retrieve Picturehouses
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: picturehouses.com-central
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-central
+
+      - name: picturehouses.com-clapham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-clapham
+
+      - name: picturehouses.com-crouch-end
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-crouch-end
+
+      - name: picturehouses.com-ealing
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-ealing
+
+      - name: picturehouses.com-east-dulwich
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-east-dulwich
+
+      - name: picturehouses.com-greenwich
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-greenwich
+
+      - name: picturehouses.com-finsbury-park
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-finsbury-park
+
+      - name: picturehouses.com-hackney
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-hackney
+
+      - name: picturehouses.com-the-gate
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-the-gate
+
+      - name: picturehouses.com-the-ritzy
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-the-ritzy
+
+      - name: picturehouses.com-west-norwood
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve picturehouses.com-west-norwood
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_picturehouses
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Indy Cinema Group
+  # ------------------------------------------------------------------------------
+  retrieve_indy_cinema_group:
+    name: Retrieve Indy Cinema Group
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: riocinema.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve riocinema.org.uk
+
+      - name: regentstreetcinema.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve regentstreetcinema.com
+
+      - name: phoenixcinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve phoenixcinema.co.uk
+
+      - name: actonecinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve actonecinema.co.uk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_indy_cinema_group
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas:
+    name: Retrieve Remaining Cinemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: barbican.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve barbican.org.uk
+
+      - name: thegardencinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thegardencinema.co.uk
+
+      - name: richmix.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve richmix.org.uk
+
+      - name: thelexicinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thelexicinema.co.uk
+
+      - name: princecharlescinema.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve princecharlescinema.com
+
+      - name: genesiscinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve genesiscinema.co.uk
+
+      - name: thecastlecinema.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thecastlecinema.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_remaining_cinemas
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Create release using data from all jobs
+  # ------------------------------------------------------------------------------
+  create_release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [
+        retrieve_sources,
+        retrieve_bfi,
+        retrieve_cineworld,
+        retrieve_curzon,
+        retrieve_electric_cinema,
+        retrieve_everyman,
+        retrieve_vue,
+        retrieve_odeon,
+        retrieve_picturehouses,
+        retrieve_indy_cinema_group,
+        retrieve_remaining_cinemas,
+      ]
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: retrieved-data/
+          merge-multiple: true
+      - name: Generate Tag
+        run: echo "TAG=$(TZ=Europe/London date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
+      - uses: ncipollo/release-action@v1
+        id: release
+        with:
+          allowUpdates: false
+          artifactErrorsFailBuild: true
+          artifacts: "retrieved-data/*"
+          makeLatest: true
+          tag: ${{ env.TAG }}
+          commit: main
+          body: |
+            Created by job ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - name: Output summary
+        run: |
+          echo "🔖 New release - ${{ steps.release.outputs.html_url }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: clusterflick/data-transformed
+          event-type: release_event
