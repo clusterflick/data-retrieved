@@ -51,7 +51,7 @@ jobs:
   # ------------------------------------------------------------------------------
   retrieve_bfi:
     name: Retrieve BFI
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -71,9 +71,9 @@ jobs:
       - name: bfi.org.uk-southbank
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 90
+          timeout_minutes: 120
           retry_wait_seconds: 30
-          max_attempts: 20
+          max_attempts: 30
           command: npx clusterflick/scripts retrieve bfi.org.uk-southbank
 
       - name: Upload Artifacts
