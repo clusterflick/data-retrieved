@@ -844,6 +844,7 @@ jobs:
         with:
           node-version-file: .node-version
       - run: npm install
+      - run: npx playwright install --with-deps
 
       - name: barbican.org.uk
         uses: nick-fields/retry@v3
