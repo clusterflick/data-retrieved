@@ -901,6 +901,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve riversidestudios.co.uk
 
+      - name: chiswickcinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
+
       - name: princecharlescinema.com
         uses: nick-fields/retry@v3
         with:
