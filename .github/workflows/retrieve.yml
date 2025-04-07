@@ -309,6 +309,46 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Olympic Studios
+  # ------------------------------------------------------------------------------
+  retrieve_olympic_studios:
+    name: Retrieve Olympic Studios
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: olympiccinema.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve olympiccinema.com
+
+      - name: thecinemaatselfridges.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thecinemaatselfridges.com
+
+      - name: thecinemainthepowerstation.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thecinemainthepowerstation.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_olympic_studios
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
   # Retrieve Everyman
   # ------------------------------------------------------------------------------
   retrieve_everyman:
@@ -949,6 +989,7 @@ jobs:
         retrieve_cineworld,
         retrieve_curzon,
         retrieve_electric_cinema,
+        retrieve_olympic_studios,
         retrieve_everyman,
         retrieve_vue,
         retrieve_odeon,
