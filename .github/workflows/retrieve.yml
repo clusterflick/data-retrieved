@@ -949,6 +949,20 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
+      - name: institut-francais.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve institut-francais.org.uk
+
+      - name: jw3.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve jw3.org.uk
+
       - name: princecharlescinema.com
         uses: nick-fields/retry@v3
         with:
