@@ -269,6 +269,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve curzon.com-wimbledon
 
+      - name: curzonseacontainers.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzonseacontainers.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -976,6 +983,20 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           command: npx clusterflick/scripts retrieve genesiscinema.co.uk
+
+      - name: forestcinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve forestcinema.co.uk
+
+      - name: arthousecrouchend.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve arthousecrouchend.co.uk
 
       - name: thecastlecinema.com
         uses: nick-fields/retry@v3
