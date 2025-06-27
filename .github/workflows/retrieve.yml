@@ -852,13 +852,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve actonecinema.co.uk
 
-      - name: ealingproject.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve ealingproject.co.uk
-
       - name: sidcupstoryteller.co.uk
         uses: nick-fields/retry@v3
         with:
