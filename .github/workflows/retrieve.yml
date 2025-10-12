@@ -949,6 +949,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
+      - name: ica.art
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve ica.art
+
       - name: institut-francais.org.uk
         uses: nick-fields/retry@v3
         with:
