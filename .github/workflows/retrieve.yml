@@ -316,6 +316,46 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Firmdale Hotels
+  # ------------------------------------------------------------------------------
+  retrieve_firmdale_hotels:
+    name: Retrieve Firmdale Hotels
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: firmdalehotels.com-charlotte-street
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve firmdalehotels.com-charlotte-street
+
+      - name: firmdalehotels.com-covent-garden
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve firmdalehotels.com-covent-garden
+
+      - name: firmdalehotels.com-soho
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve firmdalehotels.com-soho
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_firmdale_hotels
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
   # Retrieve Olympic Studios
   # ------------------------------------------------------------------------------
   retrieve_olympic_studios:
@@ -949,6 +989,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
+      - name: sciencemuseum.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve sciencemuseum.org.uk
+
       - name: ica.art
         uses: nick-fields/retry@v3
         with:
@@ -1024,6 +1071,7 @@ jobs:
         retrieve_cineworld,
         retrieve_curzon,
         retrieve_electric_cinema,
+        retrieve_firmdale_hotels,
         retrieve_olympic_studios,
         retrieve_everyman,
         retrieve_vue,
