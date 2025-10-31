@@ -34,6 +34,20 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve outsavvy.com
 
+      - name: designmynight.com/
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve designmynight.com/
+
+      - name: dice.fm
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve dice.fm
+
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
 
@@ -42,6 +56,18 @@ jobs:
 
       - name: pelicanhouse.org
         run: npx clusterflick/scripts retrieve pelicanhouse.org
+
+      - name: artotel.com-battersea-power-station
+        run: npx clusterflick/scripts retrieve artotel.com-battersea-power-station
+
+      - name: artotel.com-hoxton
+        run: npx clusterflick/scripts retrieve artotel.com-hoxton
+
+      - name: claphamgrand.com
+        run: npx clusterflick/scripts retrieve claphamgrand.com
+
+      - name: rivoliballroom.com
+        run: npx clusterflick/scripts retrieve rivoliballroom.com
 
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
