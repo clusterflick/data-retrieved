@@ -34,12 +34,12 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve outsavvy.com
 
-      - name: designmynight.com/
+      - name: designmynight.com
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve designmynight.com/
+          command: npx clusterflick/scripts retrieve designmynight.com
 
       - name: dice.fm
         uses: nick-fields/retry@v3
