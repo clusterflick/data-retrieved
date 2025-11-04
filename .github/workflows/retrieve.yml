@@ -69,6 +69,27 @@ jobs:
       - name: rivoliballroom.com
         run: npx clusterflick/scripts retrieve rivoliballroom.com
 
+      - name: beehiven17.com
+        run: npx clusterflick/scripts retrieve beehiven17.com
+
+      - name: boxpark.co.uk-wembley
+        run: npx clusterflick/scripts retrieve boxpark.co.uk-wembley
+
+      - name: frontlineclub.com
+        run: npx clusterflick/scripts retrieve frontlineclub.com
+
+      - name: ivyhousenunhead.com
+        run: npx clusterflick/scripts retrieve ivyhousenunhead.com
+
+      - name: rocketvan.co.uk
+        run: npx clusterflick/scripts retrieve rocketvan.co.uk
+
+      - name: theatreship.co.uk
+        run: npx clusterflick/scripts retrieve theatreship.co.uk
+
+      - name: uel.ac.uk-the-source
+        run: npx clusterflick/scripts retrieve uel.ac.uk-the-source
+
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
         with:
