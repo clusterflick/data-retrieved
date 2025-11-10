@@ -312,6 +312,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve curzon.com-mayfair
 
+      - name: curzon.com-richmond
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve curzon.com-richmond
+
       - name: curzon.com-soho
         uses: nick-fields/retry@v3
         with:
@@ -500,6 +507,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve everymancinema.com-borough-yards
 
+      - name: everymancinema.com-brentford
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-brentford
+
       - name: everymancinema.com-broadgate
         uses: nick-fields/retry@v3
         with:
@@ -570,6 +584,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve everymancinema.com-stratford-international
 
+      - name: everymancinema.com-the-whiteley
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-the-whiteley
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -590,6 +611,41 @@ jobs:
       - run: npm install
       - run: npx playwright install --with-deps
 
+      - name: myvue.com-bromley
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-bromley
+
+      - name: myvue.com-croydon-grants
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-croydon-grants
+
+      - name: myvue.com-croydon-purley-way
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-croydon-purley-way
+
+      - name: myvue.com-dagenham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-dagenham
+
+      - name: myvue.com-eltham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-eltham
+
       - name: myvue.com-finchley-road
         uses: nick-fields/retry@v3
         with:
@@ -603,6 +659,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-fulham-broadway
+
+      - name: myvue.com-harrow
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-harrow
 
       - name: myvue.com-islington
         uses: nick-fields/retry@v3
@@ -632,6 +695,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-piccadilly
 
+      - name: myvue.com-romford
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-romford
+
       - name: myvue.com-shepherds-bush
         uses: nick-fields/retry@v3
         with:
@@ -652,6 +722,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-westfield-stratford-city
+
+      - name: myvue.com-wood-green
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve myvue.com-wood-green
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -742,6 +819,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve odeon.co.uk-leicester-square
+
+      - name: odeon.co.uk-orpington
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve odeon.co.uk-orpington
 
       - name: odeon.co.uk-putney
         uses: nick-fields/retry@v3
