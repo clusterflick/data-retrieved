@@ -1065,7 +1065,7 @@ jobs:
   # ------------------------------------------------------------------------------
   retrieve_remaining_cinemas:
     name: Retrieve Remaining Cinemas
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
