@@ -1012,13 +1012,6 @@ jobs:
           node-version-file: .node-version
       - run: npm install
 
-      - name: riocinema.org.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve riocinema.org.uk
-
       - name: regentstreetcinema.com
         uses: nick-fields/retry@v3
         with:
@@ -1040,24 +1033,57 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve actonecinema.co.uk
 
-      - name: sidcupstoryteller.co.uk
+      - name: chiswickcinema.co.uk
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve sidcupstoryteller.co.uk
-
-      - name: throwleyyardcinema.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve throwleyyardcinema.co.uk
+          command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: retrieve_indy_cinema_group
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Savoy Systems
+  # ------------------------------------------------------------------------------
+  retrieve_savoy_systems:
+    name: Retrieve Savoy Systems
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: riocinema.org.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve riocinema.org.uk
+
+      - name: thelexicinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thelexicinema.co.uk
+
+      - name: thearzner.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thearzner.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_savoy_systems
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
@@ -1095,20 +1121,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve richmix.org.uk
 
-      - name: thelexicinema.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve thelexicinema.co.uk
-
-      - name: thearzner.com
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve thearzner.com
-
       - name: closeupfilmcentre.com
         uses: nick-fields/retry@v3
         with:
@@ -1129,13 +1141,6 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve riversidestudios.co.uk
-
-      - name: chiswickcinema.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
       - name: sciencemuseum.org.uk
         uses: nick-fields/retry@v3
@@ -1275,6 +1280,7 @@ jobs:
         retrieve_odeon,
         retrieve_picturehouses,
         retrieve_indy_cinema_group,
+        retrieve_savoy_systems,
         retrieve_remaining_cinemas,
       ]
     steps:
