@@ -90,6 +90,21 @@ jobs:
       - name: uel.ac.uk-the-source
         run: npx clusterflick/scripts retrieve uel.ac.uk-the-source
 
+      - name: bfi.org.uk-stephen-street
+        run: npx clusterflick/scripts retrieve bfi.org.uk-stephen-street
+
+      - name: goethe.de
+        run: npx clusterflick/scripts retrieve goethe.de
+
+      - name: marriott.com-w-london
+        run: npx clusterflick/scripts retrieve marriott.com-w-london
+
+      - name: mason-fifth.com-westbourne-park
+        run: npx clusterflick/scripts retrieve mason-fifth.com-westbourne-park
+
+      - name: ronspeckham.com
+        run: npx clusterflick/scripts retrieve ronspeckham.com
+
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
         with:
