@@ -23,7 +23,7 @@ jobs:
       - name: eventbrite.co.uk
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 20
+          timeout_minutes: 60
           max_attempts: 3
           command: npx clusterflick/scripts retrieve eventbrite.co.uk
 
