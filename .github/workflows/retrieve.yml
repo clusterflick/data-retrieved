@@ -105,6 +105,9 @@ jobs:
       - name: ronspeckham.com
         run: npx clusterflick/scripts retrieve ronspeckham.com
 
+      - name: theexhibit.co.uk
+        run: npx clusterflick/scripts retrieve theexhibit.co.uk
+
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
         with:
