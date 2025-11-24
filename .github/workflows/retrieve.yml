@@ -1118,6 +1118,27 @@ jobs:
       - run: npm install
       - run: npx playwright install --with-deps
 
+      - name: backyardcinema.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve backyardcinema.co.uk
+
+      - name: eventimapollo.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve eventimapollo.com
+
+      - name: lost.org
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve lost.org
+
       - name: thenickel.co.uk
         uses: nick-fields/retry@v3
         with:
