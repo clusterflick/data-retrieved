@@ -108,6 +108,12 @@ jobs:
       - name: theexhibit.co.uk
         run: npx clusterflick/scripts retrieve theexhibit.co.uk
 
+      - name: castlehaven.org.uk
+        run: npx clusterflick/scripts retrieve castlehaven.org.uk
+
+      - name: japanhouselondon.uk
+        run: npx clusterflick/scripts retrieve japanhouselondon.uk
+
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
         with:
