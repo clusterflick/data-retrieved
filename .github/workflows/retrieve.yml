@@ -124,6 +124,24 @@ jobs:
       - name: william-the-fourth.com
         run: npx clusterflick/scripts retrieve william-the-fourth.com
 
+      - name: exchangetwickenham.co.uk
+        run: npx clusterflick/scripts retrieve exchangetwickenham.co.uk
+
+      - name: langleyfilmbox.com
+        run: npx clusterflick/scripts retrieve langleyfilmbox.com
+
+      - name: scrt.onl
+        run: npx clusterflick/scripts retrieve scrt.onl
+
+      - name: sohoscreeningrooms.co.uk
+        run: npx clusterflick/scripts retrieve sohoscreeningrooms.co.uk
+
+      - name: thexchange.org.uk
+        run: npx clusterflick/scripts retrieve thexchange.org.uk
+
+      - name: uk.kef.com
+        run: npx clusterflick/scripts retrieve uk.kef.com
+
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
         with:
