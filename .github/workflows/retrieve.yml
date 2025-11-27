@@ -48,6 +48,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve dice.fm
 
+      - name: ticketsource.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve ticketsource.co.uk
+
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
 
@@ -113,6 +120,9 @@ jobs:
 
       - name: japanhouselondon.uk
         run: npx clusterflick/scripts retrieve japanhouselondon.uk
+
+      - name: william-the-fourth.com
+        run: npx clusterflick/scripts retrieve william-the-fourth.com
 
       - name: goodshepherdstudios.com
         uses: nick-fields/retry@v3
