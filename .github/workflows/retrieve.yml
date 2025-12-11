@@ -1299,6 +1299,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve thecastlecinema.com
 
+      - name: castlesidcup.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve castlesidcup.com
+
       - name: davidleancinema.org.uk
         uses: nick-fields/retry@v3
         with:
