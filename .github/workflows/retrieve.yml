@@ -55,6 +55,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve ticketsource.co.uk
 
+      - name: tickettailor.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve tickettailor.com
+
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
 
@@ -143,11 +150,13 @@ jobs:
         run: npx clusterflick/scripts retrieve uk.kef.com
 
       - name: goodshepherdstudios.com
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve goodshepherdstudios.com
+        run: npx clusterflick/scripts retrieve goodshepherdstudios.com
+
+      - name: thebathhouse.co
+        run: npx clusterflick/scripts retrieve thebathhouse.co
+
+      - name: siobhandavies.com
+        run: npx clusterflick/scripts retrieve siobhandavies.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
