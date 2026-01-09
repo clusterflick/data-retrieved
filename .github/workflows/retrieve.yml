@@ -158,6 +158,9 @@ jobs:
       - name: siobhandavies.com
         run: npx clusterflick/scripts retrieve siobhandavies.com
 
+      - name: thelondonarchives.org
+        run: npx clusterflick/scripts retrieve thelondonarchives.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -1265,6 +1268,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve institut-francais.org.uk
+
+      - name: irishculturalcentre.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve irishculturalcentre.co.uk
 
       - name: jw3.org.uk
         uses: nick-fields/retry@v3
