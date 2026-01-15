@@ -170,6 +170,21 @@ jobs:
       - name: goodhotel.co-london
         run: npx clusterflick/scripts retrieve goodhotel.co-london
 
+      - name: aplaceforchange.co.uk
+        run: npx clusterflick/scripts retrieve aplaceforchange.co.uk
+
+      - name: mothclub.co.uk
+        run: npx clusterflick/scripts retrieve mothclub.co.uk
+
+      - name: qmul.ac.uk-bloc
+        run: npx clusterflick/scripts retrieve qmul.ac.uk-bloc
+
+      - name: thersa.org
+        run: npx clusterflick/scripts retrieve thersa.org
+
+      - name: ucl.ac.uk-ucl-east-community-cinema
+        run: npx clusterflick/scripts retrieve ucl.ac.uk-ucl-east-community-cinema
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -1389,6 +1404,20 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve fulhampier.com
+
+      - name: acflondon.org
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve acflondon.org
+
+      - name: thehorsehospital.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thehorsehospital.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
