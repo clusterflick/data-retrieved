@@ -161,6 +161,15 @@ jobs:
       - name: thelondonarchives.org
         run: npx clusterflick/scripts retrieve thelondonarchives.org
 
+      - name: boathousebarkingstudios.com
+        run: npx clusterflick/scripts retrieve boathousebarkingstudios.com
+
+      - name: feministlibrary.co.uk
+        run: npx clusterflick/scripts retrieve feministlibrary.co.uk
+
+      - name: goodhotel.co-london
+        run: npx clusterflick/scripts retrieve goodhotel.co-london
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -1373,6 +1382,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve omniplex.co.uk-sutton
+
+      - name: fulhampier.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve fulhampier.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
