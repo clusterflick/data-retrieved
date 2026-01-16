@@ -62,6 +62,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve tickettailor.com
 
+      - name: wimbledonfilmclub.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve wimbledonfilmclub.co.uk
+
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
 
@@ -184,6 +191,15 @@ jobs:
 
       - name: ucl.ac.uk-ucl-east-community-cinema
         run: npx clusterflick/scripts retrieve ucl.ac.uk-ucl-east-community-cinema
+
+      - name: courthouse-hotel.com-shoreditch
+        run: npx clusterflick/scripts retrieve courthouse-hotel.com-shoreditch
+
+      - name: courthouse-hotel.com-soho
+        run: npx clusterflick/scripts retrieve courthouse-hotel.com-soho
+
+      - name: facebook.com-thehaggerston
+        run: npx clusterflick/scripts retrieve facebook.com-thehaggerston
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -1418,6 +1434,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve thehorsehospital.com
+
+      - name: thehammondtheatre.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve thehammondtheatre.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
