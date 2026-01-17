@@ -69,6 +69,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve wimbledonfilmclub.co.uk
 
+      - name: stowfilmlounge.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve stowfilmlounge.com
+
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
 
@@ -200,6 +207,13 @@ jobs:
 
       - name: facebook.com-thehaggerston
         run: npx clusterflick/scripts retrieve facebook.com-thehaggerston
+
+      - name: signaturebrew.co.uk-blackhorseroad
+        run: npx clusterflick/scripts retrieve signaturebrew.co.uk-blackhorseroad
+
+      - name: walthamforest.gov.uk
+        run: npx clusterflick/scripts retrieve walthamforest.gov.uk
+
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
