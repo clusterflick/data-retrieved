@@ -730,10 +730,10 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
-  # Retrieve Vue
+  # Retrieve Vue (Part 1)
   # ------------------------------------------------------------------------------
-  retrieve_vue:
-    name: Retrieve Vue
+  retrieve_vue_1:
+    name: Retrieve Vue (Part 1)
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -806,6 +806,26 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-islington
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_vue_1
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Vue (Part 2)
+  # ------------------------------------------------------------------------------
+  retrieve_vue_2:
+    name: Retrieve Vue (Part 2)
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
       - name: myvue.com-leicester-square
         uses: nick-fields/retry@v3
         with:
@@ -865,7 +885,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: retrieve_vue
+          name: retrieve_vue_2
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
@@ -1036,10 +1056,10 @@ jobs:
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
-  # Retrieve Picturehouses
+  # Retrieve Picturehouses (Part 1)
   # ------------------------------------------------------------------------------
-  retrieve_picturehouses:
-    name: Retrieve Picturehouses
+  retrieve_picturehouses_1:
+    name: Retrieve Picturehouses (Part 1)
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -1090,6 +1110,25 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve picturehouses.com-greenwich
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_picturehouses_1
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Picturehouses (Part 2)
+  # ------------------------------------------------------------------------------
+  retrieve_picturehouses_2:
+    name: Retrieve Picturehouses (Part 2)
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
       - name: picturehouses.com-finsbury-park
         uses: nick-fields/retry@v3
         with:
@@ -1128,7 +1167,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: retrieve_picturehouses
+          name: retrieve_picturehouses_2
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
@@ -1219,10 +1258,10 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
-  # Retrieve Remaining Cinemas
+  # Retrieve Remaining Cinemas (Part 1)
   # ------------------------------------------------------------------------------
-  retrieve_remaining_cinemas:
-    name: Retrieve Remaining Cinemas
+  retrieve_remaining_cinemas_1:
+    name: Retrieve Remaining Cinemas (Part 1)
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -1351,6 +1390,26 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve jw3.org.uk
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_remaining_cinemas_1
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 2)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_2:
+    name: Retrieve Remaining Cinemas (Part 2)
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
       - name: princecharlescinema.com
         uses: nick-fields/retry@v3
         with:
@@ -1473,7 +1532,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: retrieve_remaining_cinemas
+          name: retrieve_remaining_cinemas_2
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
@@ -1492,12 +1551,15 @@ jobs:
         retrieve_firmdale_hotels,
         retrieve_olympic_studios,
         retrieve_everyman,
-        retrieve_vue,
+        retrieve_vue_1,
+        retrieve_vue_2,
         retrieve_odeon,
-        retrieve_picturehouses,
+        retrieve_picturehouses_1,
+        retrieve_picturehouses_2,
         retrieve_indy_cinema_group,
         retrieve_savoy_systems,
-        retrieve_remaining_cinemas,
+        retrieve_remaining_cinemas_1,
+        retrieve_remaining_cinemas_2,
       ]
     steps:
       - name: Download All Artifacts
