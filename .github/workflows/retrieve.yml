@@ -229,6 +229,69 @@ jobs:
       - name: themayfairhotel.co.uk
         run: npx clusterflick/scripts retrieve themayfairhotel.co.uk
 
+      - name: bbk.ac.uk
+        run: npx clusterflick/scripts retrieve bbk.ac.uk
+
+      - name: chcc.org.uk
+        run: npx clusterflick/scripts retrieve chcc.org.uk
+
+      - name: crick.ac.uk
+        run: npx clusterflick/scripts retrieve crick.ac.uk
+
+      - name: fellowshipinn.co.uk
+        run: npx clusterflick/scripts retrieve fellowshipinn.co.uk
+
+      - name: gold.ac.uk
+        run: npx clusterflick/scripts retrieve gold.ac.uk
+
+      - name: islington.gov.uk-islington-museum
+        run: npx clusterflick/scripts retrieve islington.gov.uk-islington-museum
+
+      - name: kcl.ac.uk-strand
+        run: npx clusterflick/scripts retrieve kcl.ac.uk-strand
+
+      - name: khccc.com
+        run: npx clusterflick/scripts retrieve khccc.com
+
+      - name: metrolandcultures.com
+        run: npx clusterflick/scripts retrieve metrolandcultures.com
+
+      - name: myheathway.com
+        run: npx clusterflick/scripts retrieve myheathway.com
+
+      - name: newtownculture.org-womens-museum
+        run: npx clusterflick/scripts retrieve newtownculture.org-womens-museum
+
+      - name: princeofpeckham.co.uk
+        run: npx clusterflick/scripts retrieve princeofpeckham.co.uk
+
+      - name: rca.ac.uk
+        run: npx clusterflick/scripts retrieve rca.ac.uk
+
+      - name: reinstate.info
+        run: npx clusterflick/scripts retrieve reinstate.info
+
+      - name: scarlettmalone.com-subtitlecinema
+        run: npx clusterflick/scripts retrieve scarlettmalone.com-subtitlecinema
+
+      - name: shaispace.com
+        run: npx clusterflick/scripts retrieve shaispace.com
+
+      - name: strongroombar.com
+        run: npx clusterflick/scripts retrieve strongroombar.com
+
+      - name: thamesmeadnow.org.uk-the-nest
+        run: npx clusterflick/scripts retrieve thamesmeadnow.org.uk-the-nest
+
+      - name: thethomaswallcentre.harleystreethypnosis.co.uk
+        run: npx clusterflick/scripts retrieve thethomaswallcentre.harleystreethypnosis.co.uk
+
+      - name: ucl.ac.uk-bentham-house
+        run: npx clusterflick/scripts retrieve ucl.ac.uk-bentham-house
+
+      - name: ucl.ac.uk-ssees
+        run: npx clusterflick/scripts retrieve ucl.ac.uk-ssees
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
