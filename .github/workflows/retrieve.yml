@@ -292,6 +292,24 @@ jobs:
       - name: ucl.ac.uk-ssees
         run: npx clusterflick/scripts retrieve ucl.ac.uk-ssees
 
+      - name: better.org.uk-croydon-sports-arena
+        run: npx clusterflick/scripts retrieve better.org.uk-croydon-sports-arena
+
+      - name: dalstonsuperstore.com
+        run: npx clusterflick/scripts retrieve dalstonsuperstore.com
+
+      - name: ethicalproperty.co.uk-the-green-house
+        run: npx clusterflick/scripts retrieve ethicalproperty.co.uk-the-green-house
+
+      - name: stmarys.ac.uk-the-1850
+        run: npx clusterflick/scripts retrieve stmarys.ac.uk-the-1850
+
+      - name: thedivine.co.uk
+        run: npx clusterflick/scripts retrieve thedivine.co.uk
+
+      - name: triangledeptford.org
+        run: npx clusterflick/scripts retrieve triangledeptford.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
