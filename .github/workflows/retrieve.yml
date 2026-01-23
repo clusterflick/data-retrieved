@@ -7,10 +7,10 @@ name: Retrieve Data
 
 jobs:
   # ------------------------------------------------------------------------------
-  # Retrieve Sources + cinemas which rely solely on source data
+  # Retrieve Eventbrite
   # ------------------------------------------------------------------------------
-  retrieve_sources:
-    name: Retrieve Sources
+  retrieve_eventbrite:
+    name: Retrieve Eventbrite
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +26,67 @@ jobs:
           timeout_minutes: 60
           max_attempts: 3
           command: npx clusterflick/scripts retrieve eventbrite.co.uk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_eventbrite
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_eventbrite-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve TicketSource
+  # ------------------------------------------------------------------------------
+  retrieve_ticketsource:
+    name: Retrieve TicketSource
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      - name: ticketsource.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve ticketsource.co.uk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_ticketsource
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_ticketsource-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Sources
+  # ------------------------------------------------------------------------------
+  retrieve_sources:
+    name: Retrieve Sources
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+      - run: npx playwright install --with-deps
 
       - name: outsavvy.com
         uses: nick-fields/retry@v3
@@ -48,13 +109,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve dice.fm
 
-      - name: ticketsource.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve ticketsource.co.uk
-
       - name: tickettailor.com
         uses: nick-fields/retry@v3
         with:
@@ -75,6 +129,32 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve stowfilmlounge.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_sources
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_sources-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues (Part 1)
+  # ------------------------------------------------------------------------------
+  retrieve_source_only_1:
+    name: Retrieve Source-Only Venues (Part 1)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
 
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
@@ -136,6 +216,25 @@ jobs:
       - name: theexhibit.co.uk
         run: npx clusterflick/scripts retrieve theexhibit.co.uk
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_source_only_1
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues (Part 2)
+  # ------------------------------------------------------------------------------
+  retrieve_source_only_2:
+    name: Retrieve Source-Only Venues (Part 2)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
       - name: castlehaven.org.uk
         run: npx clusterflick/scripts retrieve castlehaven.org.uk
 
@@ -192,6 +291,25 @@ jobs:
 
       - name: qmul.ac.uk-bloc
         run: npx clusterflick/scripts retrieve qmul.ac.uk-bloc
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_source_only_2
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues (Part 3)
+  # ------------------------------------------------------------------------------
+  retrieve_source_only_3:
+    name: Retrieve Source-Only Venues (Part 3)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
 
       - name: thersa.org
         run: npx clusterflick/scripts retrieve thersa.org
@@ -253,6 +371,25 @@ jobs:
       - name: khccc.com
         run: npx clusterflick/scripts retrieve khccc.com
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_source_only_3
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues (Part 4)
+  # ------------------------------------------------------------------------------
+  retrieve_source_only_4:
+    name: Retrieve Source-Only Venues (Part 4)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
       - name: metrolandcultures.com
         run: npx clusterflick/scripts retrieve metrolandcultures.com
 
@@ -313,15 +450,8 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: retrieve_sources
+          name: retrieve_source_only_4
           path: retrieved-data/
-
-      - name: Save test failure artifacts
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: retrieve_sources-playwright-failures
-          path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
   # Retrieve BFI
@@ -1624,7 +1754,13 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       [
+        retrieve_eventbrite,
+        retrieve_ticketsource,
         retrieve_sources,
+        retrieve_source_only_1,
+        retrieve_source_only_2,
+        retrieve_source_only_3,
+        retrieve_source_only_4,
         retrieve_bfi,
         retrieve_cineworld,
         retrieve_curzon,
