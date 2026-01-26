@@ -447,6 +447,15 @@ jobs:
       - name: triangledeptford.org
         run: npx clusterflick/scripts retrieve triangledeptford.org
 
+      - name: lux.org.uk
+        run: npx clusterflick/scripts retrieve lux.org.uk
+
+      - name: setspace.uk
+        run: npx clusterflick/scripts retrieve setspace.uk
+
+      - name: thegreennunhead.org
+        run: npx clusterflick/scripts retrieve thegreennunhead.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
