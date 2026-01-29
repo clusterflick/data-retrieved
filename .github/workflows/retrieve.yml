@@ -456,6 +456,9 @@ jobs:
       - name: thegreennunhead.org
         run: npx clusterflick/scripts retrieve thegreennunhead.org
 
+      - name: vaginamuseum.co.uk
+        run: npx clusterflick/scripts retrieve vaginamuseum.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -736,6 +739,39 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: retrieve_electric_cinema
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Tate
+  # ------------------------------------------------------------------------------
+  retrieve_tate:
+    name: Retrieve Tate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - run: npm install
+
+      - name: tate.org.uk-tate-britain
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve tate.org.uk-tate-britain
+
+      - name: tate.org.uk-tate-modern
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve tate.org.uk-tate-modern
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieve_tate
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
@@ -1749,6 +1785,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve thehammondtheatre.co.uk
 
+      - name: lewisham.gov.uk-deptford-lounge
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve lewisham.gov.uk-deptford-lounge
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -1774,6 +1817,7 @@ jobs:
         retrieve_cineworld,
         retrieve_curzon,
         retrieve_electric_cinema,
+        retrieve_tate,
         retrieve_firmdale_hotels,
         retrieve_olympic_studios,
         retrieve_everyman,
