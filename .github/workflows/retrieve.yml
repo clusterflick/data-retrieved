@@ -216,6 +216,9 @@ jobs:
       - name: theexhibit.co.uk
         run: npx clusterflick/scripts retrieve theexhibit.co.uk
 
+      - name: imperial.ac.uk
+        run: npx clusterflick/scripts retrieve imperial.ac.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -292,6 +295,12 @@ jobs:
       - name: qmul.ac.uk-bloc
         run: npx clusterflick/scripts retrieve qmul.ac.uk-bloc
 
+      - name: islington.gov.uk-black-cultural-centre
+        run: npx clusterflick/scripts retrieve islington.gov.uk-black-cultural-centre
+
+      - name: thehenandchickenstheatrebar.co.uk
+        run: npx clusterflick/scripts retrieve thehenandchickenstheatrebar.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -347,9 +356,6 @@ jobs:
       - name: themayfairhotel.co.uk
         run: npx clusterflick/scripts retrieve themayfairhotel.co.uk
 
-      - name: bbk.ac.uk
-        run: npx clusterflick/scripts retrieve bbk.ac.uk
-
       - name: chcc.org.uk
         run: npx clusterflick/scripts retrieve chcc.org.uk
 
@@ -370,6 +376,9 @@ jobs:
 
       - name: khccc.com
         run: npx clusterflick/scripts retrieve khccc.com
+
+      - name: thewildsbarkingriverside.london
+        run: npx clusterflick/scripts retrieve thewildsbarkingriverside.london
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -1645,6 +1654,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve jw3.org.uk
+
+      - name: bbk.ac.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve bbk.ac.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
