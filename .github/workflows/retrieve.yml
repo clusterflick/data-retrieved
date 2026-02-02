@@ -225,6 +225,15 @@ jobs:
       - name: imperial.ac.uk
         run: npx clusterflick/scripts retrieve imperial.ac.uk
 
+      - name: culture.hu-london
+        run: npx clusterflick/scripts retrieve culture.hu-london
+
+      - name: kerbsocialclub.com
+        run: npx clusterflick/scripts retrieve kerbsocialclub.com
+
+      - name: londonwelsh.org
+        run: npx clusterflick/scripts retrieve londonwelsh.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -307,6 +316,15 @@ jobs:
       - name: thehenandchickenstheatrebar.co.uk
         run: npx clusterflick/scripts retrieve thehenandchickenstheatrebar.co.uk
 
+      - name: mzv.gov.cz-london
+        run: npx clusterflick/scripts retrieve mzv.gov.cz-london
+
+      - name: peckhamlevels.org
+        run: npx clusterflick/scripts retrieve peckhamlevels.org
+
+      - name: rbkc.gov.uk-kensington-central-library
+        run: npx clusterflick/scripts retrieve rbkc.gov.uk-kensington-central-library
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -386,6 +404,18 @@ jobs:
       - name: thewildsbarkingriverside.london
         run: npx clusterflick/scripts retrieve thewildsbarkingriverside.london
 
+      - name: rca.ac.uk-battersea
+        run: npx clusterflick/scripts retrieve rca.ac.uk-battersea
+
+      - name: rca.ac.uk-kensington
+        run: npx clusterflick/scripts retrieve rca.ac.uk-kensington
+
+      - name: thcentre.com
+        run: npx clusterflick/scripts retrieve thcentre.com
+
+      - name: uel.ac.uk-univeristy-square-stratford
+        run: npx clusterflick/scripts retrieve uel.ac.uk-univeristy-square-stratford
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -416,9 +446,6 @@ jobs:
 
       - name: princeofpeckham.co.uk
         run: npx clusterflick/scripts retrieve princeofpeckham.co.uk
-
-      - name: rca.ac.uk
-        run: npx clusterflick/scripts retrieve rca.ac.uk
 
       - name: reinstate.info
         run: npx clusterflick/scripts retrieve reinstate.info
@@ -473,6 +500,9 @@ jobs:
 
       - name: vaginamuseum.co.uk
         run: npx clusterflick/scripts retrieve vaginamuseum.co.uk
+
+      - name: wienerholocaustlibrary.org
+        run: npx clusterflick/scripts retrieve wienerholocaustlibrary.org
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -1831,6 +1861,27 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve lewisham.gov.uk-deptford-lounge
+
+      - name: dugdaleartscentre.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve dugdaleartscentre.co.uk
+
+      - name: sydenhamarts.co.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve sydenhamarts.co.uk
+
+      - name: whitechapelgallery.org
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve whitechapelgallery.org
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
