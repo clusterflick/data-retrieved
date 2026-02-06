@@ -12,10 +12,10 @@ jobs:
   retrieve_eventbrite:
     name: Retrieve Eventbrite
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -48,10 +48,10 @@ jobs:
   retrieve_ticketsource:
     name: Retrieve TicketSource
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -84,10 +84,10 @@ jobs:
   retrieve_sources:
     name: Retrieve Sources
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -516,10 +516,10 @@ jobs:
   retrieve_bfi:
     name: Retrieve BFI
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -561,10 +561,10 @@ jobs:
   retrieve_cineworld:
     name: Retrieve Cineworld
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1040,10 +1040,10 @@ jobs:
   retrieve_vue_1:
     name: Retrieve Vue (Part 1)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1125,10 +1125,10 @@ jobs:
   retrieve_vue_2:
     name: Retrieve Vue (Part 2)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1203,10 +1203,10 @@ jobs:
   retrieve_odeon:
     name: Retrieve ODEON
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1372,10 +1372,10 @@ jobs:
   retrieve_picturehouses_1:
     name: Retrieve Picturehouses (Part 1)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1435,10 +1435,10 @@ jobs:
   retrieve_picturehouses_2:
     name: Retrieve Picturehouses (Part 2)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1578,10 +1578,10 @@ jobs:
   retrieve_remaining_cinemas_1:
     name: Retrieve Remaining Cinemas (Part 1)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
@@ -1726,10 +1726,10 @@ jobs:
   retrieve_remaining_cinemas_2:
     name: Retrieve Remaining Cinemas (Part 2)
     runs-on: self-hosted
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: $HOME/.cache/playwright-browsers
     steps:
       - uses: actions/checkout@v3
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
