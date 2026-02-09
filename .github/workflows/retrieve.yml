@@ -136,6 +136,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve stowfilmlounge.com
 
+      - name: ti.to
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve ti.to
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -316,8 +323,8 @@ jobs:
       - name: thehenandchickenstheatrebar.co.uk
         run: npx clusterflick/scripts retrieve thehenandchickenstheatrebar.co.uk
 
-      - name: mzv.gov.cz-london
-        run: npx clusterflick/scripts retrieve mzv.gov.cz-london
+      - name: london.czechcentres.cz
+        run: npx clusterflick/scripts retrieve london.czechcentres.cz
 
       - name: peckhamlevels.org
         run: npx clusterflick/scripts retrieve peckhamlevels.org
