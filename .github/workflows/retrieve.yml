@@ -150,6 +150,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve thecliq.app-
 
+      - name: bbk.ac.uk
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve bbk.ac.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -178,6 +185,12 @@ jobs:
 
       - name: allisjoysoho.com
         run: npx clusterflick/scripts retrieve allisjoysoho.com
+
+      - name: bbk.ac.uk-central
+        run: npx clusterflick/scripts retrieve bbk.ac.uk-central
+
+      - name: bbk.ac.uk-cinema
+        run: npx clusterflick/scripts retrieve bbk.ac.uk-cinema
 
       - name: beermerchantstap.com
         run: npx clusterflick/scripts retrieve beermerchantstap.com
@@ -1726,13 +1739,6 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve jw3.org.uk
-
-      - name: bbk.ac.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve bbk.ac.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
