@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 3 * * *" # every morning at 3am UTC
+    - cron: "0 3,15 * * *" # every 12 hours at 3am and 3pm UTC
 
 name: Retrieve Data
 
