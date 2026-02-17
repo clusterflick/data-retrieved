@@ -150,6 +150,20 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve bbk.ac.uk
 
+      - name: feverup.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve feverup.com
+
+      - name: tufnellparkfilmclub.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve tufnellparkfilmclub.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -535,6 +549,18 @@ jobs:
 
       - name: 229.london
         run: npx clusterflick/scripts retrieve 229.london
+
+      - name: drakeandmorgan.co.uk-the-refinery-citypoint
+        run: npx clusterflick/scripts retrieve drakeandmorgan.co.uk-the-refinery-citypoint
+
+      - name: drakeandmorgan.co.uk-the-moniker
+        run: npx clusterflick/scripts retrieve drakeandmorgan.co.uk-the-moniker
+
+      - name: parlourkensal.com
+        run: npx clusterflick/scripts retrieve parlourkensal.com
+
+      - name: thevinenw5.co.uk
+        run: npx clusterflick/scripts retrieve thevinenw5.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -1907,6 +1933,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve whitechapelgallery.org
+
+      - name: not-nowhere.org
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve not-nowhere.org
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4

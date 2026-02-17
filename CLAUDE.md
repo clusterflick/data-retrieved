@@ -41,12 +41,12 @@ Playwright-dependent source in a job without it will fail.
 
 ### Job group selection
 
-| Job group                               | Runner          | Playwright | Use for                                                    |
-| --------------------------------------- | --------------- | ---------- | ---------------------------------------------------------- |
-| `retrieve_sources`                      | `self-hosted`   | Yes        | Event/ticketing platforms (outsavvy, dice.fm, ti.to, etc.) |
-| `retrieve_source_only_1` through `_4`   | `ubuntu-latest` | No         | Lightweight venue-specific sources                         |
-| `retrieve_remaining_cinemas_1` and `_2` | `self-hosted`   | Yes        | Independent cinemas needing browser automation             |
-| Named groups (e.g. `retrieve_everyman`) | Varies          | Varies     | Chain cinemas with many locations                          |
+| Job group                               | Runner          | Playwright | Use for                                                          |
+| --------------------------------------- | --------------- | ---------- | ---------------------------------------------------------------- |
+| `retrieve_sources`                      | `self-hosted`   | Yes        | Event/ticketing platforms (outsavvy, dice.fm, feverup, etc.)     |
+| `retrieve_source_only_1` through `_4`   | `ubuntu-latest` | No         | Source-only venues (no website to scrape, retrieve returns `{}`) |
+| `retrieve_remaining_cinemas_1` and `_2` | `self-hosted`   | Yes        | Standalone venues with their own retriever                       |
+| Named groups (e.g. `retrieve_everyman`) | Varies          | Varies     | Chain cinemas with many locations                                |
 
 ### Parallelisation and load balancing
 
