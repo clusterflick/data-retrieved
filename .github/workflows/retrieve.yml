@@ -122,13 +122,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve tickettailor.com
 
-      - name: wimbledonfilmclub.co.uk
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve wimbledonfilmclub.co.uk
-
       - name: stowfilmlounge.com
         uses: nick-fields/retry@v3
         with:
