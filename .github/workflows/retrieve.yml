@@ -1314,13 +1314,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve odeon.co.uk-beckenham
 
-      - name: odeon.co.uk-camden
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-camden
-
       - name: odeon.co.uk-greenwich
         uses: nick-fields/retry@v3
         with:
