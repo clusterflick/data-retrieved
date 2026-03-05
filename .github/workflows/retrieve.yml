@@ -572,6 +572,12 @@ jobs:
       - name: contactthecaveldn.wixsite.com
         run: npx clusterflick/scripts retrieve contactthecaveldn.wixsite.com
 
+      - name: otterchaos.co.uk
+        run: npx clusterflick/scripts retrieve otterchaos.co.uk
+
+      - name: walthamstowtradeshall.com
+        run: npx clusterflick/scripts retrieve walthamstowtradeshall.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
