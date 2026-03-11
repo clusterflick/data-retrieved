@@ -13,10 +13,10 @@ jobs:
     name: Retrieve Eventbrite
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -31,14 +31,14 @@ jobs:
           command: npx clusterflick/scripts retrieve eventbrite.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_eventbrite
           path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_eventbrite-playwright-failures
           path: ./playwright-failures
@@ -50,10 +50,10 @@ jobs:
     name: Retrieve TicketSource
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -68,14 +68,14 @@ jobs:
           command: npx clusterflick/scripts retrieve ticketsource.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_ticketsource
           path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_ticketsource-playwright-failures
           path: ./playwright-failures
@@ -87,10 +87,10 @@ jobs:
     name: Retrieve Sources
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -168,14 +168,14 @@ jobs:
           command: npx clusterflick/scripts retrieve tufnellparkfilmclub.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_sources
           path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_sources-playwright-failures
           path: ./playwright-failures
@@ -187,8 +187,8 @@ jobs:
     name: Retrieve Source-Only Venues (Part 1)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -276,7 +276,7 @@ jobs:
         run: npx clusterflick/scripts retrieve londonwelsh.org
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_source_only_1
           path: retrieved-data/
@@ -288,8 +288,8 @@ jobs:
     name: Retrieve Source-Only Venues (Part 2)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -368,7 +368,7 @@ jobs:
         run: npx clusterflick/scripts retrieve rbkc.gov.uk-kensington-central-library
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_source_only_2
           path: retrieved-data/
@@ -380,8 +380,8 @@ jobs:
     name: Retrieve Source-Only Venues (Part 3)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -460,7 +460,7 @@ jobs:
         run: npx clusterflick/scripts retrieve uel.ac.uk-univeristy-square-stratford
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_source_only_3
           path: retrieved-data/
@@ -472,8 +472,8 @@ jobs:
     name: Retrieve Source-Only Venues (Part 4)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -582,7 +582,7 @@ jobs:
         run: npx clusterflick/scripts retrieve newingtongreenmeetinghouse.org.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_source_only_4
           path: retrieved-data/
@@ -594,10 +594,10 @@ jobs:
     name: Retrieve BFI
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -629,14 +629,14 @@ jobs:
           command: npx clusterflick/scripts retrieve bfi.org.uk-southbank
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_bfi
           path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_bfi-playwright-failures
           path: ./playwright-failures
@@ -648,10 +648,10 @@ jobs:
     name: Retrieve Cineworld
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -742,7 +742,7 @@ jobs:
           command: npx clusterflick/scripts retrieve cineworld.co.uk-wood-green
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_cineworld
           path: retrieved-data/
@@ -754,8 +754,8 @@ jobs:
     name: Retrieve Curzon
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -840,7 +840,7 @@ jobs:
           command: npx clusterflick/scripts retrieve curzonseacontainers.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_curzon
           path: retrieved-data/
@@ -852,8 +852,8 @@ jobs:
     name: Retrieve Electric Cinema
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -874,7 +874,7 @@ jobs:
           command: npx clusterflick/scripts retrieve electriccinema.co.uk-white-city
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_electric_cinema
           path: retrieved-data/
@@ -886,8 +886,8 @@ jobs:
     name: Retrieve Tate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -908,7 +908,7 @@ jobs:
           command: npx clusterflick/scripts retrieve tate.org.uk-tate-modern
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_tate
           path: retrieved-data/
@@ -920,8 +920,8 @@ jobs:
     name: Retrieve Firmdale Hotels
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -949,7 +949,7 @@ jobs:
           command: npx clusterflick/scripts retrieve firmdalehotels.com-soho
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_firmdale_hotels
           path: retrieved-data/
@@ -961,8 +961,8 @@ jobs:
     name: Retrieve Olympic Studios
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -990,7 +990,7 @@ jobs:
           command: npx clusterflick/scripts retrieve thecinemainthepowerstation.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_olympic_studios
           path: retrieved-data/
@@ -1002,8 +1002,8 @@ jobs:
     name: Retrieve Everyman
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1122,7 +1122,7 @@ jobs:
           command: npx clusterflick/scripts retrieve everymancinema.com-the-whiteley
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_everyman
           path: retrieved-data/
@@ -1134,10 +1134,10 @@ jobs:
     name: Retrieve Vue (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1208,7 +1208,7 @@ jobs:
           command: npx clusterflick/scripts retrieve myvue.com-islington
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_vue_1
           path: retrieved-data/
@@ -1220,10 +1220,10 @@ jobs:
     name: Retrieve Vue (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1287,7 +1287,7 @@ jobs:
           command: npx clusterflick/scripts retrieve myvue.com-wood-green
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_vue_2
           path: retrieved-data/
@@ -1299,10 +1299,10 @@ jobs:
     name: Retrieve ODEON
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1443,14 +1443,14 @@ jobs:
           command: npx clusterflick/scripts retrieve odeon.co.uk-wimbledon
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_odeon
           path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_odeon-playwright-failures
           path: ./playwright-failures
@@ -1462,10 +1462,10 @@ jobs:
     name: Retrieve Picturehouses (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1514,7 +1514,7 @@ jobs:
           command: npx clusterflick/scripts retrieve picturehouses.com-greenwich
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_picturehouses_1
           path: retrieved-data/
@@ -1526,10 +1526,10 @@ jobs:
     name: Retrieve Picturehouses (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1571,7 +1571,7 @@ jobs:
           command: npx clusterflick/scripts retrieve picturehouses.com-west-norwood
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_picturehouses_2
           path: retrieved-data/
@@ -1583,8 +1583,8 @@ jobs:
     name: Retrieve Indy Cinema Group
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1619,7 +1619,7 @@ jobs:
           command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_indy_cinema_group
           path: retrieved-data/
@@ -1631,8 +1631,8 @@ jobs:
     name: Retrieve Savoy Systems
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1660,7 +1660,7 @@ jobs:
           command: npx clusterflick/scripts retrieve thearzner.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_savoy_systems
           path: retrieved-data/
@@ -1672,10 +1672,10 @@ jobs:
     name: Retrieve Remaining Cinemas (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1802,7 +1802,7 @@ jobs:
           command: npx clusterflick/scripts retrieve jw3.org.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_remaining_cinemas_1
           path: retrieved-data/
@@ -1814,10 +1814,10 @@ jobs:
     name: Retrieve Remaining Cinemas (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set Playwright path
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
       - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
@@ -1979,7 +1979,7 @@ jobs:
           command: npx clusterflick/scripts retrieve not-nowhere.org
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: retrieve_remaining_cinemas_2
           path: retrieved-data/
@@ -2019,7 +2019,7 @@ jobs:
       ]
     steps:
       - name: Download All Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           path: retrieved-data/
           merge-multiple: true
