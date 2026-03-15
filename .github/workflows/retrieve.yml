@@ -581,6 +581,9 @@ jobs:
       - name: newingtongreenmeetinghouse.org.uk
         run: npx clusterflick/scripts retrieve newingtongreenmeetinghouse.org.uk
 
+      - name: allsaintsislington.org
+        run: npx clusterflick/scripts retrieve allsaintsislington.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
