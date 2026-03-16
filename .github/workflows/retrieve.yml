@@ -1748,13 +1748,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve richmix.org.uk
 
-      - name: closeupfilmcentre.com
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve closeupfilmcentre.com
-
       - name: cinemamuseum.org.uk
         uses: nick-fields/retry@v3
         with:
@@ -1833,6 +1826,13 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve princecharlescinema.com
+
+      - name: closeupfilmcentre.com
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve closeupfilmcentre.com
 
       - name: genesiscinema.co.uk
         uses: nick-fields/retry@v3
