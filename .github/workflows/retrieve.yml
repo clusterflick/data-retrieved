@@ -584,6 +584,9 @@ jobs:
       - name: allsaintsislington.org
         run: npx clusterflick/scripts retrieve allsaintsislington.org
 
+      - name: hyphastudios.com-kentish-town
+        run: npx clusterflick/scripts retrieve hyphastudios.com-kentish-town
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
