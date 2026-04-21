@@ -1157,13 +1157,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-bromley
 
-      - name: myvue.com-croydon-grants
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-croydon-grants
-
       - name: myvue.com-croydon-purley-way
         uses: nick-fields/retry@v3
         with:
