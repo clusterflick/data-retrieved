@@ -1078,6 +1078,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve everymancinema.com-crystal-palace
 
+      - name: everymancinema.com-everyman-on-the-canal-at-kings-cross
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve everymancinema.com-everyman-on-the-canal-at-kings-cross
+
       - name: everymancinema.com-hampstead
         uses: nick-fields/retry@v3
         with:
