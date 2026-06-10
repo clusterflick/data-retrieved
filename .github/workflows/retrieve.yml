@@ -886,6 +886,40 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Rooftop Cinema Club
+  # ------------------------------------------------------------------------------
+  retrieve_rooftopcinemaclub:
+    name: Retrieve Rooftop Cinema Club
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - run: npm install
+
+      - name: rooftopcinemaclub.com-peckham
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve rooftopcinemaclub.com-peckham
+
+      - name: rooftopcinemaclub.com-stratford
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve rooftopcinemaclub.com-stratford
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_rooftopcinemaclub
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
   # Retrieve Tate
   # ------------------------------------------------------------------------------
   retrieve_tate:
@@ -2009,6 +2043,7 @@ jobs:
         retrieve_cineworld,
         retrieve_curzon,
         retrieve_electric_cinema,
+        retrieve_rooftopcinemaclub,
         retrieve_tate,
         retrieve_firmdale_hotels,
         retrieve_olympic_studios,
