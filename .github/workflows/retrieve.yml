@@ -1834,6 +1834,27 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve jw3.org.uk
 
+      - name: adventurecinema.co.uk-kew-gardens
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve adventurecinema.co.uk-kew-gardens
+
+      - name: canarywharf.com-summer-screens
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve canarywharf.com-summer-screens
+
+      - name: stanleyarts.org
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve stanleyarts.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
