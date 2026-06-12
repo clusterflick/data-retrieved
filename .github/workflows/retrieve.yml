@@ -2091,6 +2091,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve museumofthehome.org.uk
 
+      - name: wiltons.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve wiltons.org.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
