@@ -282,6 +282,18 @@ jobs:
       - name: londonwelsh.org
         run: npx clusterflick/scripts retrieve londonwelsh.org
 
+      - name: callypark.london
+        run: npx clusterflick/scripts retrieve callypark.london
+
+      - name: commonpress.co.uk
+        run: npx clusterflick/scripts retrieve commonpress.co.uk
+
+      - name: etceteratheatrecamden.com
+        run: npx clusterflick/scripts retrieve etceteratheatrecamden.com
+
+      - name: fen-court.com
+        run: npx clusterflick/scripts retrieve fen-court.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -373,6 +385,24 @@ jobs:
 
       - name: rbkc.gov.uk-kensington-central-library
         run: npx clusterflick/scripts retrieve rbkc.gov.uk-kensington-central-library
+
+      - name: hackneyshowroom.com
+        run: npx clusterflick/scripts retrieve hackneyshowroom.com
+
+      - name: labs.thedrum.com
+        run: npx clusterflick/scripts retrieve labs.thedrum.com
+
+      - name: littlenans.co.uk-2-0
+        run: npx clusterflick/scripts retrieve littlenans.co.uk-2-0
+
+      - name: londonartbar.com
+        run: npx clusterflick/scripts retrieve londonartbar.com
+
+      - name: newcrossinn.com
+        run: npx clusterflick/scripts retrieve newcrossinn.com
+
+      - name: lambeth.gov.uk-vauxhall-pleasure-gardens
+        run: npx clusterflick/scripts retrieve lambeth.gov.uk-vauxhall-pleasure-gardens
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -468,6 +498,18 @@ jobs:
 
       - name: uel.ac.uk-univeristy-square-stratford
         run: npx clusterflick/scripts retrieve uel.ac.uk-univeristy-square-stratford
+
+      - name: phonicarecords.com
+        run: npx clusterflick/scripts retrieve phonicarecords.com
+
+      - name: southlondongallery.org
+        run: npx clusterflick/scripts retrieve southlondongallery.org
+
+      - name: theeaglehoxton.co.uk
+        run: npx clusterflick/scripts retrieve theeaglehoxton.co.uk
+
+      - name: writersroom.org.uk
+        run: npx clusterflick/scripts retrieve writersroom.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
