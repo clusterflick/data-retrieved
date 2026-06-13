@@ -663,6 +663,67 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues (Part 5)
+  # ------------------------------------------------------------------------------
+  retrieve_source_only_5:
+    name: Retrieve Source-Only Venues (Part 5)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - run: npm install
+
+      - name: hausulondon.co.uk
+        run: npx clusterflick/scripts retrieve hausulondon.co.uk
+
+      - name: theleytonengineer.co.uk
+        run: npx clusterflick/scripts retrieve theleytonengineer.co.uk
+
+      - name: sanctumsoho.com
+        run: npx clusterflick/scripts retrieve sanctumsoho.com
+
+      - name: wansteadfringe.org-the-wanstead-curtain
+        run: npx clusterflick/scripts retrieve wansteadfringe.org-the-wanstead-curtain
+
+      - name: lanzaroteworks.com
+        run: npx clusterflick/scripts retrieve lanzaroteworks.com
+
+      - name: hounslow.gov.uk-heston-park
+        run: npx clusterflick/scripts retrieve hounslow.gov.uk-heston-park
+
+      - name: hounslow.gov.uk-feltham-park
+        run: npx clusterflick/scripts retrieve hounslow.gov.uk-feltham-park
+
+      - name: hounslow.gov.uk-thornbury-playing-fields
+        run: npx clusterflick/scripts retrieve hounslow.gov.uk-thornbury-playing-fields
+
+      - name: lowermarshmarket.com
+        run: npx clusterflick/scripts retrieve lowermarshmarket.com
+
+      - name: stlawrencejewry.org.uk
+        run: npx clusterflick/scripts retrieve stlawrencejewry.org.uk
+
+      - name: stkatharinecree.org
+        run: npx clusterflick/scripts retrieve stkatharinecree.org
+
+      - name: spitalfields.church
+        run: npx clusterflick/scripts retrieve spitalfields.church
+
+      - name: bloomsbury.org.uk
+        run: npx clusterflick/scripts retrieve bloomsbury.org.uk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_source_only_5
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
   # Retrieve BFI
   # ------------------------------------------------------------------------------
   retrieve_bfi:
@@ -2176,6 +2237,7 @@ jobs:
         retrieve_source_only_2,
         retrieve_source_only_3,
         retrieve_source_only_4,
+        retrieve_source_only_5,
         retrieve_bfi,
         retrieve_cineworld,
         retrieve_curzon,
