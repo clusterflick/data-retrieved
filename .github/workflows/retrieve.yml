@@ -882,7 +882,7 @@ jobs:
   # ------------------------------------------------------------------------------
   retrieve_curzon:
     name: Retrieve Curzon
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
         with:
