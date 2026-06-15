@@ -2048,7 +2048,7 @@ jobs:
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          max_attempts: 30
           command: npx clusterflick/scripts retrieve closeupfilmcentre.com
 
       - name: genesiscinema.co.uk
