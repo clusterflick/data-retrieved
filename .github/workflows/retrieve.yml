@@ -19,12 +19,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -58,12 +56,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -97,12 +93,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -209,7 +203,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: allisjoysoho.com
@@ -324,7 +318,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: castlehaven.org.uk
@@ -436,7 +430,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: thersa.org
@@ -545,7 +539,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: metrolandcultures.com
@@ -675,7 +669,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: hausulondon.co.uk
@@ -733,12 +727,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -789,12 +781,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: cineworld.co.uk-bexleyheath
@@ -900,7 +890,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -1000,7 +990,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: electriccinema.co.uk-portobello
@@ -1036,7 +1026,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: rooftopcinemaclub.com-peckham
@@ -1072,7 +1062,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: tate.org.uk-tate-britain
@@ -1108,7 +1098,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: firmdalehotels.com-charlotte-street
@@ -1151,7 +1141,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: olympiccinema.com
@@ -1194,7 +1184,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: everymancinema.com-baker-street
@@ -1332,12 +1322,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -1413,12 +1401,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -1494,12 +1480,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -1659,12 +1643,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: picturehouses.com-central
@@ -1725,12 +1707,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: picturehouses.com-finsbury-park
@@ -1787,7 +1767,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: regentstreetcinema.com
@@ -1837,7 +1817,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
 
       - name: riocinema.org.uk
@@ -1877,12 +1857,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
@@ -2028,12 +2006,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
-      - run: echo "npm_config_cache=$RUNNER_TEMP/.npm-cache" >> $GITHUB_ENV
+      - uses: clusterflick/.github/setup-cache-paths@main
       - run: npm install
       - run: npx playwright install --with-deps
 
