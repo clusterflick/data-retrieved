@@ -2020,13 +2020,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve princecharlescinema.com
 
-      - name: closeupfilmcentre.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          max_attempts: 30
-          command: npx clusterflick/scripts retrieve closeupfilmcentre.com
-
       - name: genesiscinema.co.uk
         uses: nick-fields/retry@v4
         with:
@@ -2195,6 +2188,45 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Close-Up Film Centre
+  #
+  # Isolated into its own job because it sits behind a Cloudflare challenge and
+  # runs a headed browser (under xvfb) to get past it. Keeping it separate means
+  # a failed challenge only loses this venue, not a whole shared job's data, and
+  # contains the xvfb dependency to the one venue that needs it.
+  # ------------------------------------------------------------------------------
+  retrieve_closeup:
+    name: Retrieve Close-Up Film Centre
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - uses: clusterflick/.github/setup-cache-paths@main
+      - run: npm install
+      - run: npx playwright install --with-deps
+
+      # Headed Chromium needs a display on the headless runner.
+      - name: Install xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: closeupfilmcentre.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: xvfb-run --auto-servernum --server-args="-screen 0 1280x720x24" npx clusterflick/scripts retrieve closeupfilmcentre.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_closeup
+          path: retrieved-data/
+
+  # ------------------------------------------------------------------------------
   # Create release using data from all jobs
   # ------------------------------------------------------------------------------
   create_release:
@@ -2232,6 +2264,7 @@ jobs:
         retrieve_savoy_systems,
         retrieve_remaining_cinemas_1,
         retrieve_remaining_cinemas_2,
+        retrieve_closeup,
       ]
     steps:
       - name: Download All Artifacts
