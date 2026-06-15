@@ -20,7 +20,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -59,7 +59,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -98,7 +98,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -734,7 +734,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -790,7 +790,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1333,7 +1333,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1414,7 +1414,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1495,7 +1495,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1660,7 +1660,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1726,7 +1726,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -1878,7 +1878,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
@@ -2029,7 +2029,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set Playwright path
-        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-browsers" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=/mnt/runner-work/playwright-browsers" >> $GITHUB_ENV
       - uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
