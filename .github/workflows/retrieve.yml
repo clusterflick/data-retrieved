@@ -714,6 +714,45 @@ jobs:
       - name: closeupfilmcentre.com
         run: npx clusterflick/scripts retrieve closeupfilmcentre.com
 
+      - name: rosslynhillchapel.org.uk
+        run: npx clusterflick/scripts retrieve rosslynhillchapel.org.uk
+
+      - name: wpp.com-sea-containers
+        run: npx clusterflick/scripts retrieve wpp.com-sea-containers
+
+      - name: theothers.uk.com
+        run: npx clusterflick/scripts retrieve theothers.uk.com
+
+      - name: rosettaarts.org
+        run: npx clusterflick/scripts retrieve rosettaarts.org
+
+      - name: westminster.gov.uk-maida-vale-library
+        run: npx clusterflick/scripts retrieve westminster.gov.uk-maida-vale-library
+
+      - name: instagram.com-casalavandauk
+        run: npx clusterflick/scripts retrieve instagram.com-casalavandauk
+
+      - name: crossroadswomen.net
+        run: npx clusterflick/scripts retrieve crossroadswomen.net
+
+      - name: parksideca.org.uk
+        run: npx clusterflick/scripts retrieve parksideca.org.uk
+
+      - name: agakhancentre.org.uk
+        run: npx clusterflick/scripts retrieve agakhancentre.org.uk
+
+      - name: stbarnabas-southfields.org.uk
+        run: npx clusterflick/scripts retrieve stbarnabas-southfields.org.uk
+
+      - name: kanaloa.org
+        run: npx clusterflick/scripts retrieve kanaloa.org
+
+      - name: goodenough.ac.uk
+        run: npx clusterflick/scripts retrieve goodenough.ac.uk
+
+      - name: angelcomedy.co.uk-bill-murray
+        run: npx clusterflick/scripts retrieve angelcomedy.co.uk-bill-murray
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
