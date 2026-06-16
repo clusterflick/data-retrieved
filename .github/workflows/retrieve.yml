@@ -2223,6 +2223,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve wiltons.org.uk
 
+      - name: cadoganhall.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve cadoganhall.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
