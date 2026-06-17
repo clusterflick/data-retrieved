@@ -751,6 +751,9 @@ jobs:
       - name: angelcomedy.co.uk-bill-murray
         run: npx clusterflick/scripts retrieve angelcomedy.co.uk-bill-murray
 
+      - name: royalgreenwich.gov.uk-eltham-park-south
+        run: npx clusterflick/scripts retrieve royalgreenwich.gov.uk-eltham-park-south
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -2227,6 +2230,34 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           command: npx clusterflick/scripts retrieve cadoganhall.com
+
+      - name: royalparks.org.uk-hyde-park
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve royalparks.org.uk-hyde-park
+
+      - name: londonbridgecity.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve londonbridgecity.co.uk
+
+      - name: rafmuseum.org.uk-london
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve rafmuseum.org.uk-london
+
+      - name: lbhf.gov.uk-lyric-square
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve lbhf.gov.uk-lyric-square
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
