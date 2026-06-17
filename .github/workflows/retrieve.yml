@@ -64,8 +64,9 @@ jobs:
       - name: ticketsource.co.uk
         uses: nick-fields/retry@v4
         with:
-          timeout_minutes: 20
-          max_attempts: 3
+          timeout_minutes: 30
+          retry_wait_seconds: 30
+          max_attempts: 10
           command: npx clusterflick/scripts retrieve ticketsource.co.uk
 
       - name: Upload Artifacts
