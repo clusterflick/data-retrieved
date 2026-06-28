@@ -410,6 +410,9 @@ jobs:
       - name: lambeth.gov.uk-vauxhall-pleasure-gardens
         run: npx clusterflick/scripts retrieve lambeth.gov.uk-vauxhall-pleasure-gardens
 
+      - name: nehrucentre.org.uk
+        run: npx clusterflick/scripts retrieve nehrucentre.org.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
