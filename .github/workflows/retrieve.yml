@@ -1483,13 +1483,6 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve myvue.com-romford
 
-      - name: myvue.com-shepherds-bush
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-shepherds-bush
-
       - name: myvue.com-westfield
         uses: nick-fields/retry@v4
         with:
