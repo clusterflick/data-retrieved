@@ -785,6 +785,21 @@ jobs:
       - name: shapeslewisham.co.uk
         run: npx clusterflick/scripts retrieve shapeslewisham.co.uk
 
+      - name: lacamionera.com
+        run: npx clusterflick/scripts retrieve lacamionera.com
+
+      - name: lordshiphub.org
+        run: npx clusterflick/scripts retrieve lordshiphub.org
+
+      - name: theshowroom.org
+        run: npx clusterflick/scripts retrieve theshowroom.org
+
+      - name: eseacommunitycentre.org.uk
+        run: npx clusterflick/scripts retrieve eseacommunitycentre.org.uk
+
+      - name: maydayrooms.org
+        run: npx clusterflick/scripts retrieve maydayrooms.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
