@@ -770,6 +770,21 @@ jobs:
       - name: thewinchesterhighgate.co.uk
         run: npx clusterflick/scripts retrieve thewinchesterhighgate.co.uk
 
+      - name: reference-point.uk
+        run: npx clusterflick/scripts retrieve reference-point.uk
+
+      - name: centre151.com
+        run: npx clusterflick/scripts retrieve centre151.com
+
+      - name: antwerparms.co.uk
+        run: npx clusterflick/scripts retrieve antwerparms.co.uk
+
+      - name: spanners.club
+        run: npx clusterflick/scripts retrieve spanners.club
+
+      - name: shapeslewisham.co.uk
+        run: npx clusterflick/scripts retrieve shapeslewisham.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
