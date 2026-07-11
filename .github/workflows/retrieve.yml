@@ -800,6 +800,9 @@ jobs:
       - name: maydayrooms.org
         run: npx clusterflick/scripts retrieve maydayrooms.org
 
+      - name: stmaryswalthamstow.org
+        run: npx clusterflick/scripts retrieve stmaryswalthamstow.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
