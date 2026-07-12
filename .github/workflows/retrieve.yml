@@ -803,6 +803,9 @@ jobs:
       - name: stmaryswalthamstow.org
         run: npx clusterflick/scripts retrieve stmaryswalthamstow.org
 
+      - name: londres.cervantes.es
+        run: npx clusterflick/scripts retrieve londres.cervantes.es
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
