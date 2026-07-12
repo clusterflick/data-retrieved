@@ -14,15 +14,9 @@ jobs:
     name: Retrieve Eventbrite
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: eventbrite.co.uk
         uses: nick-fields/retry@v4
@@ -51,15 +45,9 @@ jobs:
     name: Retrieve TicketSource
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: ticketsource.co.uk
         uses: nick-fields/retry@v4
@@ -89,15 +77,9 @@ jobs:
     name: Retrieve Sources
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: outsavvy.com
         uses: nick-fields/retry@v4
@@ -196,14 +178,7 @@ jobs:
     name: Retrieve Source-Only Venues (Part 1)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: allisjoysoho.com
         run: npx clusterflick/scripts retrieve allisjoysoho.com
@@ -311,14 +286,7 @@ jobs:
     name: Retrieve Source-Only Venues (Part 2)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: castlehaven.org.uk
         run: npx clusterflick/scripts retrieve castlehaven.org.uk
@@ -426,14 +394,7 @@ jobs:
     name: Retrieve Source-Only Venues (Part 3)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: thersa.org
         run: npx clusterflick/scripts retrieve thersa.org
@@ -535,14 +496,7 @@ jobs:
     name: Retrieve Source-Only Venues (Part 4)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: metrolandcultures.com
         run: npx clusterflick/scripts retrieve metrolandcultures.com
@@ -665,14 +619,7 @@ jobs:
     name: Retrieve Source-Only Venues (Part 5)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: hausulondon.co.uk
         run: npx clusterflick/scripts retrieve hausulondon.co.uk
@@ -819,15 +766,9 @@ jobs:
     name: Retrieve BFI
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: bfi.org.uk-bfi-festivals
         uses: nick-fields/retry@v4
@@ -873,14 +814,7 @@ jobs:
     name: Retrieve Cineworld
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: cineworld.co.uk-bexleyheath
         uses: nick-fields/retry@v4
@@ -979,15 +913,9 @@ jobs:
     name: Retrieve Curzon
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: curzon.com-aldgate
         uses: nick-fields/retry@v4
@@ -1079,14 +1007,7 @@ jobs:
     name: Retrieve Electric Cinema
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: electriccinema.co.uk-portobello
         uses: nick-fields/retry@v4
@@ -1115,14 +1036,7 @@ jobs:
     name: Retrieve Rooftop Cinema Club
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: rooftopcinemaclub.com-peckham
         uses: nick-fields/retry@v4
@@ -1151,14 +1065,7 @@ jobs:
     name: Retrieve Tate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: tate.org.uk-tate-britain
         uses: nick-fields/retry@v4
@@ -1187,14 +1094,7 @@ jobs:
     name: Retrieve Firmdale Hotels
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: firmdalehotels.com-charlotte-street
         uses: nick-fields/retry@v4
@@ -1230,14 +1130,7 @@ jobs:
     name: Retrieve Olympic Studios
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: olympiccinema.com
         uses: nick-fields/retry@v4
@@ -1273,14 +1166,7 @@ jobs:
     name: Retrieve Everyman
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: everymancinema.com-baker-street
         uses: nick-fields/retry@v4
@@ -1414,15 +1300,9 @@ jobs:
     name: Retrieve Vue (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: myvue.com-bromley
         uses: nick-fields/retry@v4
@@ -1493,15 +1373,9 @@ jobs:
     name: Retrieve Vue (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: myvue.com-leicester-square
         uses: nick-fields/retry@v4
@@ -1565,15 +1439,9 @@ jobs:
     name: Retrieve ODEON
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: odeon.co.uk-acton
         uses: nick-fields/retry@v4
@@ -1728,14 +1596,7 @@ jobs:
     name: Retrieve Picturehouses (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: picturehouses.com-central
         uses: nick-fields/retry@v4
@@ -1792,14 +1653,7 @@ jobs:
     name: Retrieve Picturehouses (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: picturehouses.com-finsbury-park
         uses: nick-fields/retry@v4
@@ -1849,14 +1703,7 @@ jobs:
     name: Retrieve Indy Cinema Group
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: regentstreetcinema.com
         uses: nick-fields/retry@v4
@@ -1899,14 +1746,7 @@ jobs:
     name: Retrieve Savoy Systems
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
+      - uses: clusterflick/.github/setup@main
 
       - name: riocinema.org.uk
         uses: nick-fields/retry@v4
@@ -1942,15 +1782,9 @@ jobs:
     name: Retrieve Remaining Cinemas (Part 1)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: lumiereromford.com
         uses: nick-fields/retry@v4
@@ -2091,15 +1925,9 @@ jobs:
     name: Retrieve Remaining Cinemas (Part 2)
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v6
+      - uses: clusterflick/.github/setup@main
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .node-version
-      - uses: clusterflick/.github/setup-cache-paths@main
-      - run: npm install
-      - run: npx playwright install --with-deps
+          playwright: true
 
       - name: princecharlescinema.com
         uses: nick-fields/retry@v4
