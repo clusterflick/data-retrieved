@@ -158,6 +158,13 @@ jobs:
           max_attempts: 3
           command: npx clusterflick/scripts retrieve humanitix.com
 
+      - name: japanesefilm.club
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npx clusterflick/scripts retrieve japanesefilm.club
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
