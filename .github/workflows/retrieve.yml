@@ -490,6 +490,33 @@ jobs:
       - name: writersroom.org.uk
         run: npx clusterflick/scripts retrieve writersroom.org.uk
 
+      - name: berniegrantcentre.co.uk
+        run: npx clusterflick/scripts retrieve berniegrantcentre.co.uk
+
+      - name: camouflagecafe.co.uk
+        run: npx clusterflick/scripts retrieve camouflagecafe.co.uk
+
+      - name: conwayhall.org.uk
+        run: npx clusterflick/scripts retrieve conwayhall.org.uk
+
+      - name: earthackney.co.uk
+        run: npx clusterflick/scripts retrieve earthackney.co.uk
+
+      - name: enfield.gov.uk-angel-community-centre
+        run: npx clusterflick/scripts retrieve enfield.gov.uk-angel-community-centre
+
+      - name: greenfordquay.com
+        run: npx clusterflick/scripts retrieve greenfordquay.com
+
+      - name: harrisinstitute.org.uk
+        run: npx clusterflick/scripts retrieve harrisinstitute.org.uk
+
+      - name: ladbrokehall.com
+        run: npx clusterflick/scripts retrieve ladbrokehall.com
+
+      - name: thebrookmill.co.uk
+        run: npx clusterflick/scripts retrieve thebrookmill.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
