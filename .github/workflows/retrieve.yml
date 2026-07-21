@@ -23,7 +23,7 @@ jobs:
         with:
           timeout_minutes: 60
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve eventbrite.co.uk
+          command: npm run retrieve -- eventbrite.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -55,7 +55,7 @@ jobs:
           timeout_minutes: 30
           retry_wait_seconds: 30
           max_attempts: 10
-          command: npx clusterflick/scripts retrieve ticketsource.co.uk
+          command: npm run retrieve -- ticketsource.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -86,84 +86,84 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve outsavvy.com
+          command: npm run retrieve -- outsavvy.com
 
       - name: designmynight.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve designmynight.com
+          command: npm run retrieve -- designmynight.com
 
       - name: dice.fm
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve dice.fm
+          command: npm run retrieve -- dice.fm
 
       - name: tickettailor.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve tickettailor.com
+          command: npm run retrieve -- tickettailor.com
 
       - name: stowfilmlounge.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve stowfilmlounge.com
+          command: npm run retrieve -- stowfilmlounge.com
 
       - name: ti.to
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve ti.to
+          command: npm run retrieve -- ti.to
 
       - name: thecliq.app-
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thecliq.app-
+          command: npm run retrieve -- thecliq.app-
 
       - name: bbk.ac.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve bbk.ac.uk
+          command: npm run retrieve -- bbk.ac.uk
 
       - name: feverup.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve feverup.com
+          command: npm run retrieve -- feverup.com
 
       - name: tufnellparkfilmclub.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve tufnellparkfilmclub.com
+          command: npm run retrieve -- tufnellparkfilmclub.com
 
       - name: humanitix.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve humanitix.com
+          command: npm run retrieve -- humanitix.com
 
       - name: japanesefilm.club
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve japanesefilm.club
+          command: npm run retrieve -- japanesefilm.club
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -188,97 +188,97 @@ jobs:
       - uses: clusterflick/.github/setup@main
 
       - name: allisjoysoho.com
-        run: npx clusterflick/scripts retrieve allisjoysoho.com
+        run: npm run retrieve -- allisjoysoho.com
 
       - name: bbk.ac.uk-central
-        run: npx clusterflick/scripts retrieve bbk.ac.uk-central
+        run: npm run retrieve -- bbk.ac.uk-central
 
       - name: bbk.ac.uk-cinema
-        run: npx clusterflick/scripts retrieve bbk.ac.uk-cinema
+        run: npm run retrieve -- bbk.ac.uk-cinema
 
       - name: beermerchantstap.com
-        run: npx clusterflick/scripts retrieve beermerchantstap.com
+        run: npm run retrieve -- beermerchantstap.com
 
       - name: freud.org.uk
-        run: npx clusterflick/scripts retrieve freud.org.uk
+        run: npm run retrieve -- freud.org.uk
 
       - name: pelicanhouse.org
-        run: npx clusterflick/scripts retrieve pelicanhouse.org
+        run: npm run retrieve -- pelicanhouse.org
 
       - name: artotel.com-battersea-power-station
-        run: npx clusterflick/scripts retrieve artotel.com-battersea-power-station
+        run: npm run retrieve -- artotel.com-battersea-power-station
 
       - name: artotel.com-hoxton
-        run: npx clusterflick/scripts retrieve artotel.com-hoxton
+        run: npm run retrieve -- artotel.com-hoxton
 
       - name: claphamgrand.com
-        run: npx clusterflick/scripts retrieve claphamgrand.com
+        run: npm run retrieve -- claphamgrand.com
 
       - name: rivoliballroom.com
-        run: npx clusterflick/scripts retrieve rivoliballroom.com
+        run: npm run retrieve -- rivoliballroom.com
 
       - name: beehiven17.com
-        run: npx clusterflick/scripts retrieve beehiven17.com
+        run: npm run retrieve -- beehiven17.com
 
       - name: boxpark.co.uk-wembley
-        run: npx clusterflick/scripts retrieve boxpark.co.uk-wembley
+        run: npm run retrieve -- boxpark.co.uk-wembley
 
       - name: frontlineclub.com
-        run: npx clusterflick/scripts retrieve frontlineclub.com
+        run: npm run retrieve -- frontlineclub.com
 
       - name: ivyhousenunhead.com
-        run: npx clusterflick/scripts retrieve ivyhousenunhead.com
+        run: npm run retrieve -- ivyhousenunhead.com
 
       - name: rocketvan.co.uk
-        run: npx clusterflick/scripts retrieve rocketvan.co.uk
+        run: npm run retrieve -- rocketvan.co.uk
 
       - name: theatreship.co.uk
-        run: npx clusterflick/scripts retrieve theatreship.co.uk
+        run: npm run retrieve -- theatreship.co.uk
 
       - name: uel.ac.uk-the-source
-        run: npx clusterflick/scripts retrieve uel.ac.uk-the-source
+        run: npm run retrieve -- uel.ac.uk-the-source
 
       - name: bfi.org.uk-stephen-street
-        run: npx clusterflick/scripts retrieve bfi.org.uk-stephen-street
+        run: npm run retrieve -- bfi.org.uk-stephen-street
 
       - name: goethe.de
-        run: npx clusterflick/scripts retrieve goethe.de
+        run: npm run retrieve -- goethe.de
 
       - name: marriott.com-w-london
-        run: npx clusterflick/scripts retrieve marriott.com-w-london
+        run: npm run retrieve -- marriott.com-w-london
 
       - name: mason-fifth.com-westbourne-park
-        run: npx clusterflick/scripts retrieve mason-fifth.com-westbourne-park
+        run: npm run retrieve -- mason-fifth.com-westbourne-park
 
       - name: ronspeckham.com
-        run: npx clusterflick/scripts retrieve ronspeckham.com
+        run: npm run retrieve -- ronspeckham.com
 
       - name: theexhibit.co.uk
-        run: npx clusterflick/scripts retrieve theexhibit.co.uk
+        run: npm run retrieve -- theexhibit.co.uk
 
       - name: imperial.ac.uk
-        run: npx clusterflick/scripts retrieve imperial.ac.uk
+        run: npm run retrieve -- imperial.ac.uk
 
       - name: culture.hu-london
-        run: npx clusterflick/scripts retrieve culture.hu-london
+        run: npm run retrieve -- culture.hu-london
 
       - name: kerbsocialclub.com
-        run: npx clusterflick/scripts retrieve kerbsocialclub.com
+        run: npm run retrieve -- kerbsocialclub.com
 
       - name: londonwelsh.org
-        run: npx clusterflick/scripts retrieve londonwelsh.org
+        run: npm run retrieve -- londonwelsh.org
 
       - name: callypark.london
-        run: npx clusterflick/scripts retrieve callypark.london
+        run: npm run retrieve -- callypark.london
 
       - name: commonpress.co.uk
-        run: npx clusterflick/scripts retrieve commonpress.co.uk
+        run: npm run retrieve -- commonpress.co.uk
 
       - name: etceteratheatrecamden.com
-        run: npx clusterflick/scripts retrieve etceteratheatrecamden.com
+        run: npm run retrieve -- etceteratheatrecamden.com
 
       - name: fen-court.com
-        run: npx clusterflick/scripts retrieve fen-court.com
+        run: npm run retrieve -- fen-court.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -296,97 +296,97 @@ jobs:
       - uses: clusterflick/.github/setup@main
 
       - name: castlehaven.org.uk
-        run: npx clusterflick/scripts retrieve castlehaven.org.uk
+        run: npm run retrieve -- castlehaven.org.uk
 
       - name: japanhouselondon.uk
-        run: npx clusterflick/scripts retrieve japanhouselondon.uk
+        run: npm run retrieve -- japanhouselondon.uk
 
       - name: william-the-fourth.com
-        run: npx clusterflick/scripts retrieve william-the-fourth.com
+        run: npm run retrieve -- william-the-fourth.com
 
       - name: exchangetwickenham.co.uk
-        run: npx clusterflick/scripts retrieve exchangetwickenham.co.uk
+        run: npm run retrieve -- exchangetwickenham.co.uk
 
       - name: langleyfilmbox.com
-        run: npx clusterflick/scripts retrieve langleyfilmbox.com
+        run: npm run retrieve -- langleyfilmbox.com
 
       - name: scrt.onl
-        run: npx clusterflick/scripts retrieve scrt.onl
+        run: npm run retrieve -- scrt.onl
 
       - name: sohoscreeningrooms.co.uk
-        run: npx clusterflick/scripts retrieve sohoscreeningrooms.co.uk
+        run: npm run retrieve -- sohoscreeningrooms.co.uk
 
       - name: thexchange.org.uk
-        run: npx clusterflick/scripts retrieve thexchange.org.uk
+        run: npm run retrieve -- thexchange.org.uk
 
       - name: uk.kef.com
-        run: npx clusterflick/scripts retrieve uk.kef.com
+        run: npm run retrieve -- uk.kef.com
 
       - name: goodshepherdstudios.com
-        run: npx clusterflick/scripts retrieve goodshepherdstudios.com
+        run: npm run retrieve -- goodshepherdstudios.com
 
       - name: thebathhouse.co
-        run: npx clusterflick/scripts retrieve thebathhouse.co
+        run: npm run retrieve -- thebathhouse.co
 
       - name: siobhandavies.com
-        run: npx clusterflick/scripts retrieve siobhandavies.com
+        run: npm run retrieve -- siobhandavies.com
 
       - name: thelondonarchives.org
-        run: npx clusterflick/scripts retrieve thelondonarchives.org
+        run: npm run retrieve -- thelondonarchives.org
 
       - name: boathousebarkingstudios.com
-        run: npx clusterflick/scripts retrieve boathousebarkingstudios.com
+        run: npm run retrieve -- boathousebarkingstudios.com
 
       - name: feministlibrary.co.uk
-        run: npx clusterflick/scripts retrieve feministlibrary.co.uk
+        run: npm run retrieve -- feministlibrary.co.uk
 
       - name: goodhotel.co-london
-        run: npx clusterflick/scripts retrieve goodhotel.co-london
+        run: npm run retrieve -- goodhotel.co-london
 
       - name: aplaceforchange.co.uk
-        run: npx clusterflick/scripts retrieve aplaceforchange.co.uk
+        run: npm run retrieve -- aplaceforchange.co.uk
 
       - name: mothclub.co.uk
-        run: npx clusterflick/scripts retrieve mothclub.co.uk
+        run: npm run retrieve -- mothclub.co.uk
 
       - name: qmul.ac.uk-bloc
-        run: npx clusterflick/scripts retrieve qmul.ac.uk-bloc
+        run: npm run retrieve -- qmul.ac.uk-bloc
 
       - name: islington.gov.uk-black-cultural-centre
-        run: npx clusterflick/scripts retrieve islington.gov.uk-black-cultural-centre
+        run: npm run retrieve -- islington.gov.uk-black-cultural-centre
 
       - name: thehenandchickenstheatrebar.co.uk
-        run: npx clusterflick/scripts retrieve thehenandchickenstheatrebar.co.uk
+        run: npm run retrieve -- thehenandchickenstheatrebar.co.uk
 
       - name: london.czechcentres.cz
-        run: npx clusterflick/scripts retrieve london.czechcentres.cz
+        run: npm run retrieve -- london.czechcentres.cz
 
       - name: peckhamlevels.org
-        run: npx clusterflick/scripts retrieve peckhamlevels.org
+        run: npm run retrieve -- peckhamlevels.org
 
       - name: rbkc.gov.uk-kensington-central-library
-        run: npx clusterflick/scripts retrieve rbkc.gov.uk-kensington-central-library
+        run: npm run retrieve -- rbkc.gov.uk-kensington-central-library
 
       - name: hackneyshowroom.com
-        run: npx clusterflick/scripts retrieve hackneyshowroom.com
+        run: npm run retrieve -- hackneyshowroom.com
 
       - name: labs.thedrum.com
-        run: npx clusterflick/scripts retrieve labs.thedrum.com
+        run: npm run retrieve -- labs.thedrum.com
 
       - name: littlenans.co.uk-2-0
-        run: npx clusterflick/scripts retrieve littlenans.co.uk-2-0
+        run: npm run retrieve -- littlenans.co.uk-2-0
 
       - name: londonartbar.com
-        run: npx clusterflick/scripts retrieve londonartbar.com
+        run: npm run retrieve -- londonartbar.com
 
       - name: newcrossinn.com
-        run: npx clusterflick/scripts retrieve newcrossinn.com
+        run: npm run retrieve -- newcrossinn.com
 
       - name: lambeth.gov.uk-vauxhall-pleasure-gardens
-        run: npx clusterflick/scripts retrieve lambeth.gov.uk-vauxhall-pleasure-gardens
+        run: npm run retrieve -- lambeth.gov.uk-vauxhall-pleasure-gardens
 
       - name: nehrucentre.org.uk
-        run: npx clusterflick/scripts retrieve nehrucentre.org.uk
+        run: npm run retrieve -- nehrucentre.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -404,118 +404,118 @@ jobs:
       - uses: clusterflick/.github/setup@main
 
       - name: thersa.org
-        run: npx clusterflick/scripts retrieve thersa.org
+        run: npm run retrieve -- thersa.org
 
       - name: ucl.ac.uk-ucl-east-community-cinema
-        run: npx clusterflick/scripts retrieve ucl.ac.uk-ucl-east-community-cinema
+        run: npm run retrieve -- ucl.ac.uk-ucl-east-community-cinema
 
       - name: courthouse-hotel.com-shoreditch
-        run: npx clusterflick/scripts retrieve courthouse-hotel.com-shoreditch
+        run: npm run retrieve -- courthouse-hotel.com-shoreditch
 
       - name: courthouse-hotel.com-soho
-        run: npx clusterflick/scripts retrieve courthouse-hotel.com-soho
+        run: npm run retrieve -- courthouse-hotel.com-soho
 
       - name: facebook.com-thehaggerston
-        run: npx clusterflick/scripts retrieve facebook.com-thehaggerston
+        run: npm run retrieve -- facebook.com-thehaggerston
 
       - name: signaturebrew.co.uk-blackhorseroad
-        run: npx clusterflick/scripts retrieve signaturebrew.co.uk-blackhorseroad
+        run: npm run retrieve -- signaturebrew.co.uk-blackhorseroad
 
       - name: walthamforest.gov.uk
-        run: npx clusterflick/scripts retrieve walthamforest.gov.uk
+        run: npm run retrieve -- walthamforest.gov.uk
 
       - name: bulgarihotels.com
-        run: npx clusterflick/scripts retrieve bulgarihotels.com
+        run: npm run retrieve -- bulgarihotels.com
 
       - name: cine-real.com
-        run: npx clusterflick/scripts retrieve cine-real.com
+        run: npm run retrieve -- cine-real.com
 
       - name: piehousecoop.co.uk
-        run: npx clusterflick/scripts retrieve piehousecoop.co.uk
+        run: npm run retrieve -- piehousecoop.co.uk
 
       - name: professional.dolby.com-soho
-        run: npx clusterflick/scripts retrieve professional.dolby.com-soho
+        run: npm run retrieve -- professional.dolby.com-soho
 
       - name: themayfairhotel.co.uk
-        run: npx clusterflick/scripts retrieve themayfairhotel.co.uk
+        run: npm run retrieve -- themayfairhotel.co.uk
 
       - name: chcc.org.uk
-        run: npx clusterflick/scripts retrieve chcc.org.uk
+        run: npm run retrieve -- chcc.org.uk
 
       - name: crick.ac.uk
-        run: npx clusterflick/scripts retrieve crick.ac.uk
+        run: npm run retrieve -- crick.ac.uk
 
       - name: fellowshipinn.co.uk
-        run: npx clusterflick/scripts retrieve fellowshipinn.co.uk
+        run: npm run retrieve -- fellowshipinn.co.uk
 
       - name: finchcafe.co.uk
-        run: npx clusterflick/scripts retrieve finchcafe.co.uk
+        run: npm run retrieve -- finchcafe.co.uk
 
       - name: gold.ac.uk
-        run: npx clusterflick/scripts retrieve gold.ac.uk
+        run: npm run retrieve -- gold.ac.uk
 
       - name: islington.gov.uk-islington-museum
-        run: npx clusterflick/scripts retrieve islington.gov.uk-islington-museum
+        run: npm run retrieve -- islington.gov.uk-islington-museum
 
       - name: kcl.ac.uk-strand
-        run: npx clusterflick/scripts retrieve kcl.ac.uk-strand
+        run: npm run retrieve -- kcl.ac.uk-strand
 
       - name: khccc.com
-        run: npx clusterflick/scripts retrieve khccc.com
+        run: npm run retrieve -- khccc.com
 
       - name: thewildsbarkingriverside.london
-        run: npx clusterflick/scripts retrieve thewildsbarkingriverside.london
+        run: npm run retrieve -- thewildsbarkingriverside.london
 
       - name: rca.ac.uk-battersea
-        run: npx clusterflick/scripts retrieve rca.ac.uk-battersea
+        run: npm run retrieve -- rca.ac.uk-battersea
 
       - name: rca.ac.uk-kensington
-        run: npx clusterflick/scripts retrieve rca.ac.uk-kensington
+        run: npm run retrieve -- rca.ac.uk-kensington
 
       - name: thcentre.com
-        run: npx clusterflick/scripts retrieve thcentre.com
+        run: npm run retrieve -- thcentre.com
 
       - name: uel.ac.uk-univeristy-square-stratford
-        run: npx clusterflick/scripts retrieve uel.ac.uk-univeristy-square-stratford
+        run: npm run retrieve -- uel.ac.uk-univeristy-square-stratford
 
       - name: phonicarecords.com
-        run: npx clusterflick/scripts retrieve phonicarecords.com
+        run: npm run retrieve -- phonicarecords.com
 
       - name: southlondongallery.org
-        run: npx clusterflick/scripts retrieve southlondongallery.org
+        run: npm run retrieve -- southlondongallery.org
 
       - name: theeaglehoxton.co.uk
-        run: npx clusterflick/scripts retrieve theeaglehoxton.co.uk
+        run: npm run retrieve -- theeaglehoxton.co.uk
 
       - name: writersroom.org.uk
-        run: npx clusterflick/scripts retrieve writersroom.org.uk
+        run: npm run retrieve -- writersroom.org.uk
 
       - name: berniegrantcentre.co.uk
-        run: npx clusterflick/scripts retrieve berniegrantcentre.co.uk
+        run: npm run retrieve -- berniegrantcentre.co.uk
 
       - name: camouflagecafe.co.uk
-        run: npx clusterflick/scripts retrieve camouflagecafe.co.uk
+        run: npm run retrieve -- camouflagecafe.co.uk
 
       - name: conwayhall.org.uk
-        run: npx clusterflick/scripts retrieve conwayhall.org.uk
+        run: npm run retrieve -- conwayhall.org.uk
 
       - name: earthackney.co.uk
-        run: npx clusterflick/scripts retrieve earthackney.co.uk
+        run: npm run retrieve -- earthackney.co.uk
 
       - name: enfield.gov.uk-angel-community-centre
-        run: npx clusterflick/scripts retrieve enfield.gov.uk-angel-community-centre
+        run: npm run retrieve -- enfield.gov.uk-angel-community-centre
 
       - name: greenfordquay.com
-        run: npx clusterflick/scripts retrieve greenfordquay.com
+        run: npm run retrieve -- greenfordquay.com
 
       - name: harrisinstitute.org.uk
-        run: npx clusterflick/scripts retrieve harrisinstitute.org.uk
+        run: npm run retrieve -- harrisinstitute.org.uk
 
       - name: ladbrokehall.com
-        run: npx clusterflick/scripts retrieve ladbrokehall.com
+        run: npm run retrieve -- ladbrokehall.com
 
       - name: thebrookmill.co.uk
-        run: npx clusterflick/scripts retrieve thebrookmill.co.uk
+        run: npm run retrieve -- thebrookmill.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -533,112 +533,112 @@ jobs:
       - uses: clusterflick/.github/setup@main
 
       - name: metrolandcultures.com
-        run: npx clusterflick/scripts retrieve metrolandcultures.com
+        run: npm run retrieve -- metrolandcultures.com
 
       - name: myheathway.com
-        run: npx clusterflick/scripts retrieve myheathway.com
+        run: npm run retrieve -- myheathway.com
 
       - name: newtownculture.org-womens-museum
-        run: npx clusterflick/scripts retrieve newtownculture.org-womens-museum
+        run: npm run retrieve -- newtownculture.org-womens-museum
 
       - name: princeofpeckham.co.uk
-        run: npx clusterflick/scripts retrieve princeofpeckham.co.uk
+        run: npm run retrieve -- princeofpeckham.co.uk
 
       - name: reinstate.info
-        run: npx clusterflick/scripts retrieve reinstate.info
+        run: npm run retrieve -- reinstate.info
 
       - name: scarlettmalone.com-subtitlecinema
-        run: npx clusterflick/scripts retrieve scarlettmalone.com-subtitlecinema
+        run: npm run retrieve -- scarlettmalone.com-subtitlecinema
 
       - name: shaispace.com
-        run: npx clusterflick/scripts retrieve shaispace.com
+        run: npm run retrieve -- shaispace.com
 
       - name: strongroombar.com
-        run: npx clusterflick/scripts retrieve strongroombar.com
+        run: npm run retrieve -- strongroombar.com
 
       - name: thamesmeadnow.org.uk-the-nest
-        run: npx clusterflick/scripts retrieve thamesmeadnow.org.uk-the-nest
+        run: npm run retrieve -- thamesmeadnow.org.uk-the-nest
 
       - name: thethomaswallcentre.harleystreethypnosis.co.uk
-        run: npx clusterflick/scripts retrieve thethomaswallcentre.harleystreethypnosis.co.uk
+        run: npm run retrieve -- thethomaswallcentre.harleystreethypnosis.co.uk
 
       - name: ucl.ac.uk-bentham-house
-        run: npx clusterflick/scripts retrieve ucl.ac.uk-bentham-house
+        run: npm run retrieve -- ucl.ac.uk-bentham-house
 
       - name: ucl.ac.uk-ssees
-        run: npx clusterflick/scripts retrieve ucl.ac.uk-ssees
+        run: npm run retrieve -- ucl.ac.uk-ssees
 
       - name: better.org.uk-croydon-sports-arena
-        run: npx clusterflick/scripts retrieve better.org.uk-croydon-sports-arena
+        run: npm run retrieve -- better.org.uk-croydon-sports-arena
 
       - name: dalstonsuperstore.com
-        run: npx clusterflick/scripts retrieve dalstonsuperstore.com
+        run: npm run retrieve -- dalstonsuperstore.com
 
       - name: ethicalproperty.co.uk-the-green-house
-        run: npx clusterflick/scripts retrieve ethicalproperty.co.uk-the-green-house
+        run: npm run retrieve -- ethicalproperty.co.uk-the-green-house
 
       - name: stmarys.ac.uk-the-1850
-        run: npx clusterflick/scripts retrieve stmarys.ac.uk-the-1850
+        run: npm run retrieve -- stmarys.ac.uk-the-1850
 
       - name: thedivine.co.uk
-        run: npx clusterflick/scripts retrieve thedivine.co.uk
+        run: npm run retrieve -- thedivine.co.uk
 
       - name: triangledeptford.org
-        run: npx clusterflick/scripts retrieve triangledeptford.org
+        run: npm run retrieve -- triangledeptford.org
 
       - name: lux.org.uk
-        run: npx clusterflick/scripts retrieve lux.org.uk
+        run: npm run retrieve -- lux.org.uk
 
       - name: setspace.uk
-        run: npx clusterflick/scripts retrieve setspace.uk
+        run: npm run retrieve -- setspace.uk
 
       - name: thegreennunhead.org
-        run: npx clusterflick/scripts retrieve thegreennunhead.org
+        run: npm run retrieve -- thegreennunhead.org
 
       - name: vaginamuseum.co.uk
-        run: npx clusterflick/scripts retrieve vaginamuseum.co.uk
+        run: npm run retrieve -- vaginamuseum.co.uk
 
       - name: wienerholocaustlibrary.org
-        run: npx clusterflick/scripts retrieve wienerholocaustlibrary.org
+        run: npm run retrieve -- wienerholocaustlibrary.org
 
       - name: objetstrouves.co.uk
-        run: npx clusterflick/scripts retrieve objetstrouves.co.uk
+        run: npm run retrieve -- objetstrouves.co.uk
 
       - name: stmchurch.co.uk
-        run: npx clusterflick/scripts retrieve stmchurch.co.uk
+        run: npm run retrieve -- stmchurch.co.uk
 
       - name: 229.london
-        run: npx clusterflick/scripts retrieve 229.london
+        run: npm run retrieve -- 229.london
 
       - name: drakeandmorgan.co.uk-the-refinery-citypoint
-        run: npx clusterflick/scripts retrieve drakeandmorgan.co.uk-the-refinery-citypoint
+        run: npm run retrieve -- drakeandmorgan.co.uk-the-refinery-citypoint
 
       - name: drakeandmorgan.co.uk-the-moniker
-        run: npx clusterflick/scripts retrieve drakeandmorgan.co.uk-the-moniker
+        run: npm run retrieve -- drakeandmorgan.co.uk-the-moniker
 
       - name: parlourkensal.com
-        run: npx clusterflick/scripts retrieve parlourkensal.com
+        run: npm run retrieve -- parlourkensal.com
 
       - name: thevinenw5.co.uk
-        run: npx clusterflick/scripts retrieve thevinenw5.co.uk
+        run: npm run retrieve -- thevinenw5.co.uk
 
       - name: contactthecaveldn.wixsite.com
-        run: npx clusterflick/scripts retrieve contactthecaveldn.wixsite.com
+        run: npm run retrieve -- contactthecaveldn.wixsite.com
 
       - name: otterchaos.co.uk
-        run: npx clusterflick/scripts retrieve otterchaos.co.uk
+        run: npm run retrieve -- otterchaos.co.uk
 
       - name: walthamstowtradeshall.com
-        run: npx clusterflick/scripts retrieve walthamstowtradeshall.com
+        run: npm run retrieve -- walthamstowtradeshall.com
 
       - name: newingtongreenmeetinghouse.org.uk
-        run: npx clusterflick/scripts retrieve newingtongreenmeetinghouse.org.uk
+        run: npm run retrieve -- newingtongreenmeetinghouse.org.uk
 
       - name: allsaintsislington.org
-        run: npx clusterflick/scripts retrieve allsaintsislington.org
+        run: npm run retrieve -- allsaintsislington.org
 
       - name: hyphastudios.com-kentish-town
-        run: npx clusterflick/scripts retrieve hyphastudios.com-kentish-town
+        run: npm run retrieve -- hyphastudios.com-kentish-town
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -656,136 +656,136 @@ jobs:
       - uses: clusterflick/.github/setup@main
 
       - name: hausulondon.co.uk
-        run: npx clusterflick/scripts retrieve hausulondon.co.uk
+        run: npm run retrieve -- hausulondon.co.uk
 
       - name: theleytonengineer.co.uk
-        run: npx clusterflick/scripts retrieve theleytonengineer.co.uk
+        run: npm run retrieve -- theleytonengineer.co.uk
 
       - name: sanctumsoho.com
-        run: npx clusterflick/scripts retrieve sanctumsoho.com
+        run: npm run retrieve -- sanctumsoho.com
 
       - name: wansteadfringe.org-the-wanstead-curtain
-        run: npx clusterflick/scripts retrieve wansteadfringe.org-the-wanstead-curtain
+        run: npm run retrieve -- wansteadfringe.org-the-wanstead-curtain
 
       - name: lanzaroteworks.com
-        run: npx clusterflick/scripts retrieve lanzaroteworks.com
+        run: npm run retrieve -- lanzaroteworks.com
 
       - name: hounslow.gov.uk-heston-park
-        run: npx clusterflick/scripts retrieve hounslow.gov.uk-heston-park
+        run: npm run retrieve -- hounslow.gov.uk-heston-park
 
       - name: hounslow.gov.uk-feltham-park
-        run: npx clusterflick/scripts retrieve hounslow.gov.uk-feltham-park
+        run: npm run retrieve -- hounslow.gov.uk-feltham-park
 
       - name: hounslow.gov.uk-thornbury-playing-fields
-        run: npx clusterflick/scripts retrieve hounslow.gov.uk-thornbury-playing-fields
+        run: npm run retrieve -- hounslow.gov.uk-thornbury-playing-fields
 
       - name: lowermarshmarket.com
-        run: npx clusterflick/scripts retrieve lowermarshmarket.com
+        run: npm run retrieve -- lowermarshmarket.com
 
       - name: stlawrencejewry.org.uk
-        run: npx clusterflick/scripts retrieve stlawrencejewry.org.uk
+        run: npm run retrieve -- stlawrencejewry.org.uk
 
       - name: stkatharinecree.org
-        run: npx clusterflick/scripts retrieve stkatharinecree.org
+        run: npm run retrieve -- stkatharinecree.org
 
       - name: spitalfields.church
-        run: npx clusterflick/scripts retrieve spitalfields.church
+        run: npm run retrieve -- spitalfields.church
 
       - name: bloomsbury.org.uk
-        run: npx clusterflick/scripts retrieve bloomsbury.org.uk
+        run: npm run retrieve -- bloomsbury.org.uk
 
       - name: closeupfilmcentre.com
-        run: npx clusterflick/scripts retrieve closeupfilmcentre.com
+        run: npm run retrieve -- closeupfilmcentre.com
 
       - name: rosslynhillchapel.org.uk
-        run: npx clusterflick/scripts retrieve rosslynhillchapel.org.uk
+        run: npm run retrieve -- rosslynhillchapel.org.uk
 
       - name: wpp.com-sea-containers
-        run: npx clusterflick/scripts retrieve wpp.com-sea-containers
+        run: npm run retrieve -- wpp.com-sea-containers
 
       - name: theothers.uk.com
-        run: npx clusterflick/scripts retrieve theothers.uk.com
+        run: npm run retrieve -- theothers.uk.com
 
       - name: rosettaarts.org
-        run: npx clusterflick/scripts retrieve rosettaarts.org
+        run: npm run retrieve -- rosettaarts.org
 
       - name: westminster.gov.uk-maida-vale-library
-        run: npx clusterflick/scripts retrieve westminster.gov.uk-maida-vale-library
+        run: npm run retrieve -- westminster.gov.uk-maida-vale-library
 
       - name: instagram.com-casalavandauk
-        run: npx clusterflick/scripts retrieve instagram.com-casalavandauk
+        run: npm run retrieve -- instagram.com-casalavandauk
 
       - name: crossroadswomen.net
-        run: npx clusterflick/scripts retrieve crossroadswomen.net
+        run: npm run retrieve -- crossroadswomen.net
 
       - name: parksideca.org.uk
-        run: npx clusterflick/scripts retrieve parksideca.org.uk
+        run: npm run retrieve -- parksideca.org.uk
 
       - name: agakhancentre.org.uk
-        run: npx clusterflick/scripts retrieve agakhancentre.org.uk
+        run: npm run retrieve -- agakhancentre.org.uk
 
       - name: stbarnabas-southfields.org.uk
-        run: npx clusterflick/scripts retrieve stbarnabas-southfields.org.uk
+        run: npm run retrieve -- stbarnabas-southfields.org.uk
 
       - name: kanaloa.org
-        run: npx clusterflick/scripts retrieve kanaloa.org
+        run: npm run retrieve -- kanaloa.org
 
       - name: goodenough.ac.uk
-        run: npx clusterflick/scripts retrieve goodenough.ac.uk
+        run: npm run retrieve -- goodenough.ac.uk
 
       - name: angelcomedy.co.uk-bill-murray
-        run: npx clusterflick/scripts retrieve angelcomedy.co.uk-bill-murray
+        run: npm run retrieve -- angelcomedy.co.uk-bill-murray
 
       - name: royalgreenwich.gov.uk-eltham-park-south
-        run: npx clusterflick/scripts retrieve royalgreenwich.gov.uk-eltham-park-south
+        run: npm run retrieve -- royalgreenwich.gov.uk-eltham-park-south
 
       - name: theblackeel.uk
-        run: npx clusterflick/scripts retrieve theblackeel.uk
+        run: npm run retrieve -- theblackeel.uk
 
       - name: dehemspub.co.uk
-        run: npx clusterflick/scripts retrieve dehemspub.co.uk
+        run: npm run retrieve -- dehemspub.co.uk
 
       - name: jaguarshoes.com-the-victoria
-        run: npx clusterflick/scripts retrieve jaguarshoes.com-the-victoria
+        run: npm run retrieve -- jaguarshoes.com-the-victoria
 
       - name: thewinchesterhighgate.co.uk
-        run: npx clusterflick/scripts retrieve thewinchesterhighgate.co.uk
+        run: npm run retrieve -- thewinchesterhighgate.co.uk
 
       - name: reference-point.uk
-        run: npx clusterflick/scripts retrieve reference-point.uk
+        run: npm run retrieve -- reference-point.uk
 
       - name: centre151.com
-        run: npx clusterflick/scripts retrieve centre151.com
+        run: npm run retrieve -- centre151.com
 
       - name: antwerparms.co.uk
-        run: npx clusterflick/scripts retrieve antwerparms.co.uk
+        run: npm run retrieve -- antwerparms.co.uk
 
       - name: spanners.club
-        run: npx clusterflick/scripts retrieve spanners.club
+        run: npm run retrieve -- spanners.club
 
       - name: shapeslewisham.co.uk
-        run: npx clusterflick/scripts retrieve shapeslewisham.co.uk
+        run: npm run retrieve -- shapeslewisham.co.uk
 
       - name: lacamionera.com
-        run: npx clusterflick/scripts retrieve lacamionera.com
+        run: npm run retrieve -- lacamionera.com
 
       - name: lordshiphub.org
-        run: npx clusterflick/scripts retrieve lordshiphub.org
+        run: npm run retrieve -- lordshiphub.org
 
       - name: theshowroom.org
-        run: npx clusterflick/scripts retrieve theshowroom.org
+        run: npm run retrieve -- theshowroom.org
 
       - name: eseacommunitycentre.org.uk
-        run: npx clusterflick/scripts retrieve eseacommunitycentre.org.uk
+        run: npm run retrieve -- eseacommunitycentre.org.uk
 
       - name: maydayrooms.org
-        run: npx clusterflick/scripts retrieve maydayrooms.org
+        run: npm run retrieve -- maydayrooms.org
 
       - name: stmaryswalthamstow.org
-        run: npx clusterflick/scripts retrieve stmaryswalthamstow.org
+        run: npm run retrieve -- stmaryswalthamstow.org
 
       - name: londres.cervantes.es
-        run: npx clusterflick/scripts retrieve londres.cervantes.es
+        run: npm run retrieve -- londres.cervantes.es
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -810,7 +810,7 @@ jobs:
           timeout_minutes: 120
           retry_wait_seconds: 30
           max_attempts: 30
-          command: npx clusterflick/scripts retrieve bfi.org.uk-bfi-festivals
+          command: npm run retrieve -- bfi.org.uk-bfi-festivals
 
       - name: bfi.org.uk-imax
         uses: nick-fields/retry@v4
@@ -818,7 +818,7 @@ jobs:
           timeout_minutes: 30
           retry_wait_seconds: 30
           max_attempts: 10
-          command: npx clusterflick/scripts retrieve bfi.org.uk-imax
+          command: npm run retrieve -- bfi.org.uk-imax
 
       - name: bfi.org.uk-southbank
         uses: nick-fields/retry@v4
@@ -826,7 +826,7 @@ jobs:
           timeout_minutes: 120
           retry_wait_seconds: 30
           max_attempts: 30
-          command: npx clusterflick/scripts retrieve bfi.org.uk-southbank
+          command: npm run retrieve -- bfi.org.uk-southbank
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -855,84 +855,84 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-bexleyheath
+          command: npm run retrieve -- cineworld.co.uk-bexleyheath
 
       - name: cineworld.co.uk-enfield
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-enfield
+          command: npm run retrieve -- cineworld.co.uk-enfield
 
       - name: cineworld.co.uk-feltham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-feltham
+          command: npm run retrieve -- cineworld.co.uk-feltham
 
       - name: cineworld.co.uk-hounslow
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-hounslow
+          command: npm run retrieve -- cineworld.co.uk-hounslow
 
       - name: cineworld.co.uk-ilford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-ilford
+          command: npm run retrieve -- cineworld.co.uk-ilford
 
       - name: cineworld.co.uk-leicester-square
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-leicester-square
+          command: npm run retrieve -- cineworld.co.uk-leicester-square
 
       - name: cineworld.co.uk-south-ruislip
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-south-ruislip
+          command: npm run retrieve -- cineworld.co.uk-south-ruislip
 
       - name: cineworld.co.uk-the-o2-greenwich
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-the-o2-greenwich
+          command: npm run retrieve -- cineworld.co.uk-the-o2-greenwich
 
       - name: cineworld.co.uk-wandsworth
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-wandsworth
+          command: npm run retrieve -- cineworld.co.uk-wandsworth
 
       - name: cineworld.co.uk-wembley
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-wembley
+          command: npm run retrieve -- cineworld.co.uk-wembley
 
       - name: cineworld.co.uk-west-india-quay
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-west-india-quay
+          command: npm run retrieve -- cineworld.co.uk-west-india-quay
 
       - name: cineworld.co.uk-wood-green
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cineworld.co.uk-wood-green
+          command: npm run retrieve -- cineworld.co.uk-wood-green
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -956,77 +956,77 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-aldgate
+          command: npm run retrieve -- curzon.com-aldgate
 
       - name: curzon.com-bloomsbury
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-bloomsbury
+          command: npm run retrieve -- curzon.com-bloomsbury
 
       - name: curzon.com-camden
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-camden
+          command: npm run retrieve -- curzon.com-camden
 
       - name: curzon.com-hoxton
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-hoxton
+          command: npm run retrieve -- curzon.com-hoxton
 
       - name: curzon.com-kingston
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-kingston
+          command: npm run retrieve -- curzon.com-kingston
 
       - name: curzon.com-mayfair
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-mayfair
+          command: npm run retrieve -- curzon.com-mayfair
 
       - name: curzon.com-richmond
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-richmond
+          command: npm run retrieve -- curzon.com-richmond
 
       - name: curzon.com-soho
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-soho
+          command: npm run retrieve -- curzon.com-soho
 
       - name: curzon.com-victoria
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-victoria
+          command: npm run retrieve -- curzon.com-victoria
 
       - name: curzon.com-wimbledon
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzon.com-wimbledon
+          command: npm run retrieve -- curzon.com-wimbledon
 
       - name: curzonseacontainers.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve curzonseacontainers.com
+          command: npm run retrieve -- curzonseacontainers.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1048,14 +1048,14 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve electriccinema.co.uk-portobello
+          command: npm run retrieve -- electriccinema.co.uk-portobello
 
       - name: electriccinema.co.uk-white-city
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve electriccinema.co.uk-white-city
+          command: npm run retrieve -- electriccinema.co.uk-white-city
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1077,14 +1077,14 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve rooftopcinemaclub.com-peckham
+          command: npm run retrieve -- rooftopcinemaclub.com-peckham
 
       - name: rooftopcinemaclub.com-stratford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve rooftopcinemaclub.com-stratford
+          command: npm run retrieve -- rooftopcinemaclub.com-stratford
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1106,14 +1106,14 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve tate.org.uk-tate-britain
+          command: npm run retrieve -- tate.org.uk-tate-britain
 
       - name: tate.org.uk-tate-modern
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve tate.org.uk-tate-modern
+          command: npm run retrieve -- tate.org.uk-tate-modern
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1135,21 +1135,21 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve firmdalehotels.com-charlotte-street
+          command: npm run retrieve -- firmdalehotels.com-charlotte-street
 
       - name: firmdalehotels.com-covent-garden
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve firmdalehotels.com-covent-garden
+          command: npm run retrieve -- firmdalehotels.com-covent-garden
 
       - name: firmdalehotels.com-soho
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve firmdalehotels.com-soho
+          command: npm run retrieve -- firmdalehotels.com-soho
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1171,21 +1171,21 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve olympiccinema.com
+          command: npm run retrieve -- olympiccinema.com
 
       - name: thecinemaatselfridges.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thecinemaatselfridges.com
+          command: npm run retrieve -- thecinemaatselfridges.com
 
       - name: thecinemainthepowerstation.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thecinemainthepowerstation.com
+          command: npm run retrieve -- thecinemainthepowerstation.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1207,119 +1207,119 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-baker-street
+          command: npm run retrieve -- everymancinema.com-baker-street
 
       - name: everymancinema.com-barnet
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-barnet
+          command: npm run retrieve -- everymancinema.com-barnet
 
       - name: everymancinema.com-belsize-park
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-belsize-park
+          command: npm run retrieve -- everymancinema.com-belsize-park
 
       - name: everymancinema.com-borough-yards
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-borough-yards
+          command: npm run retrieve -- everymancinema.com-borough-yards
 
       - name: everymancinema.com-brentford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-brentford
+          command: npm run retrieve -- everymancinema.com-brentford
 
       - name: everymancinema.com-broadgate
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-broadgate
+          command: npm run retrieve -- everymancinema.com-broadgate
 
       - name: everymancinema.com-canary-wharf
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-canary-wharf
+          command: npm run retrieve -- everymancinema.com-canary-wharf
 
       - name: everymancinema.com-chelsea
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-chelsea
+          command: npm run retrieve -- everymancinema.com-chelsea
 
       - name: everymancinema.com-crystal-palace
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-crystal-palace
+          command: npm run retrieve -- everymancinema.com-crystal-palace
 
       - name: everymancinema.com-everyman-on-the-canal-at-kings-cross
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-everyman-on-the-canal-at-kings-cross
+          command: npm run retrieve -- everymancinema.com-everyman-on-the-canal-at-kings-cross
 
       - name: everymancinema.com-hampstead
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-hampstead
+          command: npm run retrieve -- everymancinema.com-hampstead
 
       - name: everymancinema.com-kings-cross
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-kings-cross
+          command: npm run retrieve -- everymancinema.com-kings-cross
 
       - name: everymancinema.com-maida-vale
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-maida-vale
+          command: npm run retrieve -- everymancinema.com-maida-vale
 
       - name: everymancinema.com-muswell-hill
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-muswell-hill
+          command: npm run retrieve -- everymancinema.com-muswell-hill
 
       - name: everymancinema.com-screen-on-the-green
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-screen-on-the-green
+          command: npm run retrieve -- everymancinema.com-screen-on-the-green
 
       - name: everymancinema.com-stratford-international
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-stratford-international
+          command: npm run retrieve -- everymancinema.com-stratford-international
 
       - name: everymancinema.com-the-whiteley
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve everymancinema.com-the-whiteley
+          command: npm run retrieve -- everymancinema.com-the-whiteley
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1343,56 +1343,56 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-bromley
+          command: npm run retrieve -- myvue.com-bromley
 
       - name: myvue.com-croydon-purley-way
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-croydon-purley-way
+          command: npm run retrieve -- myvue.com-croydon-purley-way
 
       - name: myvue.com-dagenham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-dagenham
+          command: npm run retrieve -- myvue.com-dagenham
 
       - name: myvue.com-eltham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-eltham
+          command: npm run retrieve -- myvue.com-eltham
 
       - name: myvue.com-finchley-road
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-finchley-road
+          command: npm run retrieve -- myvue.com-finchley-road
 
       - name: myvue.com-fulham-broadway
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-fulham-broadway
+          command: npm run retrieve -- myvue.com-fulham-broadway
 
       - name: myvue.com-harrow
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-harrow
+          command: npm run retrieve -- myvue.com-harrow
 
       - name: myvue.com-islington
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-islington
+          command: npm run retrieve -- myvue.com-islington
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1416,49 +1416,49 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-leicester-square
+          command: npm run retrieve -- myvue.com-leicester-square
 
       - name: myvue.com-north-finchley
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-north-finchley
+          command: npm run retrieve -- myvue.com-north-finchley
 
       - name: myvue.com-piccadilly
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-piccadilly
+          command: npm run retrieve -- myvue.com-piccadilly
 
       - name: myvue.com-romford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-romford
+          command: npm run retrieve -- myvue.com-romford
 
       - name: myvue.com-westfield
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-westfield
+          command: npm run retrieve -- myvue.com-westfield
 
       - name: myvue.com-westfield-stratford-city
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-westfield-stratford-city
+          command: npm run retrieve -- myvue.com-westfield-stratford-city
 
       - name: myvue.com-wood-green
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve myvue.com-wood-green
+          command: npm run retrieve -- myvue.com-wood-green
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1482,133 +1482,133 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-acton
+          command: npm run retrieve -- odeon.co.uk-acton
 
       - name: odeon.co.uk-beckenham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-beckenham
+          command: npm run retrieve -- odeon.co.uk-beckenham
 
       - name: odeon.co.uk-greenwich
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-greenwich
+          command: npm run retrieve -- odeon.co.uk-greenwich
 
       - name: odeon.co.uk-haymarket
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-haymarket
+          command: npm run retrieve -- odeon.co.uk-haymarket
 
       - name: odeon.co.uk-holloway
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-holloway
+          command: npm run retrieve -- odeon.co.uk-holloway
 
       - name: odeon.co.uk-islington
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-islington
+          command: npm run retrieve -- odeon.co.uk-islington
 
       - name: odeon.co.uk-kingston
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-kingston
+          command: npm run retrieve -- odeon.co.uk-kingston
 
       - name: odeon.co.uk-lee-valley
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-lee-valley
+          command: npm run retrieve -- odeon.co.uk-lee-valley
 
       - name: odeon.co.uk-leicester-square
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-leicester-square
+          command: npm run retrieve -- odeon.co.uk-leicester-square
 
       - name: odeon.co.uk-orpington
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-orpington
+          command: npm run retrieve -- odeon.co.uk-orpington
 
       - name: odeon.co.uk-putney
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-putney
+          command: npm run retrieve -- odeon.co.uk-putney
 
       - name: odeon.co.uk-richmond
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-richmond
+          command: npm run retrieve -- odeon.co.uk-richmond
 
       - name: odeon.co.uk-south-woodford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-south-woodford
+          command: npm run retrieve -- odeon.co.uk-south-woodford
 
       - name: odeon.co.uk-streatham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-streatham
+          command: npm run retrieve -- odeon.co.uk-streatham
 
       - name: odeon.co.uk-swiss-cottage
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-swiss-cottage
+          command: npm run retrieve -- odeon.co.uk-swiss-cottage
 
       - name: odeon.co.uk-tottenham-court-road
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-tottenham-court-road
+          command: npm run retrieve -- odeon.co.uk-tottenham-court-road
 
       - name: odeon.co.uk-uxbridge
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-uxbridge
+          command: npm run retrieve -- odeon.co.uk-uxbridge
 
       - name: odeon.co.uk-west-end
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-west-end
+          command: npm run retrieve -- odeon.co.uk-west-end
 
       - name: odeon.co.uk-wimbledon
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve odeon.co.uk-wimbledon
+          command: npm run retrieve -- odeon.co.uk-wimbledon
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1637,42 +1637,42 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-central
+          command: npm run retrieve -- picturehouses.com-central
 
       - name: picturehouses.com-clapham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-clapham
+          command: npm run retrieve -- picturehouses.com-clapham
 
       - name: picturehouses.com-crouch-end
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-crouch-end
+          command: npm run retrieve -- picturehouses.com-crouch-end
 
       - name: picturehouses.com-ealing
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-ealing
+          command: npm run retrieve -- picturehouses.com-ealing
 
       - name: picturehouses.com-east-dulwich
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-east-dulwich
+          command: npm run retrieve -- picturehouses.com-east-dulwich
 
       - name: picturehouses.com-greenwich
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-greenwich
+          command: npm run retrieve -- picturehouses.com-greenwich
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1694,35 +1694,35 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-finsbury-park
+          command: npm run retrieve -- picturehouses.com-finsbury-park
 
       - name: picturehouses.com-hackney
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-hackney
+          command: npm run retrieve -- picturehouses.com-hackney
 
       - name: picturehouses.com-the-gate
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-the-gate
+          command: npm run retrieve -- picturehouses.com-the-gate
 
       - name: picturehouses.com-the-ritzy
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-the-ritzy
+          command: npm run retrieve -- picturehouses.com-the-ritzy
 
       - name: picturehouses.com-west-norwood
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve picturehouses.com-west-norwood
+          command: npm run retrieve -- picturehouses.com-west-norwood
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1744,28 +1744,28 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve regentstreetcinema.com
+          command: npm run retrieve -- regentstreetcinema.com
 
       - name: phoenixcinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve phoenixcinema.co.uk
+          command: npm run retrieve -- phoenixcinema.co.uk
 
       - name: actonecinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve actonecinema.co.uk
+          command: npm run retrieve -- actonecinema.co.uk
 
       - name: chiswickcinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve chiswickcinema.co.uk
+          command: npm run retrieve -- chiswickcinema.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1787,21 +1787,21 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve riocinema.org.uk
+          command: npm run retrieve -- riocinema.org.uk
 
       - name: thelexicinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thelexicinema.co.uk
+          command: npm run retrieve -- thelexicinema.co.uk
 
       - name: thearzner.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thearzner.com
+          command: npm run retrieve -- thearzner.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1825,133 +1825,133 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve lumiereromford.com
+          command: npm run retrieve -- lumiereromford.com
 
       - name: metrocinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve metrocinema.co.uk
+          command: npm run retrieve -- metrocinema.co.uk
 
       - name: backyardcinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve backyardcinema.co.uk
+          command: npm run retrieve -- backyardcinema.co.uk
 
       - name: eventimapollo.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve eventimapollo.com
+          command: npm run retrieve -- eventimapollo.com
 
       - name: thenickel.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thenickel.co.uk
+          command: npm run retrieve -- thenickel.co.uk
 
       - name: barbican.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve barbican.org.uk
+          command: npm run retrieve -- barbican.org.uk
 
       - name: thegardencinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thegardencinema.co.uk
+          command: npm run retrieve -- thegardencinema.co.uk
 
       - name: richmix.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve richmix.org.uk
+          command: npm run retrieve -- richmix.org.uk
 
       - name: cinemamuseum.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cinemamuseum.org.uk
+          command: npm run retrieve -- cinemamuseum.org.uk
 
       - name: riversidestudios.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve riversidestudios.co.uk
+          command: npm run retrieve -- riversidestudios.co.uk
 
       - name: sciencemuseum.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve sciencemuseum.org.uk
+          command: npm run retrieve -- sciencemuseum.org.uk
 
       - name: ica.art
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve ica.art
+          command: npm run retrieve -- ica.art
 
       - name: institut-francais.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve institut-francais.org.uk
+          command: npm run retrieve -- institut-francais.org.uk
 
       - name: irishculturalcentre.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve irishculturalcentre.co.uk
+          command: npm run retrieve -- irishculturalcentre.co.uk
 
       - name: jw3.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve jw3.org.uk
+          command: npm run retrieve -- jw3.org.uk
 
       - name: adventurecinema.co.uk-kew-gardens
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve adventurecinema.co.uk-kew-gardens
+          command: npm run retrieve -- adventurecinema.co.uk-kew-gardens
 
       - name: canarywharf.com-summer-screens
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve canarywharf.com-summer-screens
+          command: npm run retrieve -- canarywharf.com-summer-screens
 
       - name: stanleyarts.org
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve stanleyarts.org
+          command: npm run retrieve -- stanleyarts.org
 
       - name: bushtheatre.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve bushtheatre.co.uk
+          command: npm run retrieve -- bushtheatre.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -1975,203 +1975,203 @@ jobs:
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve princecharlescinema.com
+          command: npm run retrieve -- princecharlescinema.com
 
       - name: genesiscinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve genesiscinema.co.uk
+          command: npm run retrieve -- genesiscinema.co.uk
 
       - name: forestcinema.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve forestcinema.co.uk
+          command: npm run retrieve -- forestcinema.co.uk
 
       - name: arthousecrouchend.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve arthousecrouchend.co.uk
+          command: npm run retrieve -- arthousecrouchend.co.uk
 
       - name: thecastlecinema.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thecastlecinema.com
+          command: npm run retrieve -- thecastlecinema.com
 
       - name: castlesidcup.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve castlesidcup.com
+          command: npm run retrieve -- castlesidcup.com
 
       - name: davidleancinema.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve davidleancinema.org.uk
+          command: npm run retrieve -- davidleancinema.org.uk
 
       - name: kilntheatre.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve kilntheatre.com
+          command: npm run retrieve -- kilntheatre.com
 
       - name: sandsfilms.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve sandsfilms.co.uk
+          command: npm run retrieve -- sandsfilms.co.uk
 
       - name: coldharbourblue.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve coldharbourblue.com
+          command: npm run retrieve -- coldharbourblue.com
 
       - name: peckhamplex.london
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve peckhamplex.london
+          command: npm run retrieve -- peckhamplex.london
 
       - name: royalalberthall.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve royalalberthall.com
+          command: npm run retrieve -- royalalberthall.com
 
       - name: omniplex.co.uk-sutton
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve omniplex.co.uk-sutton
+          command: npm run retrieve -- omniplex.co.uk-sutton
 
       - name: fulhampier.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve fulhampier.com
+          command: npm run retrieve -- fulhampier.com
 
       - name: acflondon.org
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve acflondon.org
+          command: npm run retrieve -- acflondon.org
 
       - name: thehorsehospital.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thehorsehospital.com
+          command: npm run retrieve -- thehorsehospital.com
 
       - name: thehammondtheatre.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve thehammondtheatre.co.uk
+          command: npm run retrieve -- thehammondtheatre.co.uk
 
       - name: lewisham.gov.uk-deptford-lounge
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve lewisham.gov.uk-deptford-lounge
+          command: npm run retrieve -- lewisham.gov.uk-deptford-lounge
 
       - name: dugdaleartscentre.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve dugdaleartscentre.co.uk
+          command: npm run retrieve -- dugdaleartscentre.co.uk
 
       - name: sydenhamarts.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve sydenhamarts.co.uk
+          command: npm run retrieve -- sydenhamarts.co.uk
 
       - name: whitechapelgallery.org
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve whitechapelgallery.org
+          command: npm run retrieve -- whitechapelgallery.org
 
       - name: not-nowhere.org
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve not-nowhere.org
+          command: npm run retrieve -- not-nowhere.org
 
       - name: museumofthehome.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve museumofthehome.org.uk
+          command: npm run retrieve -- museumofthehome.org.uk
 
       - name: wiltons.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve wiltons.org.uk
+          command: npm run retrieve -- wiltons.org.uk
 
       - name: cadoganhall.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve cadoganhall.com
+          command: npm run retrieve -- cadoganhall.com
 
       - name: royalparks.org.uk-hyde-park
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve royalparks.org.uk-hyde-park
+          command: npm run retrieve -- royalparks.org.uk-hyde-park
 
       - name: londonbridgecity.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve londonbridgecity.co.uk
+          command: npm run retrieve -- londonbridgecity.co.uk
 
       - name: rafmuseum.org.uk-london
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve rafmuseum.org.uk-london
+          command: npm run retrieve -- rafmuseum.org.uk-london
 
       - name: lbhf.gov.uk-lyric-square
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           max_attempts: 3
-          command: npx clusterflick/scripts retrieve lbhf.gov.uk-lyric-square
+          command: npm run retrieve -- lbhf.gov.uk-lyric-square
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7

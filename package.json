@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Runs scripts to retrieve data",
+  "scripts": {
+    "retrieve": "node node_modules/scripts/index.js retrieve"
+  },
   "author": "Alistair Brown <github@alistairjcbrown.com>",
   "license": "MIT",
   "dependencies": {

@@ -14,7 +14,7 @@ then published as a release on this repository for downstream processing.
 The workflow executes the retrieve command for each venue:
 
 ```bash
-npx clusterflick/scripts retrieve <venue-identifier>
+npm run retrieve -- <venue-identifier>
 ```
 
 This command:
@@ -50,7 +50,7 @@ include the retrieval step. To add a venue:
 2. Add a new step to run the retrieve command for the venue:
    ```yaml
    - name: venue-identifier
-     run: npx clusterflick/scripts retrieve venue-identifier
+     run: npm run retrieve -- venue-identifier
    ```
 
 **Note:** Consider using `nick-fields/retry@v3` for venues with unreliable

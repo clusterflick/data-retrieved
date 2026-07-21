@@ -22,14 +22,14 @@ Add a step to the appropriate job group in `retrieve.yml`:
   with:
     timeout_minutes: 20
     max_attempts: 3
-    command: npx clusterflick/scripts retrieve source-identifier
+    command: npm run retrieve -- source-identifier
 ```
 
 Or for lightweight sources that don't need retry:
 
 ```yaml
 - name: source-identifier
-  run: npx clusterflick/scripts retrieve source-identifier
+  run: npm run retrieve -- source-identifier
 ```
 
 ### Playwright dependency
