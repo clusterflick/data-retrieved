@@ -2224,6 +2224,10 @@ jobs:
         with:
           path: retrieved-data/
           merge-multiple: true
+      - name: Drop Playwright failure artifacts
+        # Retrieve jobs upload debugging screenshots/page dumps.
+        # Strip out before they are published as part of the release.
+        run: rm -f retrieved-data/error--*
       - name: Generate Tag
         run: echo "TAG=$(TZ=Europe/London date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
       - uses: ncipollo/release-action@v1
