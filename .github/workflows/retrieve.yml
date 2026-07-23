@@ -2187,8 +2187,10 @@ jobs:
     runs-on: ubuntu-latest
     # ncipollo/release-action creates a release + tag via GITHUB_TOKEN,
     # which requires contents: write (top-level default is contents: read).
+    # actions: read lets download-artifact use the REST API - see below.
     permissions:
       contents: write
+      actions: read
     needs:
       [
         retrieve_eventbrite,
@@ -2220,10 +2222,15 @@ jobs:
       ]
     steps:
       - name: Download All Artifacts
+        # Without github-token this uses the internal artifact service, whose
+        # GetSignedArtifactURL call intermittently 404s ("workflow run not
+        # found") on runs with several re-run attempts. Passing a token
+        # switches it to the REST API, which resolves artifacts reliably.
         uses: actions/download-artifact@v8
         with:
           path: retrieved-data/
           merge-multiple: true
+          github-token: ${{ github.token }}
       - name: Drop Playwright failure artifacts
         # Retrieve jobs upload debugging screenshots/page dumps.
         # Strip out before they are published as part of the release.
