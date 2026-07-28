@@ -823,7 +823,7 @@ jobs:
       - name: bfi.org.uk-southbank
         uses: nick-fields/retry@v4
         with:
-          timeout_minutes: 120
+          timeout_minutes: 240
           retry_wait_seconds: 30
           max_attempts: 30
           command: npm run retrieve -- bfi.org.uk-southbank
