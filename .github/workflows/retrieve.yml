@@ -1481,133 +1481,152 @@ jobs:
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-acton
 
       - name: odeon.co.uk-beckenham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-beckenham
 
       - name: odeon.co.uk-greenwich
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-greenwich
 
       - name: odeon.co.uk-haymarket
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-haymarket
 
       - name: odeon.co.uk-holloway
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-holloway
 
       - name: odeon.co.uk-islington
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-islington
 
       - name: odeon.co.uk-kingston
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-kingston
 
       - name: odeon.co.uk-lee-valley
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-lee-valley
 
       - name: odeon.co.uk-leicester-square
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-leicester-square
 
       - name: odeon.co.uk-orpington
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-orpington
 
       - name: odeon.co.uk-putney
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-putney
 
       - name: odeon.co.uk-richmond
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-richmond
 
       - name: odeon.co.uk-south-woodford
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-south-woodford
 
       - name: odeon.co.uk-streatham
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-streatham
 
       - name: odeon.co.uk-swiss-cottage
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-swiss-cottage
 
       - name: odeon.co.uk-tottenham-court-road
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-tottenham-court-road
 
       - name: odeon.co.uk-uxbridge
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-uxbridge
 
       - name: odeon.co.uk-west-end
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-west-end
 
       - name: odeon.co.uk-wimbledon
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          retry_wait_seconds: 60
+          max_attempts: 10
           command: npm run retrieve -- odeon.co.uk-wimbledon
 
       - name: Upload Artifacts
