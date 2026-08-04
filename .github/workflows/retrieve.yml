@@ -53,8 +53,8 @@ jobs:
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 30
-          retry_wait_seconds: 30
-          max_attempts: 10
+          retry_wait_seconds: 120
+          max_attempts: 3
           command: npm run retrieve -- ticketsource.co.uk
 
       - name: Upload Artifacts
