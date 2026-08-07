@@ -391,6 +391,9 @@ jobs:
       - name: nehrucentre.org.uk
         run: npm run retrieve -- nehrucentre.org.uk
 
+      - name: instagram.com-canalfilmclub
+        run: npm run retrieve -- instagram.com-canalfilmclub
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
