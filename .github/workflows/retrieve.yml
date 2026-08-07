@@ -280,6 +280,9 @@ jobs:
       - name: fen-court.com
         run: npm run retrieve -- fen-court.com
 
+      - name: heathcoteandstar.co.uk
+        run: npm run retrieve -- heathcoteandstar.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
