@@ -700,9 +700,6 @@ jobs:
       - name: bloomsbury.org.uk
         run: npm run retrieve -- bloomsbury.org.uk
 
-      - name: closeupfilmcentre.com
-        run: npm run retrieve -- closeupfilmcentre.com
-
       - name: rosslynhillchapel.org.uk
         run: npm run retrieve -- rosslynhillchapel.org.uk
 
@@ -1799,6 +1796,55 @@ jobs:
           path: retrieved-data/
 
   # ------------------------------------------------------------------------------
+  # Retrieve Close-Up Film Centre
+  # ------------------------------------------------------------------------------
+  # Runs on its own because it's the only venue that drives Camoufox: its site is
+  # behind a Cloudflare challenge that flips on and off through the day, so this
+  # is the venue most likely to need several attempts. On its own, a bad day
+  # costs this venue's data rather than every venue sharing its job.
+  retrieve_closeupfilmcentre:
+    name: Retrieve Close-Up Film Centre
+    runs-on: self-hosted
+    env:
+      # Camoufox brings its own Firefox, so nothing here needs the Playwright
+      # browser download - and this also stops camoufox-js fetching the GeoIP
+      # database at runtime. The browser itself is provisioned on the runner.
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+    steps:
+      - uses: clusterflick/.github/setup@main
+
+      - name: Verify Camoufox is installed
+        # Fails fast, before the retrieve, if the runner is missing the browser.
+        # `false` is load-bearing: the default resolves a missing install by
+        # kicking off a ~650MB download in the background, which is exactly what
+        # shouldn't happen mid-job.
+        run: node -e 'require("camoufox-js/dist/pkgman.js").camoufoxPath(false)'
+
+      - name: closeupfilmcentre.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 30
+          # The challenge has been observed flipping on and off on a ~30 minute
+          # cycle, so waits are long enough to land in a different phase of it
+          # rather than retrying into the same closed window.
+          retry_wait_seconds: 600
+          max_attempts: 4
+          command: npm run retrieve -- closeupfilmcentre.com
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_closeupfilmcentre
+          path: retrieved-data/
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_closeupfilmcentre-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
   # Retrieve Savoy Systems
   # ------------------------------------------------------------------------------
   retrieve_savoy_systems:
@@ -2241,6 +2287,7 @@ jobs:
         retrieve_picturehouses_1,
         retrieve_picturehouses_2,
         retrieve_indy_cinema_group,
+        retrieve_closeupfilmcentre,
         retrieve_savoy_systems,
         retrieve_remaining_cinemas_1,
         retrieve_remaining_cinemas_2,
