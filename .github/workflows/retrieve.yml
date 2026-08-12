@@ -1864,7 +1864,12 @@ jobs:
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
-          max_attempts: 3
+          # The default 10s wait meant all attempts were exhausted within ~2
+          # minutes, so any outage longer than a brief blip failed the job
+          # outright. Spreading the same handful of requests over ~15 minutes
+          # covers a realistic outage window at a lower request rate.
+          retry_wait_seconds: 300
+          max_attempts: 4
           command: npm run retrieve -- thelexicinema.co.uk
 
       - name: thearzner.com
