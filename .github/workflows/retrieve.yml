@@ -165,6 +165,13 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- japanesefilm.club
 
+      - name: freefilmfestivals.org
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- freefilmfestivals.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -283,6 +290,18 @@ jobs:
       - name: heathcoteandstar.co.uk
         run: npm run retrieve -- heathcoteandstar.co.uk
 
+      - name: ampstudios.co.uk
+        run: npm run retrieve -- ampstudios.co.uk
+
+      - name: britishhome.org.uk
+        run: npm run retrieve -- britishhome.org.uk
+
+      - name: fonc.org.uk
+        run: npm run retrieve -- fonc.org.uk
+
+      - name: lambeth.gov.uk-streatham-library
+        run: npm run retrieve -- lambeth.gov.uk-streatham-library
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -393,6 +412,18 @@ jobs:
 
       - name: instagram.com-canalfilmclub
         run: npm run retrieve -- instagram.com-canalfilmclub
+
+      - name: mountview.org.uk
+        run: npm run retrieve -- mountview.org.uk
+
+      - name: powku1.wixsite.com-batchandco
+        run: npm run retrieve -- powku1.wixsite.com-batchandco
+
+      - name: stmatthewswimbledon.org
+        run: npm run retrieve -- stmatthewswimbledon.org
+
+      - name: thewoodfield.org
+        run: npm run retrieve -- thewoodfield.org
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
