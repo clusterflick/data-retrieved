@@ -304,6 +304,18 @@ jobs:
       - name: lambeth.gov.uk-streatham-library
         run: npm run retrieve -- lambeth.gov.uk-streatham-library
 
+      - name: brenchleygardens.co.uk
+        run: npm run retrieve -- brenchleygardens.co.uk
+
+      - name: christchurchpeckham.org
+        run: npm run retrieve -- christchurchpeckham.org
+
+      - name: cossallresidents.wordpress.com
+        run: npm run retrieve -- cossallresidents.wordpress.com
+
+      - name: elchicos.co.uk
+        run: npm run retrieve -- elchicos.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -426,6 +438,15 @@ jobs:
 
       - name: thewoodfield.org
         run: npm run retrieve -- thewoodfield.org
+
+      - name: fortunegreen.org.uk
+        run: npm run retrieve -- fortunegreen.org.uk
+
+      - name: hillsidegardenspark.co.uk
+        run: npm run retrieve -- hillsidegardenspark.co.uk
+
+      - name: instagram.com-buchanhall
+        run: npm run retrieve -- instagram.com-buchanhall
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -678,6 +699,15 @@ jobs:
 
       - name: hyphastudios.com-kentish-town
         run: npm run retrieve -- hyphastudios.com-kentish-town
+
+      - name: liveseyexchange.com
+        run: npm run retrieve -- liveseyexchange.com
+
+      - name: loveanddye.com
+        run: npm run retrieve -- loveanddye.com
+
+      - name: peckhampalms.com
+        run: npm run retrieve -- peckhampalms.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
