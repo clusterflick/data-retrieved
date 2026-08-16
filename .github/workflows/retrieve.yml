@@ -287,8 +287,8 @@ jobs:
       - name: callypark.london
         run: npm run retrieve -- callypark.london
 
-      - name: commonpress.co.uk
-        run: npm run retrieve -- commonpress.co.uk
+      - name: commonpress.co.uk-shoreditch
+        run: npm run retrieve -- commonpress.co.uk-shoreditch
 
       - name: etceteratheatrecamden.com
         run: npm run retrieve -- etceteratheatrecamden.com
@@ -334,6 +334,9 @@ jobs:
 
       - name: placesleisure.org-tooting-bec-lido
         run: npm run retrieve -- placesleisure.org-tooting-bec-lido
+
+      - name: wheatsheafhall.org.uk
+        run: npm run retrieve -- wheatsheafhall.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -482,6 +485,9 @@ jobs:
       - name: westwimbledonsociety.org
         run: npm run retrieve -- westwimbledonsociety.org
 
+      - name: lostsoulspizza.com
+        run: npm run retrieve -- lostsoulspizza.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -628,6 +634,9 @@ jobs:
 
       - name: thecornerhouse.org
         run: npm run retrieve -- thecornerhouse.org
+
+      - name: loveaffairbasement.co.uk
+        run: npm run retrieve -- loveaffairbasement.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -776,6 +785,9 @@ jobs:
       - name: winchmorehillurc.co.uk
         run: npm run retrieve -- winchmorehillurc.co.uk
 
+      - name: commonpress.co.uk-dalston
+        run: npm run retrieve -- commonpress.co.uk-dalston
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -919,6 +931,9 @@ jobs:
 
       - name: londres.cervantes.es
         run: npm run retrieve -- londres.cervantes.es
+
+      - name: oxfordhouse.org.uk
+        run: npm run retrieve -- oxfordhouse.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
