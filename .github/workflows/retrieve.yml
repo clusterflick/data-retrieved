@@ -455,6 +455,15 @@ jobs:
       - name: instagram.com-buchanhall
         run: npm run retrieve -- instagram.com-buchanhall
 
+      - name: stleonard-streatham.org.uk
+        run: npm run retrieve -- stleonard-streatham.org.uk
+
+      - name: linktr.ee-thecarpetshoppeckham
+        run: npm run retrieve -- linktr.ee-thecarpetshoppeckham
+
+      - name: thecavernfreehouse.co.uk
+        run: npm run retrieve -- thecavernfreehouse.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -583,6 +592,18 @@ jobs:
 
       - name: thebrookmill.co.uk
         run: npm run retrieve -- thebrookmill.co.uk
+
+      - name: poppysfunerals.co.uk-raynes-park
+        run: npm run retrieve -- poppysfunerals.co.uk-raynes-park
+
+      - name: salvationarmy.org.uk-raynes-park
+        run: npm run retrieve -- salvationarmy.org.uk-raynes-park
+
+      - name: ruachcitychurch.org-streatham
+        run: npm run retrieve -- ruachcitychurch.org-streatham
+
+      - name: stgeorgeswoolwich.org
+        run: npm run retrieve -- stgeorgeswoolwich.org
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -715,6 +736,15 @@ jobs:
 
       - name: peckhampalms.com
         run: npm run retrieve -- peckhampalms.com
+
+      - name: greeneking.co.uk-leather-bottle
+        run: npm run retrieve -- greeneking.co.uk-leather-bottle
+
+      - name: facebook.com-themanofkent
+        run: npm run retrieve -- facebook.com-themanofkent
+
+      - name: themanorarms.com
+        run: npm run retrieve -- themanorarms.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
