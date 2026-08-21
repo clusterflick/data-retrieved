@@ -345,6 +345,12 @@ jobs:
       - name: wheatsheafhall.org.uk
         run: npm run retrieve -- wheatsheafhall.org.uk
 
+      - name: cyprusinuk.com
+        run: npm run retrieve -- cyprusinuk.com
+
+      - name: upminsterwindmill.org
+        run: npm run retrieve -- upminsterwindmill.org
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -494,6 +500,12 @@ jobs:
 
       - name: lostsoulspizza.com
         run: npm run retrieve -- lostsoulspizza.com
+
+      - name: posk.org
+        run: npm run retrieve -- posk.org
+
+      - name: wearebojangles.com
+        run: npm run retrieve -- wearebojangles.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -645,6 +657,12 @@ jobs:
       - name: loveaffairbasement.co.uk
         run: npm run retrieve -- loveaffairbasement.co.uk
 
+      - name: griffinwhetstone.pub
+        run: npm run retrieve -- griffinwhetstone.pub
+
+      - name: towerbridgecollective.co.uk
+        run: npm run retrieve -- towerbridgecollective.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -795,6 +813,12 @@ jobs:
       - name: commonpress.co.uk-dalston
         run: npm run retrieve -- commonpress.co.uk-dalston
 
+      - name: oslohackney.com
+        run: npm run retrieve -- oslohackney.com
+
+      - name: thebedford.com
+        run: npm run retrieve -- thebedford.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -944,6 +968,12 @@ jobs:
 
       - name: bigpennysocial.co.uk
         run: npm run retrieve -- bigpennysocial.co.uk
+
+      - name: goodluckhope.com-orchard-dry-dock
+        run: npm run retrieve -- goodluckhope.com-orchard-dry-dock
+
+      - name: instagram.com-green-alley-studios
+        run: npm run retrieve -- instagram.com-green-alley-studios
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
