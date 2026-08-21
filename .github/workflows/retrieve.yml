@@ -21,9 +21,9 @@ jobs:
       - name: eventbrite.co.uk
         uses: nick-fields/retry@v4
         with:
-          timeout_minutes: 60
-          retry_wait_seconds: 300
-          max_attempts: 4
+          timeout_minutes: 90
+          retry_wait_seconds: 60
+          max_attempts: 15
           command: npm run retrieve -- eventbrite.co.uk
 
       - name: Upload Artifacts
