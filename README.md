@@ -36,7 +36,8 @@ manually via workflow dispatch.
 Retrieve commands are organized into parallel job groups to:
 
 - Minimize total wall clock time
-- Prevent cascading failures (one command failure won't stop others)
+- Confine the blast radius of a failure (a failing job does not stop the other
+  jobs from running)
 - Enable individual job restarts when issues occur
 
 ## Maintenance
@@ -58,8 +59,10 @@ connections or rate limiting issues.
 
 ### Handling Failures
 
+- No release is published unless every retrieve job succeeds. The release is a
+  complete snapshot of every venue or it is not cut at all
 - Failed jobs can typically be restarted individually without rerunning the
-  entire workflow
+  entire workflow — artifacts from jobs that already succeeded are reused
 - Code fixes should be applied to the
   [clusterflick/scripts](https://github.com/clusterflick/scripts) repository,
   which is pulled in at build time

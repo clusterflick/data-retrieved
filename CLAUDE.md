@@ -12,6 +12,29 @@ it as a release for downstream processing by `clusterflick/data-transformed`.
   actual retrieval logic. There is intentionally no lock file so that
   `npm install` always pulls the latest version of the scripts dependency.
 
+## Releases are all-or-nothing
+
+`create_release` `needs` every retrieve job, so a release is only cut once all
+of them have succeeded. This is deliberate. Downstream treats a release as a
+complete snapshot of every venue, so a release with a venue missing is worse
+than no release: the venue reads as having nothing on rather than as absent,
+and `departed` treats its films as having finished their run.
+
+The consequences follow from that and are not bugs to design around:
+
+- One venue failing voids the whole run. That is the trade being made.
+- Do not get a release out of a run that had a failure by relaxing the gate —
+  no `if: always()` or `if: ${{ !cancelled() }}` on `create_release`, and no
+  dropping jobs from its `needs` array.
+- Resilience belongs upstream of the gate, in the retry budget:
+  `retry_wait_seconds` and `max_attempts` on the step here, and the per-fetch
+  retry config in `clusterflick/scripts`. The goal is that a venue does not
+  fail in the first place.
+
+Recover a failed run by re-running its failed jobs rather than the whole
+workflow. Artifacts from jobs that already succeeded are retained across
+attempts, so only the failures repeat.
+
 ## Adding a new source
 
 Add a step to the appropriate job group in `retrieve.yml`:
@@ -57,7 +80,8 @@ fewer venues per job. If adding many sources to a chunked group, consider
 whether the groups need rebalancing or a new group needs creating.
 
 When adding a new job group, it must also be added to the `needs` array in the
-`create_release` job at the bottom of the file.
+`create_release` job at the bottom of the file — a group left out of `needs`
+is one whose failure would not hold the release back.
 
 ### Source identifier conventions
 
