@@ -683,6 +683,9 @@ jobs:
       - name: towerbridgecollective.co.uk
         run: npm run retrieve -- towerbridgecollective.co.uk
 
+      - name: mildmay.club
+        run: npm run retrieve -- mildmay.club
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -2340,6 +2343,30 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- ibraaz.org
+
+      - name: alexandrapalace.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- alexandrapalace.com
+
+      - name: ogniskopolskie.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- ogniskopolskie.org.uk
+
+      - name: thewellwalktheatre.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- thewellwalktheatre.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
