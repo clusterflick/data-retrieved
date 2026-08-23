@@ -368,6 +368,12 @@ jobs:
       - name: walthamforest.gov.uk-langthorne-park
         run: npm run retrieve -- walthamforest.gov.uk-langthorne-park
 
+      - name: buildingcentre.co.uk
+        run: npm run retrieve -- buildingcentre.co.uk
+
+      - name: greenerandcleaner.co.uk
+        run: npm run retrieve -- greenerandcleaner.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -526,6 +532,12 @@ jobs:
 
       - name: walthamforest.gov.uk-stoneydown-park
         run: npm run retrieve -- walthamforest.gov.uk-stoneydown-park
+
+      - name: hackney.gov.uk-morland-community-hall
+        run: npm run retrieve -- hackney.gov.uk-morland-community-hall
+
+      - name: hackney.gov.uk-shoreditch-library
+        run: npm run retrieve -- hackney.gov.uk-shoreditch-library
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -686,6 +698,12 @@ jobs:
       - name: mildmay.club
         run: npm run retrieve -- mildmay.club
 
+      - name: hk.uk
+        run: npm run retrieve -- hk.uk
+
+      - name: perivalehive.co.uk
+        run: npm run retrieve -- perivalehive.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -842,6 +860,15 @@ jobs:
       - name: thebedford.com
         run: npm run retrieve -- thebedford.com
 
+      - name: plantroom.space
+        run: npm run retrieve -- plantroom.space
+
+      - name: rbkc.gov.uk-north-kensington-library
+        run: npm run retrieve -- rbkc.gov.uk-north-kensington-library
+
+      - name: richmond.gov.uk-whitton-library
+        run: npm run retrieve -- richmond.gov.uk-whitton-library
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -997,6 +1024,15 @@ jobs:
 
       - name: instagram.com-green-alley-studios
         run: npm run retrieve -- instagram.com-green-alley-studios
+
+      - name: unionchapel.org.uk
+        run: npm run retrieve -- unionchapel.org.uk
+
+      - name: walthamforest.gov.uk-leyton-library
+        run: npm run retrieve -- walthamforest.gov.uk-leyton-library
+
+      - name: walthamforest.gov.uk-leytonstone-library
+        run: npm run retrieve -- walthamforest.gov.uk-leytonstone-library
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
