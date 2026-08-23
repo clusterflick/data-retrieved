@@ -365,6 +365,9 @@ jobs:
       - name: upminsterwindmill.org
         run: npm run retrieve -- upminsterwindmill.org
 
+      - name: walthamforest.gov.uk-langthorne-park
+        run: npm run retrieve -- walthamforest.gov.uk-langthorne-park
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -520,6 +523,9 @@ jobs:
 
       - name: wearebojangles.com
         run: npm run retrieve -- wearebojangles.com
+
+      - name: walthamforest.gov.uk-stoneydown-park
+        run: npm run retrieve -- walthamforest.gov.uk-stoneydown-park
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
