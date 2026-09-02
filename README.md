@@ -66,3 +66,18 @@ connections or rate limiting issues.
 - Code fixes should be applied to the
   [clusterflick/scripts](https://github.com/clusterflick/scripts) repository,
   which is pulled in at build time
+
+## Licence
+
+The code in this repository is licensed under the [MIT licence](LICENSE).
+
+The releases are **not licensed at all**. They are raw scrapes — the responses
+each venue website and ticketing platform gave us, stored close to verbatim so
+the transform stage can be re-run without hitting the source site again. That
+content belongs to the sites it came from; Clusterflick holds no rights in it
+and grants none. There are no schema guarantees either: each file's shape is
+whatever the source returned that day.
+
+For data you can use, see the
+[data licence](https://clusterflick.com/data-licence). The exact terms for this
+repository are in [LICENSE-DATA](LICENSE-DATA).

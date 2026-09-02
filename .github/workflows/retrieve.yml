@@ -2739,6 +2739,8 @@ jobs:
           tag: ${{ env.TAG }}
           commit: main
           body: |
+            ⚠️ **Internal build artifact — not licensed.** These are raw scrapes: the responses each venue site and ticketing platform returned, stored close to verbatim so the transform stage can be re-run without hitting the source again. That content belongs to the sites it came from — Clusterflick holds no rights in it and grants none. Each file's shape is whatever the source returned that day. For data you can use, see https://clusterflick.com/data-licence
+
             Created by job ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       - name: Output summary
         run: |

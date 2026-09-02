@@ -1,0 +1,29 @@
+Data licence — data-retrieved releases
+======================================
+
+The MIT licence in LICENSE covers the code in this repository. It does not
+cover the data published in this repository's releases, and no licence is
+granted over that data.
+
+The retrieved-data files are raw scrapes. Each one holds the responses a venue
+website or ticketing platform gave us, stored close to verbatim — the site's
+own JSON payloads, page content and listing text — so that the transform stage
+can be re-run and debugged without hitting the source site again. They are an
+internal build artifact, published here because the pipeline runs in the open,
+not as a dataset offered for reuse.
+
+That content belongs to the venues and platforms it came from. Clusterflick
+holds no rights in it and grants none. Nothing here is offered under any
+licence, and republishing it is a matter between you and the source site.
+
+Concretely:
+
+  * No licence is granted over these releases, of any kind.
+  * There are no schema guarantees. Every file's shape is whatever the source
+    site happened to return, and changes whenever that site changes.
+  * There is no warranty and no guarantee of accuracy, availability or
+    continuity. Releases can stop, be deleted or be restructured at any time.
+
+For data you can use, see:
+
+    https://clusterflick.com/data-licence
