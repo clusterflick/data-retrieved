@@ -718,6 +718,9 @@ jobs:
       - name: perivalehive.co.uk
         run: npm run retrieve -- perivalehive.co.uk
 
+      - name: staffordshirest.com
+        run: npm run retrieve -- staffordshirest.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
