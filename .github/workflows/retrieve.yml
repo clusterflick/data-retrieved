@@ -550,6 +550,9 @@ jobs:
       - name: hackney.gov.uk-shoreditch-library
         run: npm run retrieve -- hackney.gov.uk-shoreditch-library
 
+      - name: thetrust.org.uk-stockwell-park-community-centre
+        run: npm run retrieve -- thetrust.org.uk-stockwell-park-community-centre
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
