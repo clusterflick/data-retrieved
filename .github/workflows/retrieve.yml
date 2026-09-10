@@ -886,6 +886,9 @@ jobs:
       - name: richmond.gov.uk-whitton-library
         run: npm run retrieve -- richmond.gov.uk-whitton-library
 
+      - name: themalltavern.com
+        run: npm run retrieve -- themalltavern.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
