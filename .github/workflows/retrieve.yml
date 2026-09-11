@@ -2424,6 +2424,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- thewellwalktheatre.com
 
+      - name: theo2.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- theo2.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
