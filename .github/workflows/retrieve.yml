@@ -1062,6 +1062,9 @@ jobs:
       - name: walthamforest.gov.uk-leytonstone-library
         run: npm run retrieve -- walthamforest.gov.uk-leytonstone-library
 
+      - name: folklorehoxton.co.uk
+        run: npm run retrieve -- folklorehoxton.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
