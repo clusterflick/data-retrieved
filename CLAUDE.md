@@ -35,6 +35,20 @@ Recover a failed run by re-running its failed jobs rather than the whole
 workflow. Artifacts from jobs that already succeeded are retained across
 attempts, so only the failures repeat.
 
+The gate covers the retrieve jobs; `immutableCreate: true` covers the upload.
+Left to itself `ncipollo/release-action` publishes the release first and
+attaches the ~1.2GB of artifacts one at a time, so `releases/latest` spends the
+whole upload pointing at a release missing most of its venues - the same wrong
+answer the gate exists to prevent, arriving by a different route. With the flag
+the action creates a draft, attaches everything, then publishes, so a release
+becomes visible only once it is whole. `makeLatest` is passed again on that
+publish, so the finished release still becomes latest.
+
+A failed upload therefore leaves a draft rather than a published release. It
+still needs deleting - the tag is a timestamp, so a re-run creates a new release
+rather than resuming the old one - but until then it is invisible to anything
+reading the latest release.
+
 ## Adding a new source
 
 Add a step to the appropriate job group in `retrieve.yml`:

@@ -2763,6 +2763,15 @@ jobs:
           allowUpdates: false
           artifactErrorsFailBuild: true
           artifacts: "retrieved-data/*"
+          # Create as a draft, attach every artifact, then publish. Without this
+          # the release is published empty and filled asset by asset, so for as
+          # long as the upload runs `releases/latest` is a partial snapshot -
+          # which reads downstream as venues having nothing on rather than as a
+          # release still being built. That is the same all-or-nothing rule the
+          # `needs` gate above enforces for the retrieve jobs, applied to the
+          # upload. makeLatest is passed again when the draft is published, so
+          # the finished release still becomes latest.
+          immutableCreate: true
           makeLatest: true
           tag: ${{ env.TAG }}
           commit: main
