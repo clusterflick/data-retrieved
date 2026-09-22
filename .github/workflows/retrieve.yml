@@ -218,6 +218,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- clyx.com
 
+      - name: luma.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- luma.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
