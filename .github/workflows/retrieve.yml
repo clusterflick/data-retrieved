@@ -1259,6 +1259,15 @@ jobs:
           name: retrieve_cineworld
           path: retrieved-data/
 
+      # A 403 escalates to Camoufox, and a failure there leaves a screenshot and
+      # page dump - the only evidence of whether it was challenged or blocked.
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_cineworld-playwright-failures
+          path: ./playwright-failures
+
   # ------------------------------------------------------------------------------
   # Retrieve Curzon
   # ------------------------------------------------------------------------------
