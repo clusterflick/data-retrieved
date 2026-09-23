@@ -218,6 +218,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- clyx.com
 
+      - name: luma.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- luma.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -393,6 +401,12 @@ jobs:
       - name: peoplesletters.org
         run: npm run retrieve -- peoplesletters.org
 
+      - name: betterspace.london
+        run: npm run retrieve -- betterspace.london
+
+      - name: triple-bond.co.uk
+        run: npm run retrieve -- triple-bond.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -560,6 +574,12 @@ jobs:
 
       - name: thetrust.org.uk-stockwell-park-community-centre
         run: npm run retrieve -- thetrust.org.uk-stockwell-park-community-centre
+
+      - name: exchangenw1.com
+        run: npm run retrieve -- exchangenw1.com
+
+      - name: woolwich.works
+        run: npm run retrieve -- woolwich.works
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -729,6 +749,9 @@ jobs:
       - name: staffordshirest.com
         run: npm run retrieve -- staffordshirest.com
 
+      - name: frequencycoffee.com-camden-passage
+        run: npm run retrieve -- frequencycoffee.com-camden-passage
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -897,6 +920,9 @@ jobs:
       - name: themalltavern.com
         run: npm run retrieve -- themalltavern.com
 
+      - name: theroofgardens.com
+        run: npm run retrieve -- theroofgardens.com
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -1064,6 +1090,9 @@ jobs:
 
       - name: folklorehoxton.co.uk
         run: npm run retrieve -- folklorehoxton.co.uk
+
+      - name: thetrafalgarchelsea.com
+        run: npm run retrieve -- thetrafalgarchelsea.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
