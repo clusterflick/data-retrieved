@@ -1373,6 +1373,16 @@ jobs:
           name: retrieve_curzon
           path: retrieved-data/
 
+      # A 403 from the OCAPI escalates to Camoufox, and a failure there leaves a
+      # screenshot and page dump - the only evidence of whether it was
+      # challenged or blocked.
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_curzon-playwright-failures
+          path: ./playwright-failures
+
   # ------------------------------------------------------------------------------
   # Retrieve Electric Cinema
   # ------------------------------------------------------------------------------
