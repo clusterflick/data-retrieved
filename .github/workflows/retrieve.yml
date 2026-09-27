@@ -752,6 +752,9 @@ jobs:
       - name: frequencycoffee.com-camden-passage
         run: npm run retrieve -- frequencycoffee.com-camden-passage
 
+      - name: lfs.org.uk
+        run: npm run retrieve -- lfs.org.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -922,6 +925,9 @@ jobs:
 
       - name: theroofgardens.com
         run: npm run retrieve -- theroofgardens.com
+
+      - name: propositionstudios.com
+        run: npm run retrieve -- propositionstudios.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
