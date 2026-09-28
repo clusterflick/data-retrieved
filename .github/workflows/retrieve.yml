@@ -410,6 +410,15 @@ jobs:
       - name: centralfilmschool.com
         run: npm run retrieve -- centralfilmschool.com
 
+      - name: blondiesbar.co.uk-brewery
+        run: npm run retrieve -- blondiesbar.co.uk-brewery
+
+      - name: birdhousebrewing.com
+        run: npm run retrieve -- birdhousebrewing.com
+
+      - name: ials.sas.ac.uk
+        run: npm run retrieve -- ials.sas.ac.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -586,6 +595,12 @@ jobs:
 
       - name: houseofannetta.org
         run: npm run retrieve -- houseofannetta.org
+
+      - name: naturalphilosopher.co.uk
+        run: npm run retrieve -- naturalphilosopher.co.uk
+
+      - name: moyletts.co.uk
+        run: npm run retrieve -- moyletts.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -764,6 +779,12 @@ jobs:
       - name: palestinehouse.org
         run: npm run retrieve -- palestinehouse.org
 
+      - name: southwark.gov.uk-canada-water-library
+        run: npm run retrieve -- southwark.gov.uk-canada-water-library
+
+      - name: nellofolddrury.co.uk
+        run: npm run retrieve -- nellofolddrury.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -941,6 +962,12 @@ jobs:
       - name: southbankcentre.co.uk
         run: npm run retrieve -- southbankcentre.co.uk
 
+      - name: nationaltrust.org.uk-osterley-park-and-house
+        run: npm run retrieve -- nationaltrust.org.uk-osterley-park-and-house
+
+      - name: arts.ac.uk-london-college-of-communication
+        run: npm run retrieve -- arts.ac.uk-london-college-of-communication
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -1114,6 +1141,15 @@ jobs:
 
       - name: arthub.org.uk
         run: npm run retrieve -- arthub.org.uk
+
+      - name: visitgunnersbury.org
+        run: npm run retrieve -- visitgunnersbury.org
+
+      - name: instagram.com-blown-away-studios
+        run: npm run retrieve -- instagram.com-blown-away-studios
+
+      - name: ucl.ac.uk-garwood-lecture-theatre
+        run: npm run retrieve -- ucl.ac.uk-garwood-lecture-theatre
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
