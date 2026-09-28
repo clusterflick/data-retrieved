@@ -419,6 +419,12 @@ jobs:
       - name: ials.sas.ac.uk
         run: npm run retrieve -- ials.sas.ac.uk
 
+      - name: enfield.gov.uk-enfield-town-library
+        run: npm run retrieve -- enfield.gov.uk-enfield-town-library
+
+      - name: achurchnearyou.com-st-gabriels-aldersbrook
+        run: npm run retrieve -- achurchnearyou.com-st-gabriels-aldersbrook
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -601,6 +607,12 @@ jobs:
 
       - name: moyletts.co.uk
         run: npm run retrieve -- moyletts.co.uk
+
+      - name: soas.ac.uk
+        run: npm run retrieve -- soas.ac.uk
+
+      - name: liveatstgiles.com
+        run: npm run retrieve -- liveatstgiles.com
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -785,6 +797,12 @@ jobs:
       - name: nellofolddrury.co.uk
         run: npm run retrieve -- nellofolddrury.co.uk
 
+      - name: arts.ac.uk-central-saint-martins
+        run: npm run retrieve -- arts.ac.uk-central-saint-martins
+
+      - name: collage-arts.org-karamel-n22
+        run: npm run retrieve -- collage-arts.org-karamel-n22
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -968,6 +986,12 @@ jobs:
       - name: arts.ac.uk-london-college-of-communication
         run: npm run retrieve -- arts.ac.uk-london-college-of-communication
 
+      - name: lambeth.gov.uk-minet-library
+        run: npm run retrieve -- lambeth.gov.uk-minet-library
+
+      - name: hundredyearsgallery.co.uk
+        run: npm run retrieve -- hundredyearsgallery.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -1150,6 +1174,12 @@ jobs:
 
       - name: ucl.ac.uk-garwood-lecture-theatre
         run: npm run retrieve -- ucl.ac.uk-garwood-lecture-theatre
+
+      - name: camden.gov.uk-swiss-cottage-library
+        run: npm run retrieve -- camden.gov.uk-swiss-cottage-library
+
+      - name: armenianinstitute.org.uk
+        run: npm run retrieve -- armenianinstitute.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
