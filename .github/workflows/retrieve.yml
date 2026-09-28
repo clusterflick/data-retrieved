@@ -410,8 +410,8 @@ jobs:
       - name: centralfilmschool.com
         run: npm run retrieve -- centralfilmschool.com
 
-      - name: blondiesbar.co.uk-brewery
-        run: npm run retrieve -- blondiesbar.co.uk-brewery
+      - name: blondiesbar.co.uk-taproom
+        run: npm run retrieve -- blondiesbar.co.uk-taproom
 
       - name: birdhousebrewing.com
         run: npm run retrieve -- birdhousebrewing.com
@@ -422,8 +422,8 @@ jobs:
       - name: enfield.gov.uk-enfield-town-library
         run: npm run retrieve -- enfield.gov.uk-enfield-town-library
 
-      - name: achurchnearyou.com-st-gabriels-aldersbrook
-        run: npm run retrieve -- achurchnearyou.com-st-gabriels-aldersbrook
+      - name: stgabrielsaldersbrook.org.uk
+        run: npm run retrieve -- stgabrielsaldersbrook.org.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
