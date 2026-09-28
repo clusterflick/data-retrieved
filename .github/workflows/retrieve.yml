@@ -938,6 +938,9 @@ jobs:
       - name: propositionstudios.com
         run: npm run retrieve -- propositionstudios.com
 
+      - name: southbankcentre.co.uk
+        run: npm run retrieve -- southbankcentre.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
