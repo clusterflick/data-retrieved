@@ -614,6 +614,9 @@ jobs:
       - name: liveatstgiles.com
         run: npm run retrieve -- liveatstgiles.com
 
+      - name: joeallen.co.uk
+        run: npm run retrieve -- joeallen.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
