@@ -290,9 +290,6 @@ jobs:
       - name: ivyhousenunhead.com
         run: npm run retrieve -- ivyhousenunhead.com
 
-      - name: rocketvan.co.uk
-        run: npm run retrieve -- rocketvan.co.uk
-
       - name: theatreship.co.uk
         run: npm run retrieve -- theatreship.co.uk
 
@@ -2558,6 +2555,14 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- theo2.co.uk
+
+      - name: rocketvan.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- rocketvan.co.uk
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
