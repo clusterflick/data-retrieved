@@ -226,6 +226,38 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- luma.com
 
+      - name: haringey.gov.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- haringey.gov.uk
+
+      - name: kingston.gov.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- kingston.gov.uk
+
+      - name: lovecamden.org
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- lovecamden.org
+
+      - name: southwark.gov.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- southwark.gov.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -425,6 +457,12 @@ jobs:
       - name: stgabrielsaldersbrook.org.uk
         run: npm run retrieve -- stgabrielsaldersbrook.org.uk
 
+      - name: kingstonmethodist.church
+        run: npm run retrieve -- kingstonmethodist.church
+
+      - name: southwark.gov.uk-nunhead-library
+        run: npm run retrieve -- southwark.gov.uk-nunhead-library
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -617,6 +655,12 @@ jobs:
       - name: joeallen.co.uk
         run: npm run retrieve -- joeallen.co.uk
 
+      - name: southwark.gov.uk-una-marson-library
+        run: npm run retrieve -- southwark.gov.uk-una-marson-library
+
+      - name: spaces.townhall.co.uk
+        run: npm run retrieve -- spaces.townhall.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -805,6 +849,15 @@ jobs:
 
       - name: collage-arts.org-karamel-n22
         run: npm run retrieve -- collage-arts.org-karamel-n22
+
+      - name: ccsurbiton.org
+        run: npm run retrieve -- ccsurbiton.org
+
+      - name: facebook.com-kurdishcommunitycentre
+        run: npm run retrieve -- facebook.com-kurdishcommunitycentre
+
+      - name: haringey.gov.uk-hornsey-library
+        run: npm run retrieve -- haringey.gov.uk-hornsey-library
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
@@ -995,6 +1048,15 @@ jobs:
       - name: hundredyearsgallery.co.uk
         run: npm run retrieve -- hundredyearsgallery.co.uk
 
+      - name: haringey.gov.uk-marcus-garvey-library
+        run: npm run retrieve -- haringey.gov.uk-marcus-garvey-library
+
+      - name: haringey.gov.uk-muswell-hill-library
+        run: npm run retrieve -- haringey.gov.uk-muswell-hill-library
+
+      - name: haringey.gov.uk-wood-green-library
+        run: npm run retrieve -- haringey.gov.uk-wood-green-library
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -1183,6 +1245,15 @@ jobs:
 
       - name: armenianinstitute.org.uk
         run: npm run retrieve -- armenianinstitute.org.uk
+
+      - name: kingston.ac.uk-town-house
+        run: npm run retrieve -- kingston.ac.uk-town-house
+
+      - name: kingston.gov.uk-new-malden-library
+        run: npm run retrieve -- kingston.gov.uk-new-malden-library
+
+      - name: kingston.gov.uk-tudor-drive-library
+        run: npm run retrieve -- kingston.gov.uk-tudor-drive-library
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
