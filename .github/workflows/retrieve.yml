@@ -463,6 +463,9 @@ jobs:
       - name: southwark.gov.uk-nunhead-library
         run: npm run retrieve -- southwark.gov.uk-nunhead-library
 
+      - name: anomalous.co.uk
+        run: npm run retrieve -- anomalous.co.uk
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
