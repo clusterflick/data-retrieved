@@ -664,6 +664,9 @@ jobs:
       - name: spaces.townhall.co.uk
         run: npm run retrieve -- spaces.townhall.co.uk
 
+      - name: instagram.com-peckhamoasisgallery
+        run: npm run retrieve -- instagram.com-peckhamoasisgallery
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v7
         with:
