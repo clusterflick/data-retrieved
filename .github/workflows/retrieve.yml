@@ -860,6 +860,9 @@ jobs:
       - name: haringey.gov.uk-hornsey-library
         run: npm run retrieve -- haringey.gov.uk-hornsey-library
 
+      - name: hartfieldhub.com
+        run: npm run retrieve -- hartfieldhub.com
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
