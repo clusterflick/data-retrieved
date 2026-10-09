@@ -27,10 +27,9 @@ jobs:
           command: npm run retrieve -- eventbrite.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_eventbrite
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -59,10 +58,9 @@ jobs:
           command: npm run retrieve -- ticketsource.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_ticketsource
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -259,10 +257,9 @@ jobs:
           command: npm run retrieve -- southwark.gov.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_sources
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -464,10 +461,9 @@ jobs:
         run: npm run retrieve -- southwark.gov.uk-nunhead-library
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_source_only_1
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Source-Only Venues (Part 2)
@@ -662,10 +658,9 @@ jobs:
         run: npm run retrieve -- spaces.townhall.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_source_only_2
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Source-Only Venues (Part 3)
@@ -860,10 +855,9 @@ jobs:
         run: npm run retrieve -- haringey.gov.uk-hornsey-library
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_source_only_3
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Source-Only Venues (Part 4)
@@ -1058,10 +1052,9 @@ jobs:
         run: npm run retrieve -- haringey.gov.uk-wood-green-library
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_source_only_4
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Source-Only Venues (Part 5)
@@ -1256,10 +1249,9 @@ jobs:
         run: npm run retrieve -- kingston.gov.uk-tudor-drive-library
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_source_only_5
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve BFI
@@ -1297,10 +1289,9 @@ jobs:
           command: npm run retrieve -- bfi.org.uk-southbank
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_bfi
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -1415,10 +1406,9 @@ jobs:
           command: npm run retrieve -- cineworld.co.uk-wood-green
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_cineworld
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Curzon
@@ -1520,10 +1510,9 @@ jobs:
           command: npm run retrieve -- curzonseacontainers.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_curzon
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Electric Cinema
@@ -1551,10 +1540,9 @@ jobs:
           command: npm run retrieve -- electriccinema.co.uk-white-city
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_electric_cinema
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Rooftop Cinema Club
@@ -1582,10 +1570,9 @@ jobs:
           command: npm run retrieve -- rooftopcinemaclub.com-stratford
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_rooftopcinemaclub
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Tate
@@ -1613,10 +1600,9 @@ jobs:
           command: npm run retrieve -- tate.org.uk-tate-modern
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_tate
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Firmdale Hotels
@@ -1652,10 +1638,9 @@ jobs:
           command: npm run retrieve -- firmdalehotels.com-soho
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_firmdale_hotels
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Olympic Studios
@@ -1691,10 +1676,9 @@ jobs:
           command: npm run retrieve -- thecinemainthepowerstation.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_olympic_studios
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Everyman
@@ -1842,10 +1826,9 @@ jobs:
           command: npm run retrieve -- everymancinema.com-the-whiteley
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_everyman
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Vue (Part 1)
@@ -1923,10 +1906,9 @@ jobs:
           command: npm run retrieve -- myvue.com-islington
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_vue_1
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Vue (Part 2)
@@ -1996,10 +1978,9 @@ jobs:
           command: npm run retrieve -- myvue.com-wood-green
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_vue_2
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve ODEON
@@ -2165,10 +2146,9 @@ jobs:
           command: npm run retrieve -- odeon.co.uk-wimbledon
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_odeon
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -2235,10 +2215,9 @@ jobs:
           command: npm run retrieve -- picturehouses.com-greenwich
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_picturehouses_1
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Picturehouses (Part 2)
@@ -2290,10 +2269,9 @@ jobs:
           command: npm run retrieve -- picturehouses.com-west-norwood
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_picturehouses_2
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Indy Cinema Group
@@ -2337,10 +2315,9 @@ jobs:
           command: npm run retrieve -- chiswickcinema.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_indy_cinema_group
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Close-Up Film Centre
@@ -2379,10 +2356,9 @@ jobs:
           command: npm run retrieve -- closeupfilmcentre.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_closeupfilmcentre
-          path: retrieved-data/
 
       - name: Save test failure artifacts
         if: failure()
@@ -2425,10 +2401,9 @@ jobs:
           command: npm run retrieve -- thearzner.com
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_savoy_systems
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Remaining Cinemas (Part 1)
@@ -2634,10 +2609,9 @@ jobs:
           command: npm run retrieve -- theo2.co.uk
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_remaining_cinemas_1
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Retrieve Remaining Cinemas (Part 2)
@@ -2883,10 +2857,9 @@ jobs:
           command: npm run retrieve -- lbhf.gov.uk-lyric-square
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/upload-retrieved-data
         with:
           name: retrieve_remaining_cinemas_2
-          path: retrieved-data/
 
   # ------------------------------------------------------------------------------
   # Create release using data from all jobs
