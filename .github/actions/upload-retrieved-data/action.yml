@@ -1,0 +1,55 @@
+name: Upload retrieved data
+description: >
+  Uploads a job's retrieved-data/ as an artifact, retrying a failed upload.
+
+  @actions/artifact deliberately does not retry a network error such as
+  ECONNRESET - it throws on the first one - so a single dropped connection to
+  GitHub's artifact service fails the job after the retrieve has already
+  succeeded, and the release gate turns that into a failed run. The retries
+  live here, around the action, because the action offers none of its own.
+
+  Later attempts pass `overwrite: true` so an artifact the failed attempt got
+  as far as creating is replaced rather than colliding with this one.
+
+inputs:
+  name:
+    description: Artifact name
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - id: attempt_1
+      continue-on-error: true
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.name }}
+        path: retrieved-data/
+
+    - if: steps.attempt_1.outcome == 'failure'
+      shell: bash
+      run: |
+        echo "::warning::Artifact upload failed; retrying in 30s"
+        sleep 30
+
+    - id: attempt_2
+      if: steps.attempt_1.outcome == 'failure'
+      continue-on-error: true
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.name }}
+        path: retrieved-data/
+        overwrite: true
+
+    - if: steps.attempt_2.outcome == 'failure'
+      shell: bash
+      run: |
+        echo "::warning::Artifact upload failed again; retrying in 120s"
+        sleep 120
+
+    - if: steps.attempt_2.outcome == 'failure'
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.name }}
+        path: retrieved-data/
+        overwrite: true
