@@ -460,6 +460,9 @@ jobs:
       - name: southwark.gov.uk-nunhead-library
         run: npm run retrieve -- southwark.gov.uk-nunhead-library
 
+      - name: anomalous.co.uk
+        run: npm run retrieve -- anomalous.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -656,6 +659,9 @@ jobs:
 
       - name: spaces.townhall.co.uk
         run: npm run retrieve -- spaces.townhall.co.uk
+
+      - name: instagram.com-peckhamoasisgallery
+        run: npm run retrieve -- instagram.com-peckhamoasisgallery
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
