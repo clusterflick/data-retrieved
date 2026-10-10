@@ -1060,6 +1060,9 @@ jobs:
       - name: haringey.gov.uk-wood-green-library
         run: npm run retrieve -- haringey.gov.uk-wood-green-library
 
+      - name: firmdalehotels.com-ham-yard
+        run: npm run retrieve -- firmdalehotels.com-ham-yard
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
