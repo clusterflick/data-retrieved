@@ -2326,6 +2326,14 @@ jobs:
           max_attempts: 4
           command: npm run retrieve -- chiswickcinema.co.uk
 
+      - name: ebonylifeplacelondon.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 300
+          max_attempts: 4
+          command: npm run retrieve -- ebonylifeplacelondon.com
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
