@@ -264,6 +264,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- skiddle.com
 
+      - name: hosted-festivals
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- hosted-festivals
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
