@@ -152,6 +152,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- feverup.com
 
+      - name: enchantedchristmascinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- enchantedchristmascinema.co.uk
+
       - name: tufnellparkfilmclub.com
         uses: nick-fields/retry@v4
         with:
