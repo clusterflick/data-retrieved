@@ -2980,6 +2980,9 @@ jobs:
         run: echo "TAG=$(TZ=Europe/London date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
       - uses: ncipollo/release-action@v1
         id: release
+        # A failed upload is retried by the next step, which fails the job if
+        # it fails too.
+        continue-on-error: true
         with:
           allowUpdates: false
           artifactErrorsFailBuild: true
@@ -2996,13 +2999,41 @@ jobs:
           makeLatest: true
           tag: ${{ env.TAG }}
           commit: main
-          body: |
+          body: &release-body |
             ⚠️ **Internal build artifact — not licensed.** These are raw scrapes: the responses each venue site and ticketing platform returned, stored close to verbatim so the transform stage can be re-run without hitting the source again. That content belongs to the sites it came from — Clusterflick holds no rights in it and grants none. Each file's shape is whatever the source returned that day. For data you can use, see https://clusterflick.com/data-licence
 
             Created by job ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      # The upload above can fail on an asset GitHub has in fact stored: the
+      # asset is saved, a 5xx comes back anyway, the action uploads it again and
+      # gets `already_exists`, which its retry (5xx only) does not handle. That
+      # voided a run whose every job had passed. This goes again on the same
+      # tag: it finds the draft (or creates one, if the first attempt never got
+      # that far), replacesArtifacts deletes what is already attached, and
+      # everything is uploaded again.
+      #
+      # `draft: true` because an update publishes the release *before* it
+      # uploads unless told otherwise - the partial `releases/latest` that
+      # immutableCreate exists to prevent - so the next step publishes it.
+      - name: Retry Release Upload
+        if: steps.release.outcome == 'failure'
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          draft: true
+          artifactErrorsFailBuild: true
+          artifacts: "retrieved-data/*"
+          makeLatest: true
+          tag: ${{ env.TAG }}
+          commit: main
+          body: *release-body
+      - name: Publish Retried Release
+        if: steps.release.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest
       - name: Output summary
         run: |
-          echo "🔖 New release - ${{ steps.release.outputs.html_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "🔖 New release - ${{ steps.release.outputs.html_url || format('{0}/{1}/releases/tag/{2}', github.server_url, github.repository, env.TAG) }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v4

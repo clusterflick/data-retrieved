@@ -49,6 +49,19 @@ still needs deleting - the tag is a timestamp, so a re-run creates a new release
 rather than resuming the old one - but until then it is invisible to anything
 reading the latest release.
 
+A failed upload is retried once in the same job, by `Retry Release Upload`. The
+action's own retry handles only a 5xx, and a 5xx can arrive for an asset GitHub
+has already stored, so its second upload of that asset fails `already_exists` -
+a run whose every venue succeeded, voided on a duplicate name. The retry goes
+again on the same tag with `allowUpdates`, which finds the draft and
+(`replacesArtifacts`) replaces every asset already attached, so it re-uploads
+the whole release. It must keep `draft: true`: an update publishes the release
+before uploading unless told otherwise, which is the partial `releases/latest`
+`immutableCreate` exists to prevent. `Publish Retried Release` publishes it once
+the upload is done. This is not a relaxed gate - every retrieve job still has to
+pass, and nothing is published until every asset is attached. Only if the retry
+fails too is a draft left behind to delete.
+
 ## Adding a new source
 
 Add a step to the appropriate job group in `retrieve.yml`:
