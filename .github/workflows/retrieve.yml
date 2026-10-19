@@ -3008,8 +3008,9 @@ jobs:
       # gets `already_exists`, which its retry (5xx only) does not handle. That
       # voided a run whose every job had passed. This goes again on the same
       # tag: it finds the draft (or creates one, if the first attempt never got
-      # that far), replacesArtifacts deletes what is already attached, and
-      # everything is uploaded again.
+      # that far), and uploads everything again - before uploading, the action
+      # by default deletes any asset already attached under the same name, so
+      # what the first attempt got up is replaced rather than colliding.
       #
       # `draft: true` because an update publishes the release *before* it
       # uploads unless told otherwise - the partial `releases/latest` that

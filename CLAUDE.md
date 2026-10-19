@@ -53,9 +53,10 @@ A failed upload is retried once in the same job, by `Retry Release Upload`. The
 action's own retry handles only a 5xx, and a 5xx can arrive for an asset GitHub
 has already stored, so its second upload of that asset fails `already_exists` -
 a run whose every venue succeeded, voided on a duplicate name. The retry goes
-again on the same tag with `allowUpdates`, which finds the draft and
-(`replacesArtifacts`) replaces every asset already attached, so it re-uploads
-the whole release. It must keep `draft: true`: an update publishes the release
+again on the same tag with `allowUpdates`, which finds the draft and uploads
+the whole release again. Before uploading, the action by default deletes any
+asset already attached under the same name, so what the first attempt got up is
+replaced rather than colliding. It must keep `draft: true`: an update publishes the release
 before uploading unless told otherwise, which is the partial `releases/latest`
 `immutableCreate` exists to prevent. `Publish Retried Release` publishes it once
 the upload is done. This is not a relaxed gate - every retrieve job still has to
