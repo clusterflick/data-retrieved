@@ -280,6 +280,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- hosted-festivals
 
+      - name: feministfightback.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- feministfightback.org.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
