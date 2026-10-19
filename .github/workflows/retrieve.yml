@@ -288,6 +288,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- feministfightback.org.uk
 
+      - name: unrestrictedview.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- unrestrictedview.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
