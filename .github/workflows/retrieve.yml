@@ -698,6 +698,9 @@ jobs:
       - name: instagram.com-peckhamoasisgallery
         run: npm run retrieve -- instagram.com-peckhamoasisgallery
 
+      - name: larc.noblogs.org
+        run: npm run retrieve -- larc.noblogs.org
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
