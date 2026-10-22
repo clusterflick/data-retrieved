@@ -909,6 +909,9 @@ jobs:
       - name: hartfieldhub.com
         run: npm run retrieve -- hartfieldhub.com
 
+      - name: kccontinentalstores.co.uk
+        run: npm run retrieve -- kccontinentalstores.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
