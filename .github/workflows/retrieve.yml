@@ -1112,6 +1112,9 @@ jobs:
       - name: firmdalehotels.com-ham-yard
         run: npm run retrieve -- firmdalehotels.com-ham-yard
 
+      - name: allgoodbookshop.co.uk
+        run: npm run retrieve -- allgoodbookshop.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -1311,6 +1314,9 @@ jobs:
 
       - name: kingstonheritage.org.uk-kingston-museum
         run: npm run retrieve -- kingstonheritage.org.uk-kingston-museum
+
+      - name: bridgerenewaltrust.org.uk-chestnuts-community-centre
+        run: npm run retrieve -- bridgerenewaltrust.org.uk-chestnuts-community-centre
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
