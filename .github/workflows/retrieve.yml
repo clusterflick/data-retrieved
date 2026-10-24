@@ -70,10 +70,10 @@ jobs:
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
-  # Retrieve Sources
+  # Retrieve Sources (Part 1)
   # ------------------------------------------------------------------------------
-  retrieve_sources:
-    name: Retrieve Sources
+  retrieve_sources_1:
+    name: Retrieve Sources (Part 1)
     runs-on: self-hosted
     steps:
       - uses: clusterflick/.github/setup@main
@@ -88,14 +88,6 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- outsavvy.com
 
-      - name: designmynight.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- designmynight.com
-
       - name: dice.fm
         uses: nick-fields/retry@v4
         with:
@@ -103,14 +95,6 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- dice.fm
-
-      - name: tickettailor.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 300
-          max_attempts: 4
-          command: npm run retrieve -- tickettailor.com
 
       - name: stowfilmlounge.com
         uses: nick-fields/retry@v4
@@ -299,20 +283,63 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_sources
+          name: retrieve_sources_1
 
       - name: Save test failure artifacts
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: retrieve_sources-playwright-failures
+          name: retrieve_sources_1-playwright-failures
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
-  # Retrieve Source-Only Venues (Part 1)
+  # Retrieve Sources (Part 2)
   # ------------------------------------------------------------------------------
-  retrieve_source_only_1:
-    name: Retrieve Source-Only Venues (Part 1)
+  retrieve_sources_2:
+    name: Retrieve Sources (Part 2)
+    # The sources that fail most often, kept apart so re-running one
+    # doesn't repeat every other source with it.
+    runs-on: self-hosted
+    steps:
+      - uses: clusterflick/.github/setup@main
+        with:
+          playwright: true
+
+      - name: designmynight.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- designmynight.com
+
+      - name: tickettailor.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 300
+          max_attempts: 4
+          command: npm run retrieve -- tickettailor.com
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_sources_2
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: retrieve_sources_2-playwright-failures
+          path: ./playwright-failures
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Source-Only Venues
+  # ------------------------------------------------------------------------------
+  retrieve_source_only:
+    name: Retrieve Source-Only Venues
+    # Source-only venues fetch nothing of their own, so even all of them
+    # together take a couple of minutes and are cheap to re-run.
     runs-on: ubuntu-latest
     steps:
       - uses: clusterflick/.github/setup@main
@@ -506,20 +533,6 @@ jobs:
       - name: plazacamden.com
         run: npm run retrieve -- plazacamden.com
 
-      - name: Upload Artifacts
-        uses: ./.github/actions/upload-retrieved-data
-        with:
-          name: retrieve_source_only_1
-
-  # ------------------------------------------------------------------------------
-  # Retrieve Source-Only Venues (Part 2)
-  # ------------------------------------------------------------------------------
-  retrieve_source_only_2:
-    name: Retrieve Source-Only Venues (Part 2)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: clusterflick/.github/setup@main
-
       - name: castlehaven.org.uk
         run: npm run retrieve -- castlehaven.org.uk
 
@@ -708,20 +721,6 @@ jobs:
 
       - name: larc.noblogs.org
         run: npm run retrieve -- larc.noblogs.org
-
-      - name: Upload Artifacts
-        uses: ./.github/actions/upload-retrieved-data
-        with:
-          name: retrieve_source_only_2
-
-  # ------------------------------------------------------------------------------
-  # Retrieve Source-Only Venues (Part 3)
-  # ------------------------------------------------------------------------------
-  retrieve_source_only_3:
-    name: Retrieve Source-Only Venues (Part 3)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: clusterflick/.github/setup@main
 
       - name: thersa.org
         run: npm run retrieve -- thersa.org
@@ -912,20 +911,6 @@ jobs:
       - name: kccontinentalstores.co.uk
         run: npm run retrieve -- kccontinentalstores.co.uk
 
-      - name: Upload Artifacts
-        uses: ./.github/actions/upload-retrieved-data
-        with:
-          name: retrieve_source_only_3
-
-  # ------------------------------------------------------------------------------
-  # Retrieve Source-Only Venues (Part 4)
-  # ------------------------------------------------------------------------------
-  retrieve_source_only_4:
-    name: Retrieve Source-Only Venues (Part 4)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: clusterflick/.github/setup@main
-
       - name: metrolandcultures.com
         run: npm run retrieve -- metrolandcultures.com
 
@@ -1114,20 +1099,6 @@ jobs:
 
       - name: allgoodbookshop.co.uk
         run: npm run retrieve -- allgoodbookshop.co.uk
-
-      - name: Upload Artifacts
-        uses: ./.github/actions/upload-retrieved-data
-        with:
-          name: retrieve_source_only_4
-
-  # ------------------------------------------------------------------------------
-  # Retrieve Source-Only Venues (Part 5)
-  # ------------------------------------------------------------------------------
-  retrieve_source_only_5:
-    name: Retrieve Source-Only Venues (Part 5)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: clusterflick/.github/setup@main
 
       - name: hausulondon.co.uk
         run: npm run retrieve -- hausulondon.co.uk
@@ -1321,7 +1292,7 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_source_only_5
+          name: retrieve_source_only
 
   # ------------------------------------------------------------------------------
   # Retrieve BFI
@@ -2488,131 +2459,11 @@ jobs:
   # ------------------------------------------------------------------------------
   retrieve_remaining_cinemas_1:
     name: Retrieve Remaining Cinemas (Part 1)
-    runs-on: self-hosted
+    # Venues confirmed to retrieve from GitHub's runners - see "Runner
+    # selection" in CLAUDE.md.
+    runs-on: ubuntu-latest
     steps:
       - uses: clusterflick/.github/setup@main
-        with:
-          playwright: true
-
-      - name: lumiereromford.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- lumiereromford.com
-
-      - name: metrocinema.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- metrocinema.co.uk
-
-      - name: backyardcinema.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- backyardcinema.co.uk
-
-      - name: eventimapollo.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- eventimapollo.com
-
-      - name: thenickel.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- thenickel.co.uk
-
-      - name: barbican.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- barbican.org.uk
-
-      - name: thegardencinema.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- thegardencinema.co.uk
-
-      - name: richmix.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- richmix.org.uk
-
-      - name: cinemamuseum.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- cinemamuseum.org.uk
-
-      - name: riversidestudios.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- riversidestudios.co.uk
-
-      - name: sciencemuseum.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- sciencemuseum.org.uk
-
-      - name: ica.art
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- ica.art
-
-      - name: institut-francais.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- institut-francais.org.uk
-
-      - name: irishculturalcentre.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- irishculturalcentre.co.uk
-
-      - name: jw3.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- jw3.org.uk
 
       - name: adventurecinema.co.uk-kew-gardens
         uses: nick-fields/retry@v4
@@ -2622,29 +2473,67 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- adventurecinema.co.uk-kew-gardens
 
-      - name: canarywharf.com-summer-screens
+      - name: coldharbourblue.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- canarywharf.com-summer-screens
+          command: npm run retrieve -- coldharbourblue.com
 
-      - name: stanleyarts.org
+      - name: royalalberthall.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- stanleyarts.org
+          command: npm run retrieve -- royalalberthall.com
 
-      - name: bushtheatre.co.uk
+      - name: acflondon.org
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- acflondon.org
+
+      - name: not-nowhere.org
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 300
           max_attempts: 4
-          command: npm run retrieve -- bushtheatre.co.uk
+          command: npm run retrieve -- not-nowhere.org
+
+      - name: cadoganhall.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- cadoganhall.com
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_1
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 2)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_2:
+    name: Retrieve Remaining Cinemas (Part 2)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: clusterflick/.github/setup@main
+
+      - name: lumiereromford.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- lumiereromford.com
 
       - name: ibraaz.org
         uses: nick-fields/retry@v4
@@ -2653,14 +2542,6 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- ibraaz.org
-
-      - name: alexandrapalace.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- alexandrapalace.com
 
       - name: ogniskopolskie.org.uk
         uses: nick-fields/retry@v4
@@ -2678,69 +2559,59 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- thewellwalktheatre.com
 
-      - name: theo2.co.uk
+      - name: thehammondtheatre.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- theo2.co.uk
+          command: npm run retrieve -- thehammondtheatre.co.uk
 
-      - name: cafeoto.co.uk
+      - name: sydenhamarts.co.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- cafeoto.co.uk
+          command: npm run retrieve -- sydenhamarts.co.uk
+
+      - name: royalparks.org.uk-hyde-park
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- royalparks.org.uk-hyde-park
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_remaining_cinemas_1
+          name: retrieve_remaining_cinemas_2
 
   # ------------------------------------------------------------------------------
-  # Retrieve Remaining Cinemas (Part 2)
+  # Retrieve Remaining Cinemas (Part 3)
   # ------------------------------------------------------------------------------
-  retrieve_remaining_cinemas_2:
-    name: Retrieve Remaining Cinemas (Part 2)
-    runs-on: self-hosted
+  retrieve_remaining_cinemas_3:
+    name: Retrieve Remaining Cinemas (Part 3)
+    runs-on: ubuntu-latest
     steps:
       - uses: clusterflick/.github/setup@main
-        with:
-          playwright: true
 
-      - name: princecharlescinema.com
+      - name: eventimapollo.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- princecharlescinema.com
+          command: npm run retrieve -- eventimapollo.com
 
-      - name: genesiscinema.co.uk
+      - name: ica.art
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- genesiscinema.co.uk
-
-      - name: forestcinema.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- forestcinema.co.uk
-
-      - name: arthousecrouchend.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- arthousecrouchend.co.uk
+          command: npm run retrieve -- ica.art
 
       - name: thecastlecinema.com
         uses: nick-fields/retry@v4
@@ -2758,14 +2629,6 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- castlesidcup.com
 
-      - name: davidleancinema.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- davidleancinema.org.uk
-
       - name: kilntheatre.com
         uses: nick-fields/retry@v4
         with:
@@ -2782,13 +2645,43 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- sandsfilms.co.uk
 
-      - name: coldharbourblue.com
+      - name: thehorsehospital.com
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- coldharbourblue.com
+          command: npm run retrieve -- thehorsehospital.com
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_3
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 4)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_4:
+    name: Retrieve Remaining Cinemas (Part 4)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: clusterflick/.github/setup@main
+
+      - name: barbican.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- barbican.org.uk
+
+      - name: princecharlescinema.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- princecharlescinema.com
 
       - name: peckhamplex.london
         uses: nick-fields/retry@v4
@@ -2798,14 +2691,6 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- peckhamplex.london
 
-      - name: royalalberthall.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- royalalberthall.com
-
       - name: omniplex.co.uk-sutton
         uses: nick-fields/retry@v4
         with:
@@ -2813,38 +2698,6 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- omniplex.co.uk-sutton
-
-      - name: fulhampier.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- fulhampier.com
-
-      - name: acflondon.org
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- acflondon.org
-
-      - name: thehorsehospital.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- thehorsehospital.com
-
-      - name: thehammondtheatre.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- thehammondtheatre.co.uk
 
       - name: lewisham.gov.uk-deptford-lounge
         uses: nick-fields/retry@v4
@@ -2854,22 +2707,6 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- lewisham.gov.uk-deptford-lounge
 
-      - name: dugdaleartscentre.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 300
-          max_attempts: 4
-          command: npm run retrieve -- dugdaleartscentre.co.uk
-
-      - name: sydenhamarts.co.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- sydenhamarts.co.uk
-
       - name: whitechapelgallery.org
         uses: nick-fields/retry@v4
         with:
@@ -2877,22 +2714,6 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- whitechapelgallery.org
-
-      - name: not-nowhere.org
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 300
-          max_attempts: 4
-          command: npm run retrieve -- not-nowhere.org
-
-      - name: museumofthehome.org.uk
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- museumofthehome.org.uk
 
       - name: wiltons.org.uk
         uses: nick-fields/retry@v4
@@ -2902,21 +2723,70 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- wiltons.org.uk
 
-      - name: cadoganhall.com
-        uses: nick-fields/retry@v4
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
         with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- cadoganhall.com
+          name: retrieve_remaining_cinemas_4
 
-      - name: royalparks.org.uk-hyde-park
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 5)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_5:
+    name: Retrieve Remaining Cinemas (Part 5)
+    runs-on: ubuntu-latest
+    steps:
+      # fulhampier.com renders its listings in a browser.
+      - uses: clusterflick/.github/setup@main
+        with:
+          playwright: true
+
+      - name: institut-francais.org.uk
         uses: nick-fields/retry@v4
         with:
           timeout_minutes: 20
           retry_wait_seconds: 120
           max_attempts: 3
-          command: npm run retrieve -- royalparks.org.uk-hyde-park
+          command: npm run retrieve -- institut-francais.org.uk
+
+      - name: cafeoto.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- cafeoto.co.uk
+
+      - name: forestcinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- forestcinema.co.uk
+
+      - name: arthousecrouchend.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- arthousecrouchend.co.uk
+
+      - name: fulhampier.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- fulhampier.com
+
+      - name: dugdaleartscentre.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 300
+          max_attempts: 4
+          command: npm run retrieve -- dugdaleartscentre.co.uk
 
       - name: londonbridgecity.co.uk
         uses: nick-fields/retry@v4
@@ -2925,6 +2795,60 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- londonbridgecity.co.uk
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_5
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 6)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_6:
+    name: Retrieve Remaining Cinemas (Part 6)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: clusterflick/.github/setup@main
+
+      - name: metrocinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- metrocinema.co.uk
+
+      - name: thenickel.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- thenickel.co.uk
+
+      - name: riversidestudios.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- riversidestudios.co.uk
+
+      - name: bushtheatre.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 300
+          max_attempts: 4
+          command: npm run retrieve -- bushtheatre.co.uk
+
+      - name: genesiscinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- genesiscinema.co.uk
 
       - name: rafmuseum.org.uk-london
         uses: nick-fields/retry@v4
@@ -2945,7 +2869,164 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_remaining_cinemas_2
+          name: retrieve_remaining_cinemas_6
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 7)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_7:
+    name: Retrieve Remaining Cinemas (Part 7)
+    # Venues whose firewalls blocked the self-hosted runners' shared IP. They
+    # retrieve from GitHub's runners, but have no history there yet, so they
+    # are kept apart until they have shown they are steady.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: clusterflick/.github/setup@main
+
+      - name: davidleancinema.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- davidleancinema.org.uk
+
+      - name: museumofthehome.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- museumofthehome.org.uk
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_7
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 8)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_8:
+    name: Retrieve Remaining Cinemas (Part 8)
+    # Self-hosted venues that fail most often, kept apart so re-running one
+    # doesn't repeat the steady venues with it.
+    runs-on: self-hosted
+    steps:
+      - uses: clusterflick/.github/setup@main
+        with:
+          playwright: true
+
+      - name: thegardencinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- thegardencinema.co.uk
+
+      - name: cinemamuseum.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- cinemamuseum.org.uk
+
+      - name: irishculturalcentre.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- irishculturalcentre.co.uk
+
+      - name: jw3.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- jw3.org.uk
+
+      - name: canarywharf.com-summer-screens
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- canarywharf.com-summer-screens
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_8
+
+  # ------------------------------------------------------------------------------
+  # Retrieve Remaining Cinemas (Part 9)
+  # ------------------------------------------------------------------------------
+  retrieve_remaining_cinemas_9:
+    name: Retrieve Remaining Cinemas (Part 9)
+    # Venues that need Camoufox, that refuse GitHub's runners, or that have yet
+    # to be tried on them.
+    runs-on: self-hosted
+    steps:
+      - uses: clusterflick/.github/setup@main
+        with:
+          playwright: true
+
+      - name: backyardcinema.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- backyardcinema.co.uk
+
+      - name: richmix.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- richmix.org.uk
+
+      - name: sciencemuseum.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- sciencemuseum.org.uk
+
+      - name: stanleyarts.org
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- stanleyarts.org
+
+      - name: alexandrapalace.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- alexandrapalace.com
+
+      - name: theo2.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- theo2.co.uk
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: retrieve_remaining_cinemas_9
 
   # ------------------------------------------------------------------------------
   # Create release using data from all jobs
@@ -2963,12 +3044,9 @@ jobs:
       [
         retrieve_eventbrite,
         retrieve_ticketsource,
-        retrieve_sources,
-        retrieve_source_only_1,
-        retrieve_source_only_2,
-        retrieve_source_only_3,
-        retrieve_source_only_4,
-        retrieve_source_only_5,
+        retrieve_sources_1,
+        retrieve_sources_2,
+        retrieve_source_only,
         retrieve_bfi,
         retrieve_cineworld,
         retrieve_curzon,
@@ -2988,6 +3066,13 @@ jobs:
         retrieve_savoy_systems,
         retrieve_remaining_cinemas_1,
         retrieve_remaining_cinemas_2,
+        retrieve_remaining_cinemas_3,
+        retrieve_remaining_cinemas_4,
+        retrieve_remaining_cinemas_5,
+        retrieve_remaining_cinemas_6,
+        retrieve_remaining_cinemas_7,
+        retrieve_remaining_cinemas_8,
+        retrieve_remaining_cinemas_9,
       ]
     steps:
       - name: Download All Artifacts
