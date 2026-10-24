@@ -94,12 +94,12 @@ Playwright-dependent source in a job without it will fail.
 
 | Job group                                | Runner          | Playwright  | Use for                                                             |
 | ---------------------------------------- | --------------- | ----------- | ------------------------------------------------------------------- |
-| `retrieve_sources`                       | `self-hosted`   | Yes         | Event/ticketing platforms (outsavvy, dice.fm, feverup, etc.)        |
-| `retrieve_sources_flaky`                 | `self-hosted`   | Yes         | Sources that fail most often                                        |
+| `retrieve_sources_1`                     | `self-hosted`   | Yes         | Event/ticketing platforms (outsavvy, dice.fm, feverup, etc.)        |
+| `retrieve_sources_2`                     | `self-hosted`   | Yes         | Sources that fail most often                                        |
 | `retrieve_source_only`                   | `ubuntu-latest` | No          | Source-only venues (no website to scrape, retrieve returns `{}`)    |
 | `retrieve_remaining_cinemas_1` to `_6`   | `ubuntu-latest` | Only in `5` | Standalone venues confirmed to retrieve from GitHub's runners       |
-| `retrieve_remaining_cinemas_moved`       | `ubuntu-latest` | No          | Standalone venues newly moved to GitHub's runners                   |
-| `retrieve_remaining_cinemas_flaky`       | `self-hosted`   | Yes         | Self-hosted standalone venues that fail most often                  |
+| `retrieve_remaining_cinemas_7`           | `ubuntu-latest` | No          | Standalone venues newly moved to GitHub's runners                   |
+| `retrieve_remaining_cinemas_8`           | `self-hosted`   | Yes         | Self-hosted standalone venues that fail most often                  |
 | `retrieve_remaining_cinemas_self_hosted` | `self-hosted`   | Yes         | Standalone venues needing Camoufox, refused by GitHub's IPs, or new |
 | Named groups (e.g. `retrieve_everyman`)  | Varies          | Varies      | Chain cinemas with many locations                                   |
 
@@ -129,8 +129,9 @@ the job, so a group is sized by what re-running it costs:
 - **Standalone venues are small groups.** Their failures are independent, so
   the more of them in a job, the more often that job fails. The ubuntu-latest
   groups are about seven venues each, balanced by runtime.
-- **Flaky venues are kept apart** (the `_flaky` groups), so re-running one
-  doesn't repeat the steady venues with it. A venue that has stopped failing
+- **Flaky venues are kept apart** (`retrieve_sources_2` and
+  `retrieve_remaining_cinemas_8`), so re-running one doesn't repeat the steady
+  venues with it. A venue that has stopped failing
   can move back; one that starts failing regularly moves in.
 - **Source-only venues are one group.** They fetch nothing of their own, so all
   of them together take a couple of minutes and rarely fail.
@@ -139,8 +140,10 @@ A job's cost is its setup plus a runner. On `ubuntu-latest` setup is about a
 minute and there are runners to spare. Self-hosted runners are the scarce
 resource: there are ten, BFI and Eventbrite hold two of them for most of the
 run, and a self-hosted job that waits for a free runner can wait 15 minutes. So
-add GitHub-hosted groups freely, and self-hosted groups sparingly. A new venue
-goes into the smallest numbered group that suits it.
+add GitHub-hosted groups freely, and self-hosted groups sparingly. A new
+standalone venue goes into the smallest of `retrieve_remaining_cinemas_1` to
+`_6`, or `retrieve_remaining_cinemas_self_hosted` if it can't run on
+`ubuntu-latest` - never straight into the flaky or recently moved groups.
 
 Installing Chromium adds to setup, so a group passes `playwright: true` only if
 one of its venues needs a browser.

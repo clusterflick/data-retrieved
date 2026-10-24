@@ -70,10 +70,10 @@ jobs:
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
-  # Retrieve Sources
+  # Retrieve Sources (Part 1)
   # ------------------------------------------------------------------------------
-  retrieve_sources:
-    name: Retrieve Sources
+  retrieve_sources_1:
+    name: Retrieve Sources (Part 1)
     runs-on: self-hosted
     steps:
       - uses: clusterflick/.github/setup@main
@@ -283,20 +283,20 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_sources
+          name: retrieve_sources_1
 
       - name: Save test failure artifacts
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: retrieve_sources-playwright-failures
+          name: retrieve_sources_1-playwright-failures
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
-  # Retrieve Sources (Flaky)
+  # Retrieve Sources (Part 2)
   # ------------------------------------------------------------------------------
-  retrieve_sources_flaky:
-    name: Retrieve Sources (Flaky)
+  retrieve_sources_2:
+    name: Retrieve Sources (Part 2)
     # The sources that fail most often, kept apart so re-running one
     # doesn't repeat every other source with it.
     runs-on: self-hosted
@@ -324,13 +324,13 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_sources_flaky
+          name: retrieve_sources_2
 
       - name: Save test failure artifacts
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: retrieve_sources_flaky-playwright-failures
+          name: retrieve_sources_2-playwright-failures
           path: ./playwright-failures
 
   # ------------------------------------------------------------------------------
@@ -2872,10 +2872,10 @@ jobs:
           name: retrieve_remaining_cinemas_6
 
   # ------------------------------------------------------------------------------
-  # Retrieve Remaining Cinemas (Recently Moved)
+  # Retrieve Remaining Cinemas (Part 7)
   # ------------------------------------------------------------------------------
-  retrieve_remaining_cinemas_moved:
-    name: Retrieve Remaining Cinemas (Recently Moved)
+  retrieve_remaining_cinemas_7:
+    name: Retrieve Remaining Cinemas (Part 7)
     # Venues whose firewalls blocked the self-hosted runners' shared IP. They
     # retrieve from GitHub's runners, but have no history there yet, so they
     # are kept apart until they have shown they are steady.
@@ -2902,13 +2902,13 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_remaining_cinemas_moved
+          name: retrieve_remaining_cinemas_7
 
   # ------------------------------------------------------------------------------
-  # Retrieve Remaining Cinemas (Flaky)
+  # Retrieve Remaining Cinemas (Part 8)
   # ------------------------------------------------------------------------------
-  retrieve_remaining_cinemas_flaky:
-    name: Retrieve Remaining Cinemas (Flaky)
+  retrieve_remaining_cinemas_8:
+    name: Retrieve Remaining Cinemas (Part 8)
     # Self-hosted venues that fail most often, kept apart so re-running one
     # doesn't repeat the steady venues with it.
     runs-on: self-hosted
@@ -2960,7 +2960,7 @@ jobs:
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
-          name: retrieve_remaining_cinemas_flaky
+          name: retrieve_remaining_cinemas_8
 
   # ------------------------------------------------------------------------------
   # Retrieve Remaining Cinemas (Self-Hosted)
@@ -3044,8 +3044,8 @@ jobs:
       [
         retrieve_eventbrite,
         retrieve_ticketsource,
-        retrieve_sources,
-        retrieve_sources_flaky,
+        retrieve_sources_1,
+        retrieve_sources_2,
         retrieve_source_only,
         retrieve_bfi,
         retrieve_cineworld,
@@ -3070,8 +3070,8 @@ jobs:
         retrieve_remaining_cinemas_4,
         retrieve_remaining_cinemas_5,
         retrieve_remaining_cinemas_6,
-        retrieve_remaining_cinemas_moved,
-        retrieve_remaining_cinemas_flaky,
+        retrieve_remaining_cinemas_7,
+        retrieve_remaining_cinemas_8,
         retrieve_remaining_cinemas_self_hosted,
       ]
     steps:
