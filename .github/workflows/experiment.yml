@@ -27,11 +27,6 @@ on:
           - self-hosted-macos-2
           - self-hosted-macos-3
           - self-hosted-macos-4
-      playwright:
-        description: Install Playwright before retrieving
-        required: true
-        type: boolean
-        default: false
 
 name: Experiment
 
@@ -49,9 +44,12 @@ jobs:
     env:
       VENUE: ${{ inputs.venue }}
     steps:
+      # Chromium is always installed, so a venue that needs it is tested on the
+      # runner rather than failing for want of a browser. On a self-hosted
+      # runner it goes into the runner's shared browser cache.
       - uses: clusterflick/.github/setup@main
         with:
-          playwright: ${{ inputs.playwright }}
+          playwright: true
 
       - name: Check venue id
         # The id becomes part of a file path and an artifact name, so refuse
