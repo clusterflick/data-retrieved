@@ -1,0 +1,80 @@
+on:
+  workflow_dispatch:
+    inputs:
+      venue:
+        description: Venue or source id, as passed to `npm run retrieve --`
+        required: true
+        type: string
+      runner:
+        description: >
+          Runner label to run on. A name picks one machine; pi4, macOS and
+          self-hosted pick whichever of that kind is free.
+        required: true
+        type: choice
+        default: ubuntu-latest
+        options:
+          - ubuntu-latest
+          - self-hosted
+          - pi4
+          - macOS
+          - self-hosted-pi4-1
+          - self-hosted-pi4-2
+          - self-hosted-pi4-3
+          - self-hosted-pi4-4
+          - self-hosted-pi4-5
+          - self-hosted-pi4-6
+          - self-hosted-macos-1
+          - self-hosted-macos-2
+          - self-hosted-macos-3
+          - self-hosted-macos-4
+      playwright:
+        description: Install Playwright before retrieving
+        required: true
+        type: boolean
+        default: false
+
+name: Experiment
+
+# A one-off retrieve of a single venue on a chosen runner, to see how it
+# behaves before it is placed in (or moved within) retrieve.yml. Nothing here
+# feeds a release: the result is only ever an artifact on this run.
+
+permissions:
+  contents: read
+
+jobs:
+  experiment:
+    name: Retrieve ${{ inputs.venue }} on ${{ inputs.runner }}
+    runs-on: ${{ inputs.runner }}
+    env:
+      VENUE: ${{ inputs.venue }}
+    steps:
+      - uses: clusterflick/.github/setup@main
+        with:
+          playwright: ${{ inputs.playwright }}
+
+      - name: Check venue id
+        # The id becomes part of a file path and an artifact name, so refuse
+        # anything that isn't shaped like one.
+        run: |
+          if [[ ! "$VENUE" =~ ^[a-z0-9][a-z0-9.-]*$ ]]; then
+            echo "::error::Not a venue id: $VENUE"
+            exit 1
+          fi
+
+      # Deliberately not wrapped in nick-fields/retry: the point is to see the
+      # first failure, not to have it hidden behind further attempts.
+      - name: Retrieve
+        run: npm run retrieve -- "$VENUE"
+
+      - name: Upload Artifacts
+        uses: ./.github/actions/upload-retrieved-data
+        with:
+          name: experiment-${{ inputs.venue }}
+
+      - name: Save test failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: experiment-${{ inputs.venue }}-playwright-failures
+          path: ./playwright-failures
