@@ -1,0 +1,42 @@
+on:
+  workflow_dispatch:
+
+name: Restart Router
+
+# Restarts the 5G router every self-hosted runner shares, to get a new public
+# IP when sites have started blocking the old one. An emergency fallback, run
+# by hand: it takes every self-hosted runner offline for a few minutes, so
+# only run it while they are all idle.
+
+permissions:
+  contents: read
+
+concurrency:
+  group: restart-router
+
+jobs:
+  restart:
+    name: Restart router
+    # The environment is what stops anyone else running this: its required
+    # reviewer and branch rule live in the repository's settings, where a
+    # branch can't edit them, and the router credentials are environment
+    # secrets released only to an approved run. This check just stops a run
+    # by anyone else from waiting for an approval it won't get.
+    if: github.actor == 'alistairjcbrown' && github.triggering_actor == 'alistairjcbrown'
+    environment: router
+    # Only a runner on the home network can reach the router.
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
+      - name: Restart router and wait for a new IP
+        env:
+          ROUTER_USERNAME: ${{ secrets.ROUTER_USERNAME }}
+          ROUTER_PASSWORD: ${{ secrets.ROUTER_PASSWORD }}
+        run: node .github/scripts/restart-router.mjs
