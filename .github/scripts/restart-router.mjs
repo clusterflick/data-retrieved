@@ -75,8 +75,10 @@ if (!username || !plain) {
   throw new Error("ROUTER_USERNAME and ROUTER_PASSWORD must both be set");
 }
 
+// The repository is public, and so are its workflow logs: the addresses are
+// compared here and never printed.
 const before = await getPublicIp();
-console.log(`Public IP before: ${before}`);
+console.log("Recorded the current public IP");
 
 const { LD: ld } = await get("LD");
 const login = await post({
@@ -124,15 +126,15 @@ while (Date.now() < deadline) {
   try {
     const after = await getPublicIp();
     if (after !== before) {
-      console.log(`Public IP after: ${after}`);
+      console.log("Back online on a new public IP");
       process.exit(0);
     }
-    console.log(`Still on ${after}`);
+    console.log("Still on the old public IP");
   } catch (error) {
     console.log(`No internet yet (${error.message})`);
   }
 }
 throw new Error(
-  `The public IP was still ${before}, or the internet was still unreachable, ` +
+  `The public IP was unchanged, or the internet was still unreachable, ` +
     `${WAIT_LIMIT_MS / 60_000} minutes after the restart`,
 );
