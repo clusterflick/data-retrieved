@@ -280,6 +280,17 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- unrestrictedview.co.uk
 
+      - name: cinebur.com
+        uses: nick-fields/retry@v4
+        env:
+          CINEBUR_EMAIL: ${{ secrets.CINEBUR_EMAIL }}
+          CINEBUR_PASSWORD: ${{ secrets.CINEBUR_PASSWORD }}
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- cinebur.com
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -1288,6 +1299,9 @@ jobs:
 
       - name: bridgerenewaltrust.org.uk-chestnuts-community-centre
         run: npm run retrieve -- bridgerenewaltrust.org.uk-chestnuts-community-centre
+
+      - name: sevente.co.uk
+        run: npm run retrieve -- sevente.co.uk
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
@@ -2512,6 +2526,14 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- cadoganhall.com
+
+      - name: shoreditchartsclub.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- shoreditchartsclub.com
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
