@@ -1303,6 +1303,33 @@ jobs:
       - name: sevente.co.uk
         run: npm run retrieve -- sevente.co.uk
 
+      - name: worldwidecoven.net
+        run: npm run retrieve -- worldwidecoven.net
+
+      - name: instagram.com-rhizomatic.ldn
+        run: npm run retrieve -- instagram.com-rhizomatic.ldn
+
+      - name: instagram.com-biddlebros
+        run: npm run retrieve -- instagram.com-biddlebros
+
+      - name: instagram.com-ahouseforartists
+        run: npm run retrieve -- instagram.com-ahouseforartists
+
+      - name: hartshoreditch.com
+        run: npm run retrieve -- hartshoreditch.com
+
+      - name: dukestreetchurch.com
+        run: npm run retrieve -- dukestreetchurch.com
+
+      - name: stmarybarnes.org
+        run: npm run retrieve -- stmarybarnes.org
+
+      - name: stpaulswesthackney.org
+        run: npm run retrieve -- stpaulswesthackney.org
+
+      - name: ucl.ac.uk-cruciform-building
+        run: npm run retrieve -- ucl.ac.uk-cruciform-building
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
