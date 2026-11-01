@@ -1330,6 +1330,9 @@ jobs:
       - name: ucl.ac.uk-cruciform-building
         run: npm run retrieve -- ucl.ac.uk-cruciform-building
 
+      - name: thebear.tv
+        run: npm run retrieve -- thebear.tv
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
