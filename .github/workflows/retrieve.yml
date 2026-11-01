@@ -1333,6 +1333,9 @@ jobs:
       - name: thebear.tv
         run: npm run retrieve -- thebear.tv
 
+      - name: theportico.uk
+        run: npm run retrieve -- theportico.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
