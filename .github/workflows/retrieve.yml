@@ -1330,6 +1330,39 @@ jobs:
       - name: ucl.ac.uk-cruciform-building
         run: npm run retrieve -- ucl.ac.uk-cruciform-building
 
+      - name: chatspalace.com
+        run: npm run retrieve -- chatspalace.com
+
+      - name: thearthouse.live
+        run: npm run retrieve -- thearthouse.live
+
+      - name: fourcornersfilm.co.uk
+        run: npm run retrieve -- fourcornersfilm.co.uk
+
+      - name: wappingpowerhouse.org
+        run: npm run retrieve -- wappingpowerhouse.org
+
+      - name: secondhome.io-spitalfields
+        run: npm run retrieve -- secondhome.io-spitalfields
+
+      - name: walworthlivingroom.org
+        run: npm run retrieve -- walworthlivingroom.org
+
+      - name: throughthereddoor.org
+        run: npm run retrieve -- throughthereddoor.org
+
+      - name: bonnydowns.org
+        run: npm run retrieve -- bonnydowns.org
+
+      - name: engineroom.org.uk
+        run: npm run retrieve -- engineroom.org.uk
+
+      - name: thebear.tv
+        run: npm run retrieve -- thebear.tv
+
+      - name: theportico.uk
+        run: npm run retrieve -- theportico.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
