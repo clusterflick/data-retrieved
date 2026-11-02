@@ -2595,6 +2595,27 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- shoreditchartsclub.com
 
+      - name: prettydecentbeer.co-blackhorse-road
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- prettydecentbeer.co-blackhorse-road
+
+      - name: prettydecentbeer.co-forest-gate
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- prettydecentbeer.co-forest-gate
+
+      - name: prettydecentbeer.co-victoria-park
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- prettydecentbeer.co-victoria-park
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -2665,6 +2686,13 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- royalparks.org.uk-hyde-park
 
+      - name: mosaicrooms.org
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- mosaicrooms.org
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -2734,6 +2762,13 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- thehorsehospital.com
+
+      - name: museumofyouthculture.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- museumofyouthculture.com
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
