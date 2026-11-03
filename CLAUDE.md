@@ -35,6 +35,21 @@ Recover a failed run by re-running its failed jobs rather than the whole
 workflow. Artifacts from jobs that already succeeded are retained across
 attempts, so only the failures repeat.
 
+`rerun-failed-retrieve.yml` does that automatically, once (attempt 2), ten
+minutes after a run fails. It is for the failures a fresh runner
+fixes and in-job retries can't: on `ubuntu-latest` these are mostly a venue's
+firewall dropping one VM's IP, so every connection times out
+(`UND_ERR_CONNECT_TIMEOUT`) for as long as the job lasts while the job's other
+venues retrieve fine, and a re-run on a new VM passes. Raising `max_attempts`
+or `retry_wait_seconds` for such a venue only spends longer on the same IP. It
+is not a relaxed gate: the re-run is the same run, and Create Release still
+needs every job. Only once, because each failing step has already made its own
+attempts: a venue still failing on a second runner is more likely down or
+blocking us, and another re-run would repeat it and its job's steady venues
+against a source that may be offline. A failed Create Release is left for a
+human, since re-running it would cut a new release beside the draft the failure
+left behind.
+
 The gate covers the retrieve jobs; `immutableCreate: true` covers the upload.
 Left to itself `ncipollo/release-action` publishes the release first and
 attaches the ~1.2GB of artifacts one at a time, so `releases/latest` spends the
