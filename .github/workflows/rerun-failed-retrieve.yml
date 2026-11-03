@@ -19,8 +19,11 @@ name: Re-run Failed Retrieve
 # - A failed Create Release isn't retried here. Its own step already retries
 #   the upload once, and re-running it would cut a new timestamped release
 #   beside the draft the failure left behind, which needs looking at first.
-# - Two automatic re-runs at most (attempts 2 and 3). A venue still failing on
-#   the third runner is a venue that needs looking at.
+# - One automatic re-run (attempt 2). Each failing step has already made its
+#   own attempts by then, so a venue still failing on a second runner is more
+#   likely down or blocking us than unlucky, and going again would only repeat
+#   it - and every steady venue in its job - against a source that may be
+#   offline.
 
 on:
   # zizmor: ignore[dangerous-triggers] - Retrieve Data is workflow_dispatch
@@ -40,7 +43,7 @@ jobs:
     name: Re-run failed jobs
     if: >-
       github.event.workflow_run.conclusion == 'failure' &&
-      github.event.workflow_run.run_attempt < 3
+      github.event.workflow_run.run_attempt < 2
     runs-on: ubuntu-latest
     permissions:
       actions: write # to read the run's jobs and re-run the failed ones
@@ -60,10 +63,11 @@ jobs:
             exit 0
           fi
 
-          # A pause before going again, for the self-hosted jobs: they share one
-          # public IP, so an immediate re-run meets the same refusal. GitHub's
-          # runners get a new VM either way.
-          sleep 120
+          # A pause before going again, longer than a step's own retry spacing,
+          # so the one re-run doesn't land inside the same outage: a source
+          # briefly down, or a refusal of the public IP every self-hosted runner
+          # shares. GitHub's runners get a new VM either way.
+          sleep 600
 
           gh run rerun "$RUN_ID" --failed --repo "$GITHUB_REPOSITORY"
           echo "🔁 Re-ran failed jobs of ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID} ($failed)" >> "$GITHUB_STEP_SUMMARY"
