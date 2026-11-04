@@ -1377,6 +1377,12 @@ jobs:
       - name: theliberationcentre.com
         run: npm run retrieve -- theliberationcentre.com
 
+      - name: farrs.pub
+        run: npm run retrieve -- farrs.pub
+
+      - name: whitehartsouthwark.co.uk
+        run: npm run retrieve -- whitehartsouthwark.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
