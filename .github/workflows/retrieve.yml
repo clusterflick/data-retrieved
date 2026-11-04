@@ -1366,6 +1366,9 @@ jobs:
       - name: instagram.com-autumnthree_
         run: npm run retrieve -- instagram.com-autumnthree_
 
+      - name: theliberationcentre.com
+        run: npm run retrieve -- theliberationcentre.com
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
