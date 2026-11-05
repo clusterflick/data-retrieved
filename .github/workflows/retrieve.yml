@@ -1377,6 +1377,18 @@ jobs:
       - name: theliberationcentre.com
         run: npm run retrieve -- theliberationcentre.com
 
+      - name: farrs.pub
+        run: npm run retrieve -- farrs.pub
+
+      - name: whitehartsouthwark.co.uk
+        run: npm run retrieve -- whitehartsouthwark.co.uk
+
+      - name: instagram.com-edamibakery
+        run: npm run retrieve -- instagram.com-edamibakery
+
+      - name: instagram.com-etsdts_
+        run: npm run retrieve -- instagram.com-etsdts_
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -2853,6 +2865,14 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- wiltons.org.uk
+
+      - name: norrona.com-london
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- norrona.com-london
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
