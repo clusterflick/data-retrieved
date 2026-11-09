@@ -54,8 +54,10 @@ jobs:
           RUN_ID: ${{ github.event.workflow_run.id }}
           RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
         run: |
-          failed=$(gh run view "$RUN_ID" --repo "$GITHUB_REPOSITORY" --json jobs \
-            --jq '[.jobs[] | select(.conclusion != "success" and .conclusion != "skipped") | .name]')
+          failed_jobs=$(gh api --paginate \
+            "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT/jobs?per_page=100" \
+            --jq '.jobs[] | select(.conclusion != "success" and .conclusion != "skipped")' | jq -s .)
+          failed=$(jq -c 'map(.name)' <<< "$failed_jobs")
           echo "Attempt $RUN_ATTEMPT of run $RUN_ID failed: $failed"
 
           if jq -e 'index("Create Release") != null' <<< "$failed" > /dev/null; then
@@ -67,7 +69,27 @@ jobs:
           # so the one re-run doesn't land inside the same outage: a source
           # briefly down, or a refusal of the public IP every self-hosted runner
           # shares. GitHub's runners get a new VM either way.
-          sleep 600
+          #
+          # It's counted from when the last failed job finished, not from now.
+          # The run only completes once its slowest job does - BFI takes well
+          # over an hour - so a venue that failed ten minutes in has usually
+          # been waiting far longer than the pause by the time this starts,
+          # and waiting again buys nothing. GitHub won't re-run any job of a
+          # run still in progress, so this is as early as a re-run can go.
+          pause=600
+          last_failed_at=$(jq -r 'map(.completed_at // empty) | max // empty' <<< "$failed_jobs")
+          if [ -n "$last_failed_at" ]; then
+            waited=$(( $(date +%s) - $(date -d "$last_failed_at" +%s) ))
+          else
+            waited=0
+          fi
+          remaining=$(( pause - waited ))
+          if [ "$remaining" -gt 0 ]; then
+            echo "Last failed job finished ${waited}s ago; waiting ${remaining}s more."
+            sleep "$remaining"
+          else
+            echo "Last failed job finished ${waited}s ago; re-running now."
+          fi
 
           gh run rerun "$RUN_ID" --failed --repo "$GITHUB_REPOSITORY"
           echo "🔁 Re-ran failed jobs of ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID} ($failed)" >> "$GITHUB_STEP_SUMMARY"
