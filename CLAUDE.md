@@ -35,8 +35,11 @@ Recover a failed run by re-running its failed jobs rather than the whole
 workflow. Artifacts from jobs that already succeeded are retained across
 attempts, so only the failures repeat.
 
-`rerun-failed-retrieve.yml` does that automatically, once (attempt 2), ten
-minutes after a run fails. It is for the failures a fresh runner
+`rerun-failed-retrieve.yml` does that automatically, once (attempt 2), once
+the run has completed and ten minutes have passed since its last failed job
+finished. A job that fails early has usually waited that long already for BFI,
+so its re-run starts as soon as the run completes; GitHub won't re-run a job of
+a run still in progress. It is for the failures a fresh runner
 fixes and in-job retries can't: on `ubuntu-latest` these are mostly a venue's
 firewall dropping one VM's IP, so every connection times out
 (`UND_ERR_CONNECT_TIMEOUT`) for as long as the job lasts while the job's other
