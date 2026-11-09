@@ -1389,6 +1389,9 @@ jobs:
       - name: instagram.com-etsdts_
         run: npm run retrieve -- instagram.com-etsdts_
 
+      - name: grosvenorchapel.org.uk
+        run: npm run retrieve -- grosvenorchapel.org.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
