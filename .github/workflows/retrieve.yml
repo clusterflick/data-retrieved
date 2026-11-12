@@ -1392,6 +1392,12 @@ jobs:
       - name: grosvenorchapel.org.uk
         run: npm run retrieve -- grosvenorchapel.org.uk
 
+      - name: hackney.gov.uk-haggerston-community-centre
+        run: npm run retrieve -- hackney.gov.uk-haggerston-community-centre
+
+      - name: gulbenkian.pt-uk-branch
+        run: npm run retrieve -- gulbenkian.pt-uk-branch
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
