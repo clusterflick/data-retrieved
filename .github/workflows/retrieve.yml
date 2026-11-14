@@ -80,6 +80,14 @@ jobs:
         with:
           playwright: true
 
+      - name: cinematik.app
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- cinematik.app
+
       - name: outsavvy.com
         uses: nick-fields/retry@v4
         with:
@@ -298,14 +306,6 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- tzkrti.com
-
-      - name: cinematik.app
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- cinematik.app
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
