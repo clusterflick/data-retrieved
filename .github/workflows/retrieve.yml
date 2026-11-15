@@ -307,6 +307,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- tzkrti.com
 
+      - name: billetto.co.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- billetto.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
@@ -1405,6 +1413,12 @@ jobs:
 
       - name: gulbenkian.pt-uk-branch
         run: npm run retrieve -- gulbenkian.pt-uk-branch
+
+      - name: cabbagepatch.co.uk
+        run: npm run retrieve -- cabbagepatch.co.uk
+
+      - name: stjohnswaterloo.org
+        run: npm run retrieve -- stjohnswaterloo.org
 
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
