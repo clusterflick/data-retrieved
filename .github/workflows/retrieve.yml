@@ -160,6 +160,14 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- tufnellparkfilmclub.com
 
+      - name: rebelreelcineclub.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- rebelreelcineclub.com
+
       - name: humanitix.com
         uses: nick-fields/retry@v4
         with:
