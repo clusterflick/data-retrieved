@@ -1434,6 +1434,9 @@ jobs:
       - name: instagram.com-ridleyroadsocialclub
         run: npm run retrieve -- instagram.com-ridleyroadsocialclub
 
+      - name: pedallerscorner.co.uk
+        run: npm run retrieve -- pedallerscorner.co.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
