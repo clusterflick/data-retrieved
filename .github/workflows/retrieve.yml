@@ -1431,6 +1431,9 @@ jobs:
       - name: brixtonjamm.org
         run: npm run retrieve -- brixtonjamm.org
 
+      - name: instagram.com-ridleyroadsocialclub
+        run: npm run retrieve -- instagram.com-ridleyroadsocialclub
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
