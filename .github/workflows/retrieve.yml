@@ -2866,14 +2866,6 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- barbican.org.uk
 
-      - name: princecharlescinema.com
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 20
-          retry_wait_seconds: 120
-          max_attempts: 3
-          command: npm run retrieve -- princecharlescinema.com
-
       - name: peckhamplex.london
         uses: nick-fields/retry@v4
         with:
@@ -3189,6 +3181,14 @@ jobs:
           retry_wait_seconds: 120
           max_attempts: 3
           command: npm run retrieve -- richmix.org.uk
+
+      - name: princecharlescinema.com
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          retry_wait_seconds: 120
+          max_attempts: 3
+          command: npm run retrieve -- princecharlescinema.com
 
       - name: sciencemuseum.org.uk
         uses: nick-fields/retry@v4
