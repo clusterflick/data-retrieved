@@ -2987,6 +2987,13 @@ jobs:
           max_attempts: 3
           command: npm run retrieve -- londonbridgecity.co.uk
 
+      - name: stjohnsshirley.org.uk
+        uses: nick-fields/retry@v4
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: npm run retrieve -- stjohnsshirley.org.uk
+
       - name: Upload Artifacts
         uses: ./.github/actions/upload-retrieved-data
         with:
