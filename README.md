@@ -1,7 +1,7 @@
 # data-retrieved
 
 > **[Clusterflick](https://clusterflick.com)** is a free, open-source site
-> listing every film showing in London, from 450+ venues in one search.
+> listing every film showing in London, from 500+ venues in one search.
 >
 > This repository is the first stage of the data pipeline, pulling raw listings
 > from venue websites and ticketing platforms. See the
