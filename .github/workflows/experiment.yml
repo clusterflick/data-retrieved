@@ -60,15 +60,14 @@ jobs:
             exit 1
           fi
 
-      # Deliberately not wrapped in nick-fields/retry: the point is to see the
-      # first failure, not to have it hidden behind further attempts.
-      - name: Retrieve
-        run: npm run retrieve -- "$VENUE"
-
-      - name: Upload Artifacts
-        uses: ./.github/actions/upload-retrieved-data
-        with:
-          name: experiment-${{ inputs.venue }}
+      # Branch-only: probe the venue's listing page several ways (fetch with
+      # and without browser headers, curl, stealth Chromium, Camoufox) rather
+      # than running its retrieve. The venue input is only used for naming.
+      - name: Probe
+        env:
+          PROBE_URL: https://www.alexandrapalace.com/theatre/whats-on/
+          PROBE_SELECTOR: .event_card a.event_target
+        run: node .github/scripts/probe-fetch.cjs
 
       - name: Save test failure artifacts
         if: failure()
