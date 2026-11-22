@@ -6,6 +6,7 @@
 // many of SELECTOR the body holds. Never prints the runner's IP.
 
 const { execFileSync } = require("node:child_process");
+const path = require("node:path");
 const cheerio = require("cheerio");
 
 const URL_TO_PROBE = process.env.PROBE_URL;
@@ -145,9 +146,13 @@ async function viaBrowser(label, withSession) {
   viaCurl("curl, User-Agent: node", ["-A", "node"]);
   viaCurl("curl, Chrome User-Agent", ["-A", CHROME_UA]);
 
-  const { withPlaywrightSession } = require("scripts/common/get-page-with-playwright");
+  const { withPlaywrightSession } = require(
+    path.join(process.cwd(), "node_modules/scripts/common/get-page-with-playwright.js"),
+  );
   await viaBrowser("Playwright Chromium + stealth", withPlaywrightSession);
 
-  const { withCamoufoxSession } = require("scripts/common/get-page-with-camoufox");
+  const { withCamoufoxSession } = require(
+    path.join(process.cwd(), "node_modules/scripts/common/get-page-with-camoufox.js"),
+  );
   await viaBrowser("Camoufox", withCamoufoxSession);
 })();
